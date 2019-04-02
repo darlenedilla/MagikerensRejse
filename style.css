@@ -1,4 +1,4 @@
-@charset "utf-8"
+@charset "utf-8";
 /* CSS Document */
 
 /*
@@ -8,3 +8,187 @@ Author URI: http://ucl.dk
 Description: Theme for the web-app Magikerens Rejse for an event by Odense Biblioteker
 Version: 0.1
 */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body, html{
+    max-width: 100%;
+}
+
+.custom-logo{
+    width: 110px;
+    height: 70px;
+    display: block;
+    margin: auto;
+    z-index: 100;
+}
+
+#nav-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+
+
+  #nav-icon span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background: #232323;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+  }
+  
+  #nav-icon span:nth-child(1) {
+    top: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+  
+  #nav-icon span:nth-child(2) {
+    top: 10px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+  
+  #nav-icon span:nth-child(3) {
+    top: 20px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+  
+  #nav-icon.open span:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -3px;
+    left: 8px;
+  }
+  
+  #nav-icon.open span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  #nav-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 26px;
+    left: 8px;
+  }
+
+.header{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    padding: 15px 10px;
+}
+
+.headerMenu a{
+    text-decoration: none;
+    color: #232323;
+}
+
+.headerMenu ul li{
+    list-style-type: none;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 30%;
+    font-family: Surabanglus, serif;
+    font-size: 25px;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%;
+    max-width: 100%;
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #232323;
+    overflow-x: hidden; 
+    padding-top: 110px; 
+    transition: 0.5s; 
+    text-align: center;
+  }
+
+  /* The navigation menu links */
+.sidenav a, p {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-family: Surabanglus, serif;
+    font-size: 25px;
+    color: #cccc66;
+    display: block;
+    transition: 0.3s;
+    letter-spacing: 2px;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+.fab, .fa-facebook-square{
+    color: white;
+    font-size: 90px;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.websiteLinks{
+    margin-bottom: 20px;
+}
+
+.websiteLinks a, .appLinks a{
+    margin-bottom: -20px;
+}
+
+.appLinks{
+    margin-bottom: 20px;
+}
+
+
+
+.footerMenu{
+    position: fixed;
+    bottom: 0;
+}
+

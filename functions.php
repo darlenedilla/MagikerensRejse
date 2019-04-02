@@ -17,12 +17,41 @@ $args = array(
 );
 add_theme_support( 'custom-header', $args );
 
+//FUNCTION FOR LOGO IN HEADER
+function themename_custom_logo_setup() {
+  $defaults = array(
+      'height'      => 100,
+      'width'       => 400,
+      'flex-height' => true,
+      'flex-width'  => true,
+      'header-text' => array( 'site-title', 'site-description' ),
+  );
+  add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
 
 //this adds the ability to create navbars in the dashboard
   register_nav_menus(array (
     'main_menu' => 'MainMenu',
     'footer_menu' => 'Footer'
   ));
+
+
+//CUSTOM BACKGROUND
+
+$defaults = array(
+	'default-color'          => '',
+	'default-image'          => '',
+	'default-repeat'         => 'repeat',
+	'default-position-x'     => 'left',
+        'default-position-y'     => 'top',
+        'default-size'           => 'auto',
+	'default-attachment'     => 'scroll',
+	'wp-head-callback'       => '_custom_background_cb',
+	'admin-head-callback'    => '',
+	'admin-preview-callback' => ''
+);
+add_theme_support( 'custom-background', $defaults );
 
 // Allow thumbnails and featured images
   add_theme_support( 'post-thumbnails' );
