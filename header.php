@@ -7,7 +7,7 @@
     <meta name="keywords" content="Magi, Harry Potter, Magiske Dage Odense, Odense, Festival, Magisk, Rejse">
     <meta name="author" content="Magiske Dage Odense">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta title="Magikerens Rejse">
+    <meta name="title" content="Magikerens Rejse">
 
     <title><<?php get_title() ?></title>
 
