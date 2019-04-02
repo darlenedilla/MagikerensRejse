@@ -6,6 +6,18 @@
 	// wp_enqueue_style( 'style',  get_template_directory_uri() );
 
 
+//Custom Header
+$args = array(
+  'flex-width'    => 'true',
+  'width'         => 980,
+  'flex-height'   => 'true',
+	'height'        => 60,
+	'default-image' => get_template_directory_uri() . '/images/header.jpg',
+	'uploads'       => true,
+);
+add_theme_support( 'custom-header', $args );
+
+
 //this adds the ability to create navbars in the dashboard
   register_nav_menus(array (
     'main_menu' => 'MainMenu',
