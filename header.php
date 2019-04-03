@@ -23,29 +23,7 @@
         <!-- fonts -->
 
         <!-- Scripts -->
-        <script type="text/javascript" src="<?php echo get_template_directory_uri()?>/main.js" defer></script>
-        <script>
-            $(document).ready(function(){
-                $('#nav-icon').click(function(){
-                    this.classList.toggle("open");
-                    if(this.classList.contains("open")){
-                        document.getElementById("mySidenav").style.width = "100%";
-                        this.style.zIndex = 10;
-                        this.style.left = null;
-                        this.style.right = "50px";
-                        document.getElementsByClassName("menuSpan")[0].style.background = "#cccc66";
-                        document.getElementsByClassName("menuSpan")[2].style.background = "#cccc66";
-                    }
-                    else{
-                        document.getElementById("mySidenav").style.width = "0px";
-                        document.getElementsByClassName("menuSpan")[0].style.background = "#232323";
-                        document.getElementsByClassName("menuSpan")[2].style.background = "#232323";
-                        this.style.right = null;
-                        this.style.left = "10px";
-                    }
-                });
-            });
-        </script>
+        <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/main.js?ver=<?php echo rand(111,999)?>" defer></script>
         <?php wp_head();?>
     </head>
 <body>
