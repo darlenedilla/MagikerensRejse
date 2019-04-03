@@ -71,11 +71,10 @@
             <a href="#" target="_blank">Log ud</a>
             <a href="https://www.facebook.com/magiskedageodense/" target="_blank"><i class="fab fa-facebook-square"><p>Følg os på Facebook!</p></i></a>
         </div>
+          <?php wp_nav_menu( array('theme_location' => 'MainMenu') ); ?>
 
-        <?php wp_nav_menu( $args = array(
-            'menu_class' => 'headerMenu',
-        ));?>
-        <?php if ( function_exists( 'the_custom_logo' ) ) {
-            the_custom_logo();
-        }?>
+          <?php if ( function_exists( 'the_custom_logo' ) ) {
+              the_custom_logo();
+          }?>
+
     </header>
