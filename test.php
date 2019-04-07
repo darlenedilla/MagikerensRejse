@@ -63,8 +63,8 @@ Template Name: TEST
       <?php endwhile;?> <!--end while for badges-->
     <?php endif;?> <!--end if for badges-->
 
-    <?php if( have_rows('oplysninger') ): //start oplysninger
-        while( have_rows('oplysninger') ): the_row();
+    <?php if( have_rows('statistik') ): //start oplysninger
+        while( have_rows('statistik') ): the_row();
         
             // vars
             $hus = get_sub_field('hus');
