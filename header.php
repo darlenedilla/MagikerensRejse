@@ -13,12 +13,14 @@
         <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png" />
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/style.css?ver=<?php echo rand(111,999)?>">
+
+
     <!-- eksternt materiale-->
         <!-- FontAwesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous">
-        
+
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- fonts -->
@@ -59,6 +61,9 @@
           <?php if ( function_exists( 'the_custom_logo' ) ) {
               the_custom_logo();
           }?>
+        </div>
+        <div class="desktopHeader">
+          <img class="desktopHeaderLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/desktopLogo.png" alt="the golden logo">
         </div>
 
     </header>
