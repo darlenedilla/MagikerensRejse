@@ -9,14 +9,19 @@ Template Name: magiker
 
 include("config.php");
 
-$query = "select user.magicalName, house.name, bloodTypeName from user, house, bloodType, pets where user.phoneNo = 28141151";
+$query = "select user.magicalName, user.name, house.name, bloodTypeName from user, house, bloodType, pets where user.phoneNo = 28141151";
 
-foreach ($con->query($query) as $row) {
-    print  "\n";
-    print $row['name'] . "\n";
-    print $row['magicalName'] . "\n";
-    print $row['bloodTypeName'] . "\n";
-}
+        $result = $con->query($query);
+        if($result->num_rows > 0){
+            //output data of each row
+            while($row = $result->fetch_assoc()){
+                echo "<br/>" .$row['magicalName']. "-Hus:".$row['name']. "<br/>";
+            }
+        }
+        else{
+            echo "0 results";
+        }
+        $con->close();
 
 
 ?>
