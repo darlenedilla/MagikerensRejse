@@ -358,9 +358,7 @@ KEEP AT BOTTOM */
   height:200px;
   position:absolute;
   top:90vh;
-  left:37vw;
-  margin:auto;
-
+  text-align:center;
   z-index:10;
 }
 .desktopBottomLinks span:nth-child(1), .desktopBottomLinks span:nth-child(2) {
@@ -371,7 +369,6 @@ KEEP AT BOTTOM */
     font-family:'Surabanglus', serif;
     color:white;
 }
-
 
 
 .darkOverlay{
@@ -385,4 +382,4 @@ KEEP AT BOTTOM */
 }
 
 
-}
+} /* END OF DESKTOP VERSION */
