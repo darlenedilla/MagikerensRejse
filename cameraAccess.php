@@ -1,4 +1,4 @@
-<?php
+<?php get_header();
 /*
 Template Name: Camera Access
 
@@ -7,47 +7,51 @@ Template Name: Camera Access
 <?php
 include("config.php");
 
-if(isset($_POST['but_upload'])){
- 
-  $name = $_FILES['file']['name'];
-  $target_dir = "img/";
-  $target_file = $target_dir . basename($_FILES["file"]["name"]);
+if(isset($_POST['image_upload'])){
 
-  // Select file type
-  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-  // Valid file extensions
-  $extensions_arr = array("jpg","jpeg","png","gif");
 
   // Check extension
   if( in_array($imageFileType,$extensions_arr) ){
  
      // Insert record
-     $query = "insert into images(name) values('".$name."')";
-     mysqli_query($con,$query);
-  
+      $query = "UPDATE user SET 'image' = " . $name . " WHERE phoneNo = 28141151";
+       // Insert record
+
      // Upload file
      move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
-     
+
+     if (mysqli_query($con, $query)) {
+      echo "New record created successfully";
+      } else {
+      echo "Error: " . $query . "<br>" . mysqli_error($con);
+      }
 
   }
+
+  
  
 }
 ?>
 
-<form method="post" action="" enctype='multipart/form-data'>
+<!--<form method="post" action="" enctype="multipart/form-data" id="form">
+  <video id="player" controls autoplay></video>
+  <button id="capture">Tag billede</button>
+  <canvas id="canvas" width=320 height=100></canvas>
+  <input type="file" accept="image/*" id="image" capture="camera">
+  <input type="submit" id="save" value="Gem billede" name="image_upload">
+</form>-->
+<div id="container">
+<video id="player" controls autoplay></video>
+<canvas id="canvas" width=320 height=240></canvas>
+<button id="capture">Capture</button>
+
+</div>
+
+<!--<form method="post" action="" enctype='multipart/form-data'>
   <input type='file' name='file' />
   <input type='submit' value='Save name' name='but_upload'>
-</form>
+</form>-->
 
-<?php
+<?php get_footer();?>
 
-$sql = "select name from images where id=1";
-$result = mysqli_query($con,$sql);
-$row = mysqli_fetch_array($result);
 
-$image = $row['name'];
-$image_src = "img/".$image;
-
-?>
-<img src='<?php echo $image_src;  ?>' >
