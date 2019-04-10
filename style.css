@@ -279,17 +279,20 @@ footer ul {
 /* index css */
 .mainsection {
   position:absolute;
-  width:100%;
-  height:100%;
-  top:0;
+  width:100vw;
+  height:90vh;
+  top:10vh;
   right:0;
-  z-index:0;
+  z-index:1;
 }
 
-.mainsection img {
+.mainsectionImg {
   width:100%;
   height:100%;
-  object-fit:cover;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
 }
 
 
