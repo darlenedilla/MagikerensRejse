@@ -3,6 +3,7 @@
 Template Name: Login
 */?>
 
+
 <section class="desktopMainSection">
   <h1>Begynd din magiske rejse på din smartphone!</h1>
   <h3>Scan QR koden og oplev magien</h3>
@@ -14,11 +15,12 @@ Template Name: Login
 <span>   <a href="https://www.odensebib.dk/" target="_blank"><u>Odense Biblioteker</u></a> </span>
 </section>
 
-<section class="mainsection">
-  <div class="darkOverlay"></div>
-  <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/login.jpg" alt="background">
-</section>
+<div class="darkOverlay"></div>
 
+<section class="mainsection">
+
+</section>
+  <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/login.jpg" alt="background">
 
 </body>
 </html>
