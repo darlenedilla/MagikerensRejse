@@ -1,30 +1,6 @@
 <!doctype html>
 <html>
 
-<!-- CONNECTION TO SERVER -->
-
-<?php
-
-//Set up variables
-// $server ="1221s.com.mysql.service.one.com";
-// $user ="1221s_com_magikerensrejse";
-// $pw ="magikerensRejse:)";
-// $db ="1221s_com_magikerensrejse";
-
-$server ="localhost";
-$user ="root";
-$pw ="";
-$db = "test";
-
-// Create connection
-$conn = new mysqli($server, $user, $pw, $db);
-//check fann_get_total_connections
-if ($conn->connect_error) {
-  die("Connection failed:" .$conn->connect_error);
-} else {
-}
- ?>
-
 
     <head>
     <!-- metadata -->

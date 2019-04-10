@@ -280,10 +280,10 @@ footer ul {
 .mainsection {
   position:absolute;
   width:100vw;
-  height:90vh;
-  top:10vh;
+  height:85vh;
+  top:15vh;
   right:0;
-  z-index:1;
+  z-index:5;
 }
 
 .mainsectionImg {
