@@ -26,15 +26,15 @@ body, html{
 
 body {
   height:100vh;
-  width:100%;
+  width:100vh;
     max-width: 100vw;
     max-height:100vh;
-    overflow:scroll;
+    overflow:hidden;
 
     background-image: url("img/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
 }
 
 .custom-logo{
@@ -231,7 +231,7 @@ footer {
   width:100vw;
   max-width:100vw;
   max-height:300px;
-  bottom:30px;
+  bottom:0;
   z-index:100;
 
   overflow:hidden;
