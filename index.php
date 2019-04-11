@@ -3,7 +3,10 @@
 Template Name: Basic
 */
 ?>
-  <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
+
+<section class="mainsection">
 </section>
+
+  <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
 
 <?php get_footer(); ?>
