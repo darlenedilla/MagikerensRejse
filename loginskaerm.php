@@ -28,7 +28,7 @@ Template Name: Login
   $pw ="";
   $db = "1221s_com_magikerensrejse";
 
-  // 
+  //
   // include("config.php");
   // Create connection
   $conn = new mysqli($server, $user, $pw, $db);
@@ -78,7 +78,7 @@ Template Name: Login
             while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
             if ($sqlQueryResult['mPassword'] == $mPassword) {
               //If the password is correct:
-              echo $sqlQueryResult['mPassword'];
+
               // code...
             }
              else {
@@ -100,7 +100,7 @@ Template Name: Login
         };
 
        ?>
-<form class="" method="post">
+<form class="" action="" method="post">
   <input type="submit" name="testSubmit" value="Test Submit">
 </form>
 </section> <!-- end 'mainSection' -->
