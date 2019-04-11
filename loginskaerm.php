@@ -22,12 +22,14 @@ Template Name: Login
   <?php
 
   //Connect to server
-
+  //
   $server ="localhost";
   $user ="root";
   $pw ="";
   $db = "1221s_com_magikerensrejse";
 
+  // 
+  // include("config.php");
   // Create connection
   $conn = new mysqli($server, $user, $pw, $db);
   //check fann_get_total_connections
@@ -72,14 +74,17 @@ Template Name: Login
           //sql query to ask for the password where it matches the phone number given
           $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = '$phoneNo'";
             $sqlLoginQuery = $conn->query($sqlCheckLogin);
-            $sqlQueryResult = $sqlLoginQuery->result();
-            if ($sqlQueryResult == $mPassword) {
-              echo $sqlQueryResult;
+
+            while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
+            if ($sqlQueryResult['mPassword'] == $mPassword) {
+              //If the password is correct:
+              echo $sqlQueryResult['mPassword'];
               // code...
             }
              else {
+               //if the password is incorrect:
               echo "login no success :(";
-            }
+            } };
 
                   //checks if the password from the server is the same as the one entered
                     // if ($sqlLoginQuery = $mPassword) {
