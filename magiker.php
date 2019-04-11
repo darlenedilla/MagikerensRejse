@@ -5,6 +5,8 @@ Template Name: magiker
 */
 ?>
 <?php
+
+//include("config.php");
 // Fetch user data from database
 $host = "localhost"; /* Host name */
 $user = "Darlene"; /* User */
@@ -78,7 +80,7 @@ $query = "SELECT user.magicalName,
              //output data of each row
              while($row = $result->fetch_assoc()){
                  //Variables to use in html
-                 echo $row['badgeImage'] .'</br>';
+                 //echo $row['badgeImage'] .'</br>';
              }
          }
          else{
@@ -91,8 +93,6 @@ $query = "SELECT user.magicalName,
 
 
 <section class="mainsection" >
-   <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
-
     <div class="profileData">
         <div id="profileImgContainer">
             <img id="profileImg" src="<?php echo $image_src;  ?>" >
@@ -117,5 +117,5 @@ $query = "SELECT user.magicalName,
         </ul>
     </div>
 </section>
-
+<img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
 <?php get_footer(); ?>
