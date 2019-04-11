@@ -117,5 +117,5 @@ $query = "SELECT user.magicalName,
         </ul>
     </div>
 </section>
-<img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
+<!--<img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">-->
 <?php get_footer(); ?>
