@@ -21,7 +21,7 @@ burgermenu.addEventListener("click", function(){
 
 
 
-//CAMERA ACCESS
+/*CAMERA ACCESS TIL HVIS VI NOGENSINDE SKAL KUNNE TAGE ET BILLEDE
 
 function createCanvas(){
   const player = document.getElementById('player');
@@ -49,3 +49,4 @@ navigator.mediaDevices.getUserMedia({video: { width: 320, height: 240 }}) // req
     createCanvas();
   };
 });
+*/
