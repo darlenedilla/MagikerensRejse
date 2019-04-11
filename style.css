@@ -20,8 +20,7 @@ Version: 0.1
     padding: 0;
 }
 
-body, html{
-
+html{
 }
 
 body {
@@ -461,7 +460,7 @@ KEEP AT BOTTOM */
   align-items: center;
   margin-top: 1em;
 }
- 
+
 .badges{
   display: inline-block;
   margin: 0 0.4em;
@@ -504,5 +503,3 @@ KEEP AT BOTTOM */
   position:absolute;
   left:15%;
 }
-
-
