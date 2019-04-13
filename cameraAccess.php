@@ -6,11 +6,12 @@ Template Name: Camera Access
 
 <?php
 //Rigtig Database forbindelse findes i config.php
+include("config.php");
 // Fetch user data from database
-$host = "localhost"; /* Host name */
-$user = "Darlene"; /* User */
-$password = "Dgs55qhk:).."; /* Password */
-$dbname = "1221s_com_magikerensrejse"; /* Database name */
+// $host = "localhost"; /* Host name */
+// $user = "Darlene"; /* User */
+// $password = "Dgs55qhk:).."; /* Password */
+// $dbname = "1221s_com_magikerensrejse"; /* Database name */
 
 // Create connection
 $con = mysqli_connect($host, $user, $password,$dbname);
@@ -25,7 +26,8 @@ if(isset($_POST['image_upload'])){
   //Hent filnavn fra det vedhæftede billede i formularen
   $name = $_FILES['file']['name'];
   //Hent sti-navnet til der hvor billedet skal gemmes
-  $target_dir = get_template_directory().'\/img\/badges\/';
+  $target_dir = get_stylesheet_directory_uri().'/img/portraits/';
+  echo $target_dir;
   //Referer til filnavnet inde i den angivede sti
   $target_file = $target_dir . basename($_FILES["file"]["name"]);
 
@@ -40,8 +42,8 @@ if(isset($_POST['image_upload'])){
   if( in_array($imageFileType,$extensions_arr) ){
 
   // Indsæt billedet i databasen som string
-  //$query = "UPDATE user SET image = '$name' WHERE phoneNo = 28141151";
-  $query = "UPDATE badge SET image = '$name' WHERE badgeId = 3";
+  $query = "UPDATE user SET image = '$name' WHERE phoneNo = 28141151";
+  //$query = "UPDATE badge SET image = '$name' WHERE badgeId = 1";
 
 
   //Send query'en afsted - send fejlmeddelse, hvis der opstår en fejl    
@@ -49,6 +51,7 @@ if(isset($_POST['image_upload'])){
   
   // Upload filen til den valgte sti
   move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile);
+  echo $uploadFile;
   }
 }
 ?>
@@ -81,7 +84,7 @@ $row = mysqli_fetch_array($result);
 //Tag image-attributten fra tabellen
 $image = $row['image'];
 //Lav en src-sti til billedet
-$image_src = get_template_directory().'\/img\/'.$image;
+$image_src = get_stylesheet_directory_uri().'/img/portraits/'.$image;
 
 //Udskriv billedet i img-tag
 ?>

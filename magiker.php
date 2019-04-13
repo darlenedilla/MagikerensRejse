@@ -6,12 +6,12 @@ Template Name: magiker
 ?>
 <?php
 
-//include("config.php");
+include("config.php");
 // Fetch user data from database
-$host = "localhost"; /* Host name */
-$user = "Darlene"; /* User */
-$password = "Dgs55qhk:).."; /* Password */
-$dbname = "1221s_com_magikerensrejse"; /* Database name */
+// $host = "localhost"; /* Host name */
+// $user = "Darlene"; /* User */
+// $password = "Dgs55qhk:).."; /* Password */
+// $dbname = "1221s_com_magikerensrejse"; /* Database name */
 
 // Create connection
 $con = mysqli_connect($host, $user, $password,$dbname);
