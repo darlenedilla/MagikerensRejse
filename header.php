@@ -31,7 +31,21 @@
         <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/main.js?ver=<?php echo rand(111,999)?>" defer></script>
         <?php wp_head();?>
     </head>
+
 <body>
+
+  <?php
+  if (get_template_directory().'/') {
+    $bgImg ="loginBg";
+  } else {
+    $bgImg ="baseBg";
+  }
+
+  echo get_stylesheet_directory_uri();
+
+   ?>
+  <section class=" <?php echo $bgImg ?> ">
+
     <header class="header">
         <!--burgermenu-->
         <div id="nav-icon">
