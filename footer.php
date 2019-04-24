@@ -6,5 +6,6 @@
     </div>
 
 </footer>
+</section> <!-- end of overall wrapper -->
 </body>
 </html>
