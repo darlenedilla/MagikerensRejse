@@ -428,7 +428,7 @@ KEEP AT BOTTOM */
   width: 280px;
   height: 280px;
   border-radius: 100%;
-  border: solid 10px #8d434c;
+  border: solid 10px;
   margin-left: auto;
   margin-right: auto;
   display: block;
