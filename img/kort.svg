@@ -1,13 +1,4 @@
-<?php get_header();
-/*
-Template Name: Kort
-*/
-?>
-
-<section class="mainsection">
-  <div class="mapdiv">
-
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1318.83 1988.32">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1318.83 1988.32">
   <defs>
     <style>
       .cls-1 {
@@ -1394,74 +1385,42 @@ Template Name: Kort
       <path class="cls-116" d="M384.73,1402.94c0,7.36,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.69-18.78c7.65-2.1,13.19-8.32,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M422.49,1402.94c0-9.08-8.46-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Den Fortryllende Arkade</title>
-      <text class="cls-241" transform="translate(424.13 1371.09)">8</text>
-    </a>
+    <text class="cls-241" transform="translate(424.13 1371.09)">8</text>
     <g>
       <path class="cls-116" d="M444.09,1285.32c0,7.35,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.69-18.78c7.65-2.1,13.19-8.33,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M481.85,1285.32c0-9.08-8.46-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Trædrejerens Værksted</title>
-      <text class="cls-242" transform="translate(484.96 1252.14)">3</text>
-    </a>
+    <text class="cls-242" transform="translate(484.96 1252.14)">3</text>
     <g>
       <path class="cls-116" d="M709.54,1297.91c0,7.35,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.69-18.78c7.65-2.1,13.19-8.33,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M747.3,1297.91c0-9.08-8.46-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Dragetæmmeren</title>
-      <text class="cls-242" transform="translate(750.4 1264.05)">7</text>
-    </a>
+    <text class="cls-242" transform="translate(750.4 1264.05)">7</text>
     <g>
-        <path class="cls-116" d="M618.71,1154.11c0,7.35,5.54,13.57,13.19,15.68,4,5.18,5.69,18.77,5.69,18.77s1.7-13.59,5.7-18.77c7.64-2.11,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
-        <path class="cls-116" d="M656.47,1154.11c0-9.08-8.45-16.45-18.88-16.45s-18.88,7.37-18.88,16.45" transform="translate(29.26 -41.97)"/>
+      <path class="cls-116" d="M618.71,1154.11c0,7.35,5.54,13.57,13.19,15.68,4,5.18,5.69,18.77,5.69,18.77s1.7-13.59,5.7-18.77c7.64-2.11,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
+      <path class="cls-116" d="M656.47,1154.11c0-9.08-8.45-16.45-18.88-16.45s-18.88,7.37-18.88,16.45" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Troldmandstidende</title>
-      <text class="cls-241" transform="translate(657.33 1122.41)">2</text>
-    </a>
+    <text class="cls-241" transform="translate(657.33 1122.41)">2</text>
     <g>
       <path class="cls-116" d="M919.67,1167c0,7.35,5.54,13.58,13.19,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M957.43,1167c0-9.08-8.45-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Eliksirkrypten</title>
-      <text class="cls-242" transform="translate(961.54 1133.32)">1</text>
-    </a>
+    <text class="cls-242" transform="translate(961.54 1133.32)">1</text>
     <g>
       <path class="cls-116" d="M332.88,1158.82c0,7.35,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M370.64,1158.82c0-9.08-8.45-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Magiske dyrs pasning og pleje</title>
-      <text class="cls-241" transform="translate(372.51 1127.34)">9</text>
-    </a>
+    <text class="cls-241" transform="translate(372.51 1127.34)">9</text>
     <g>
       <path class="cls-116" d="M200.63,1273.32c0,7.35,5.54,13.57,13.18,15.68,4,5.18,5.7,18.78,5.7,18.78s1.7-13.6,5.69-18.78c7.65-2.11,13.19-8.33,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M238.39,1273.32c0-9.08-8.45-16.45-18.88-16.45s-18.88,7.37-18.88,16.45" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Fortryllende cupcakes</title>
-      <text class="cls-241" transform="translate(240.32 1244.05)">6</text>
-    </a>
+    <text class="cls-241" transform="translate(240.32 1244.05)">6</text>
     <g>
-        <path class="cls-116" d="M225,1322c0,7.35,5.54,13.58,13.19,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
-        <path class="cls-116" d="M262.71,1322c0-9.08-8.45-16.44-18.88-16.44S225,1312.87,225,1322" transform="translate(29.26 -41.97)"/>
+      <path class="cls-116" d="M225,1322c0,7.35,5.54,13.58,13.19,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
+      <path class="cls-116" d="M262.71,1322c0-9.08-8.45-16.44-18.88-16.44S225,1312.87,225,1322" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Familien Pumpernikkel</title>
-      <text class="cls-241" transform="translate(264.19 1291.68)">4</text>
-    </a>
-    <a xlink:href="https://www.google.dk" target="_blank">
-      <title>Forsvar på mørk magi</title>
-      <text class="cls-241" transform="translate(248.68 1339.32)">5</text>
-    </a>
+    <text class="cls-241" transform="translate(264.19 1291.68)">4</text>
+    <text class="cls-241" transform="translate(248.68 1339.32)">5</text>
   </g>
 </svg>
-
-  </div>
-</section>
-
-<?php get_footer(); ?>
