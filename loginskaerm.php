@@ -36,28 +36,35 @@ Template Name: Login
   if ($conn->connect_error) {
     die("Connection failed:" .$conn->connect_error);
   } else {
-    echo "connected succesfully <br/>";
+    echo '<script>console.log("connected succesfully")</script>';
   }
 
 
    ?>
+<div class="loginPaper">
+  <!-- background image to login information -->
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="loginPaper" class="loginPaperBG">
 
       <!-- Log ind form -->
       <form class="logInForm" method="post">
 
             <!-- 'brugernavn' -->
-            <label for="phoneNo">Telefon Nummer</label>
-            <input type="number" name="phoneNo" value=""><br/>
+            <input type="number" name="phoneNo" value="" placeholder="Telefonummer..."><br/>
 
             <!-- Password -->
-            <label for="mPassword">Magisk Password</label>
-            <input type="text" name="mPassword" value="*****"><br/>
+            <input type="text" name="mPassword" value="" placeholder="Magisk Kodeord ..."><br/>
 
             <!-- log ind knap -->
-            <input type="submit" name="logIn" value="Log Ind">
+            <input type="submit" name="logIn" value="Log Ind" class="submitBtnLogin">
 
 
       </form> <!-- end log ind form -->
+</div>
+
+<div class="konvolutLoginSkærm">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/optagelsesKonvolut.png" alt="konvolutbg">
+  <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/konvolutbg.png" alt="konvolutbg">
+</div>
 
       <?php
 
@@ -86,23 +93,12 @@ Template Name: Login
               echo "login no success :(";
             } };
 
-                  //checks if the password from the server is the same as the one entered
-                    // if ($sqlLoginQuery = $mPassword) {
-                    //       echo "login succesful";
-                    // };
         } else {
           echo "please enter a phone number";
         };
         };
 
-        if (isset($_POST['testSubmit'])) {
-          echo "this works";
-        };
-
        ?>
-<form class="" action="" method="post">
-  <input type="submit" name="testSubmit" value="Test Submit">
-</form>
 </section> <!-- end 'mainSection' -->
 
 
