@@ -62,7 +62,6 @@ Template Name: Login
 </div>
 
 <div class="konvolutLoginSkærm">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/optagelsesKonvolut.png" alt="konvolutbg">
   <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/konvolutbg.png" alt="konvolutbg">
 </div>
 
