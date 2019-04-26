@@ -36,9 +36,9 @@
 
   <?php
   if (get_template_directory().'/') {
-    $bgImg ="loginBg";
+    //$bgImg ="loginBg";
   } else {
-    $bgImg ="baseBg";
+    //$bgImg ="baseBg";
   }
 
   // echo get_stylesheet_directory_uri();
