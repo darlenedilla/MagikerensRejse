@@ -41,9 +41,11 @@ Template Name: Login
 
 
    ?>
-<div class="loginPaper">
+<div class="loginPaper" id="loginPaper">
   <!-- background image to login information -->
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="loginPaper" class="loginPaperBG">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/waxsealRED.png" alt="loginPaper" class="loginPaperBG waxseal">
+
 
       <!-- Log ind form -->
       <form class="logInForm" method="post">
@@ -61,46 +63,50 @@ Template Name: Login
       </form> <!-- end log ind form -->
 </div>
 
-<div class="konvolutLoginSkærm">
-  <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/konvolutbg.png" alt="konvolutbg">
+<div class="konvolutLoginSkærm" id="konvolutLoginSkærm">
+  <img class="konvolutLoginSkærmImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/konvolutbg.png" alt="konvolutbg">
+  <div class="startDinRejseWrapper">
+    <p>Start din magiske rejse</p><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/curvedarrow.png" alt="curvedarrow-down">
+  </div>
 </div>
 
-      <?php
+<!-- Envelope snippet thingy -->
+<div class="envelope" id="envelopeOprettelse">
+  <div class="paper" id="envelopePaper">
+    <div id="paperContent">
+      <div class="paperPage" id="paperPage1">
+        <h2>Tilykke!</h2>
+        <p>Du er hermed optaget på Tromheims trolddomsakademi!</p>
+      </div>
 
-      // Log ind funktionalitet
-      //if 'log ind' is pressed:
-      if (isset($_POST['logIn'])) {
+      <div class="paperPage" id="paperPage2">
+        <h2>Elementerne</h2>
+        <p>Dette er de fire elementer, der styrer hver og en af os</p>
+      </div>
 
-        $phoneNo = $_POST['phoneNo'];
-        $mPassword = $_POST['mPassword'];
+      <div class="paperPage" id="paperPage3">
+        <h2>Magiske Dage Odense</h2>
+        <p>Magien er omrking os</p>
+      </div>
 
-          //only do this if a phone number has been entered
-          if (isset($_POST['phoneNo'])) {
+      <div class="paperPage" id="paperPage4">
+        <h2>Noget om fumlere ...</h2>
+        <p>Praktisk information eller noget andet vi har aftalt</p>
+      </div>
 
-          //sql query to ask for the password where it matches the phone number given
-          $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = '$phoneNo'";
-            $sqlLoginQuery = $conn->query($sqlCheckLogin);
+      <div class="" id="paperNextArrow">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="rightArrow">
+      </div>
 
-            while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
-            if ($sqlQueryResult['mPassword'] == $mPassword) {
-              //If the password is correct:
+      <div class="" id="paperBackArrow">
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
+      </div>
+    </div>
 
-              // code...
-            }
-             else {
-               //if the password is incorrect:
-              echo "login no success :(";
-            } };
+  </div>
+</div>
 
-        } else {
-          echo "please enter a phone number";
-        };
-        };
-
-       ?>
-</section> <!-- end 'mainSection' -->
-
-
+</section>
 <!-- baggrundsbillede -->
   <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/login.jpg" alt="background">
 
