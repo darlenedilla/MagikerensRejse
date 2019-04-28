@@ -614,14 +614,14 @@ footer ul {
 #paperContent h2 {
   color:black;
   font-family:'surabanglus', serif;
-  font-size:20px;
+  font-size:1em;
   text-align:center;
 }
 
 #paperContent p {
   color:black;
   font-family: 'verdana', serif;
-  font-size:20px;
+  font-size:1em;
 }
 
 #paperNextArrow, #paperBackArrow {
@@ -651,6 +651,52 @@ max-width:100%;
 height:auto;
 
 
+}
+
+.imageScroller {
+  position:absolute;
+  top:15vh;
+  left:110vw;
+
+  height:35vh;
+  width:300vw;
+
+  padding-top:10px;
+  padding-bottom:10px;
+  background-color: #E0C482;
+  -webkit-box-shadow: 4px 13px 42px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 13px 42px -8px rgba(0,0,0,0.75);
+  box-shadow: 4px 13px 42px -8px rgba(0,0,0,0.75);
+
+  transition-duration:1s;
+}
+
+.unroller {
+  height:44vh;
+  width:20px;
+  position:absolute;
+  top:-5vw;
+  left:-20px;
+
+  background-color: #D6B568;
+  -webkit-box-shadow: 4px 13px 42px -8px rgba(0,0,0,1);
+  -moz-box-shadow: 4px 13px 42px -8px rgba(0,0,0,1);
+  box-shadow: 4px 13px 42px -8px rgba(0,0,0,1);
+}
+
+.imageScrollerWrapper {
+  height:100%;
+  min-height:35vh;
+  width:90vw;
+  float:left;
+  margin-right:5vw;
+  margin-left:5vw;
+}
+
+.imageScrollerWrapper img {
+  height:100%;
+  max-width:100%;
+  object-fit:cover;
 }
 
 
@@ -722,11 +768,13 @@ first size up and go to center, then go down past the screen */
     width: 80vw;
     height: 70vh;
     left:-23vw;
-    top: -80vh;
+    top: -70vh;
     background: #FFD575;
 
   }
 }
+
+
 /* LOGIN SKÆRM SLUTTER HER */
 
 /*******MAGIKER VISUAL*******/
