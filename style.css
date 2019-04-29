@@ -693,25 +693,6 @@ KEEP AT BOTTOM */
   position: absolute;
 }
 
-#drageBadgeImg{
-  bottom: 0;
-  left: 0;
-}
-
-#alkymistBadgeImg{
-  bottom: 0;
-  right: 0;
-}
-
-#magikerBadgeImg{
-  top: 0;
-  left: 0;
-}
-
-#quidditchBadgeImg{
-  top: 0;
-  right: 0;
-}
 
 
 .jRibbonContainer{
@@ -732,7 +713,7 @@ KEEP AT BOTTOM */
   padding-top: 90%;
   display: block;
   position: relative;
-  margin-left: 10px;
+  margin-left: 2%;
 }
 
 .journeyName{
@@ -740,13 +721,22 @@ KEEP AT BOTTOM */
   font-size: 8pt;
   color: #232323;
   position: absolute;
-  padding-top: 85%;
+  margin-top: 40%;
   z-index: 2;
   padding-left: 10%;
 }
 
+
+/*****KORT OVER ODENSE****/
+
 .mapdiv text{
   cursor: pointer;
+}
+
+#mobile-svg{
+  height: 100vh;
+  width: 100vw;
+  margin-top: 25%;
 }
 
 
