@@ -47,7 +47,7 @@
     //$bgImg ="baseBg";
   }
 
-  //echo get_stylesheet_directory_uri();
+  // echo get_stylesheet_directory_uri();
 
    ?>
   <section class=" <?php echo $bgImg ?> ">

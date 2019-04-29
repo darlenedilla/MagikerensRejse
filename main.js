@@ -19,6 +19,124 @@ burgermenu.addEventListener("click", function(){
         }
 });
 
+/* ENVELOPE THINGY */
+
+
+// variable for the event listener so we know what we're targeting
+var envelopeOprettelse = document.getElementById("envelopeOprettelse");
+
+// When envelope is clicked, initiate keyframe animations
+envelopeOprettelse.addEventListener("click", clickOnEnvelope);
+
+// function for when the envelope is clicked
+ function clickOnEnvelope(){
+
+  envelopeOprettelse.removeEventListener("click", clickOnEnvelope);
+
+  var envelopePaper = document.getElementById("envelopePaper");
+
+  envelopeOprettelse.classList.add('openEnvelope');
+  envelopePaper.classList.add('openEnvelopePaper');
+
+// after 1 second, start the paper animation
+  setTimeout(function(){
+    document.getElementById('loginPaper').style.opacity="0";
+    document.getElementById('konvolutLoginSkærm').style.opacity="0";
+
+//after 1 second show the page content of page 1
+    setTimeout(function(){
+    var pageContent = document.getElementById('paperContent');
+    var pages = document.getElementsByClassName('paperPage');
+    var page1 = document.getElementById('paperPage1');
+    var page2 = document.getElementById('paperPage2');
+    var page3 = document.getElementById('paperPage3');
+    var page4 = document.getElementById('paperPage4');
+    var imageScroller = document.getElementById("imageScroller");
+
+    var nextPage = document.getElementById('paperNextArrow');
+    var prevPage = document.getElementById('paperBackArrow');
+
+    imageScroller.style.left="0";
+
+
+// set the display style to block before changing opacity within 200ms
+    pageContent.style.display="block";
+    page1.style.display="block";
+    nextPage.style.display="block";
+    prevPage.style.display="block";
+
+//After 1500ms, change the opacity, so it animates nicely
+    setTimeout(function(){
+      pageContent.style.opacity="1";
+      page1.style.opacity="1";
+      nextPage.style.opacity="1";
+      prevPage.style.opacity="1";
+
+    },1500);
+  }, 200);
+
+  }, 1000);
+        console.log('you clicked on the envelope');
+};
+
+// Go to the next page of the oprettelses brev
+var nextPage = document.getElementById('paperNextArrow');
+var prevPage = document.getElementById('paperBackArrow');
+var pageArray = new Array ("paperPage1", "paperPage2", "paperPage3", "paperPage4");
+var imageScroller = document.getElementById("imageScroller");
+
+nextPage.addEventListener("click", function(){
+
+  //everytime you click, it moves the imagescroll -100vw to the left - or thats what I wanted it to do anyhow :c
+  // for (var i = -100; i < -300; i++) {
+  //   imageScroller.style.left=i +"vw";
+  // }
+
+//My attempt at changing what page is shown :c
+  // for (var i = 0; i < pageArray.length; i++) {
+  //   console.log(pageArray[i]);
+  // }
+
+// everytime you click the arrow, it moves the scroller -100vw to the left :c
+  if (imageScroller.style.left="0") {
+    imageScroller.style.left="-100vw";
+  } else if (imageScroller.style.left="-100vw") {
+    imageScroller.style.left="-200vw";
+  } else if (imageScroller.style.left="-200vw") {
+    imageScroller.style.left="-300vw";
+  }
+
+//other attempt to change pages :c
+    // for (var i = 0; i < pages.length; i++) {
+    //     if (i = 1) {
+    //
+    //       pages[1].style.opacity="0";
+    //       pages[i+1].style.display="block";
+    //       pages[i+1].style.opacity="1";
+    //
+    //       setTimeout(function(){
+    //         pages[1].style.display="none";
+    //       }, 1000);
+    //
+    //     } else {
+    //
+    //       pages[i-1].style.opacity="0";
+    //       pages[i].style.display="block";
+    //       pages[i].style.opacity="1";
+    //
+    //       setTimeout(function(){
+    //         pages[i-1].style.display="none";
+    //       }, 1000);
+    //
+    //     }
+    //
+    //
+    // }
+
+
+  console.log("You clicked on the next arrow");
+}); //end of arrow forward eventlistener
+
 
 
 /*CAMERA ACCESS TIL HVIS VI NOGENSINDE SKAL KUNNE TAGE ET BILLEDE

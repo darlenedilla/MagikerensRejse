@@ -16,19 +16,25 @@ Version: 0.1
 
 
 *{
+
     margin: 0;
     padding: 0;
 }
 
 html{
+  height:100vh;
+  width:100vw;
+  overflow:hidden;
 }
 
 body {
-  height:100vh;
-  width:100vh;
-    max-width: 100vw;
-    max-height:100vh;
-    overflow:scroll;
+  position:relative;
+  height:100%;
+  width:100%;
+  max-height:100vh;
+  max-width:100vh;
+  min-width:100vw;
+  overflow:hidden;
 }
 
 .loginBg {
@@ -157,12 +163,12 @@ body {
   }
 
 .header{
-    width: 100%;
+    width: 100vw;
     height: 100px;
-    position: absolute;
+    position: fixed;
     top: -1px;
     padding: 15px 10px;
-    z-index:5;
+    z-index:6;
 }
 
 .headerMenu {
@@ -306,6 +312,7 @@ footer ul {
 }
 
 .mainsectionImg {
+  min-width:100%;
   max-width:100vw;
   height:100vh;
   position:absolute;
@@ -326,107 +333,449 @@ footer ul {
   height: 375px;
   background-color: #666;
 }
-/* DESKTOP VERSION
-KEEP AT BOTTOM */
 
-.desktopHeader {
-  display:none;
-}
+/*******MAGIKER VISUAL*******/
 
-.desktopMainSection {
-  display:none;
+#profileImgContainer{
+  width: 100%;
 }
 
-.desktopBottomLinks {
-  display:none;
+#ribbonContainer{
+  position: relative;
+  text-align: center;
 }
 
-.darkOverlay {
-  display:none;
+#profileImg{
+  width: 280px;
+  height: 280px;
+  border-radius: 100%;
+  border: solid 10px #8d434c;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-@media only screen and (min-width: 1000px) {
-#nav-icon {
-  display:none;
-}
-#mySidenav {
-  display:none;
-}
-.headerMenu {
-  display:none;
-}
-.logoHeader{
-  display:none;
+#ribbon{
+  width: 280px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+  display: block;
 }
 
-.mainsection {
-  display:none;
-}
-.desktopHeader {
-  display:block;
-  width:15%;
-  margin:auto;
-}
-.desktopHeaderLogo {
-  width:100%;
-  height:100%;
-  object-fit:cover;
+#magicalName{
+  font-family: Surabanglus, serif;
+  font-size: 20px;
+  color: #232323;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.desktopMainSection {
-  display:block;
+#listOfBadges{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.badges{
+  display: inline-block;
+  margin: 0 0.4em;
+}
+
+.badgeImg{
+  width: 50px;
+  height: 50px;
+}
+
+#journeyName{
+  font-family: Surabanglus, serif;
+  font-size: 20px;
+  color: #232323;
+  text-align: center;
+}
+
+#otherInfo{
+  font-family: Surabanglus, serif;
+  font-size: 18px;
+  color: #232323;
+  margin-left: 15%;
+  margin-top: 1em;
+}
+
+#listOfInfo{
+  list-style-type: none;
   position:relative;
-  width:60%;
-  margin:auto;
-  z-index:10;
-  margin-top:25vh;
-
-  text-align:center;
 }
 
-.desktopMainSection h1, .desktopMainSection h3 {
-  color:#D6C159;
-  font-family:'Surabanglus', serif;
-}
-.desktopMainSection img {
-  height:30vh;
-  margin-top:25px;
-  border-radius:20px;
+#listOfInfo li{
+  color: #232323;
+  font-family: Surabanglus, serif;
+  font-size: 18px;
+  margin-left:250px;
 }
 
-.desktopBottomLinks {
-  display:block;
-  width:100%;
-  height:200px;
+#listOfInfo li:before{
+  content:attr(data-label);
   position:absolute;
-  top:90vh;
-  text-align:center;
-  z-index:10;
-}
-.desktopBottomLinks span:nth-child(1), .desktopBottomLinks span:nth-child(2) {
-  margin-right:30px;
+  left:15%;
 }
 
-.desktopBottomLinks span a {
-    font-family:'Surabanglus', serif;
-    color:white;
+/* LOGIN SKÆRM STARTER HER */
+
+#loginPaper {
+  width:120%;
+  height:100%;
+  top:15%;
+  left:-30%;
+  position:relative;
+  opacity:1;
+  transition-duration:.5s;
+
+  transform: rotate(15deg);
 }
 
-
-.darkOverlay{
+.logInForm {
   display:block;
+  position:absolute;
+  width:80%;
+  height:100%;
+  top:10%;
+  left:28%;
+
+  overflow:visible;
+
+}
+
+.logInForm input {
+  width:50vw;
+  min-height:35px;
+  margin-bottom:20px;
+  border: 1px solid black;
+  border-style: none none solid none;
+  background-color: rgba(255, 0, 0, 0);
+  padding:10px;
+  padding-bottom:1px;
+  overflow:visible;
+
+  font-family:'Surabanglus', serif;
+  font-size:1.2em;
+}
+
+.logInForm .submitBtnLogin {
+  border-style:none;
+  font-size:2em;
+}
+
+.logInForm ::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-family:'Surabanglus', serif;
+  font-size:1.2em;
+}
+
+.loginPaperBG {
+  display:block;
+  max-width:100%;
+  max-height:100%;
+  position:absolute;
+  top:-10%;
+}
+
+.waxseal {
+  width:35%;
+  height:auto;
+  top:40%;
+  left:45%;
+
+  transform: rotate(45deg);
+}
+
+/* Konvolut */
+#konvolutLoginSkærm {
   width:100vw;
-  height:100vh;
-  background-color: rgb(0,0,0, 0.8);
+  height:auto;
+  max-height:100vh;
   position:absolute;
   top:0;
   left:0;
-  z-index:1;
+
+  opacity:1;
+  transition-duration:.5s;
+}
+
+.konvolutLoginSkærmImg {
+  position:absolute;
+  display:block;
+  width:140%;
+  height:auto;
+  top:65vh;
+  left:0;
+  transform:rotate(-15deg);
+}
+
+.startDinRejseWrapper {
+  position:absolute;
+  top:75vh;
+  left:25vw;
+  transform:rotate(-20deg);
+}
+
+.startDinRejseWrapper img {
+  max-width:50px;
+  height:auto;
+  display:inline-block;
+}
+
+.startDinRejseWrapper p {
+  color:black;
+  float:left;
+
+}
+
+/* ENVELOPE THINGY */
+
+.envelope {
+  position: fixed;
+  margin: 50px auto 0;
+  width: 98px;
+  height: 66px;
+  bottom:5vh;
+  right:10vw;
+  background: #c94548;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 1px #c94548 inset;
+
+  transition-duration:.5s;
+}
+.envelope:before,
+.envelope:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-width: 33px 49px;
+    transition-duration: inherit;
+}
+.envelope:before {
+  border-bottom-color: #c94548;
+  top: -100%;
+  left: 0px;
+}
+.envelope:after {
+  border-right-color: #ed4c50;
+  border-left-color: #fa565a;
+  border-bottom-color: #fa565a;
+  top: 0;
+  border-radius: 0 0 5px 5px;
+  transform: rotate(360deg);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+}
+
+.paper {
+  background: #fff;
+  width: 90%;
+  height: 66px;
+  margin: 0 auto;
+  border-radius: 5px;
+  position: absolute;
+  left: 6px;
+  top: -33px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+
+  transition-duration: inherit;
+}
+
+/* PAPER CONTENT */
+
+#paperContent {
+  opacity:0;
+  display:none;
+  width:100%;
+  height:60%;
+  padding:20px;
+
+  transition-duration:.3s;
+}
+
+.paperPage {
+  display:none;
+  position:absolute;
+  top:0;
+  height:auto;
+
+    transition-duration:inherit;
+}
+
+#paperContent h2 {
+  color:black;
+  font-family:'surabanglus', serif;
+  font-size:1em;
+  text-align:center;
+}
+
+#paperContent p {
+  color:black;
+  font-family: 'verdana', serif;
+  font-size:1em;
+}
+
+#paperNextArrow, #paperBackArrow {
+  display:none;
+  opacity:0;
+
+  width: 10%;
+  height:auto;
+
+  position:fixed;
+  bottom:5vh;
+
+  transition-delay:0.2s;
+  transition-duration:.3s;
+}
+
+#paperNextArrow {
+  right:15vw;
+}
+#paperBackArrow {
+  left:15vw;
+  transform:scale(-1, 1);
+}
+
+#paperNextArrow img, #paperBackArrow img {
+max-width:100%;
+height:auto;
+
+
+}
+
+.imageScroller {
+  position:absolute;
+  top:15vh;
+  left:110vw;
+
+  height:35vh;
+  width:300vw;
+
+  padding-top:10px;
+  padding-bottom:10px;
+  background-color: #E0C482;
+  -webkit-box-shadow: 4px 13px 42px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 13px 42px -8px rgba(0,0,0,0.75);
+  box-shadow: 4px 13px 42px -8px rgba(0,0,0,0.75);
+
+  transition-duration:1s;
+}
+
+.unroller {
+  height:44vh;
+  width:20px;
+  position:absolute;
+  top:-5vw;
+  left:-20px;
+
+  background-color: #D6B568;
+  -webkit-box-shadow: 4px 13px 42px -8px rgba(0,0,0,1);
+  -moz-box-shadow: 4px 13px 42px -8px rgba(0,0,0,1);
+  box-shadow: 4px 13px 42px -8px rgba(0,0,0,1);
+}
+
+.imageScrollerWrapper {
+  height:100%;
+  min-height:35vh;
+  width:90vw;
+  float:left;
+  margin-right:5vw;
+  margin-left:5vw;
+}
+
+.imageScrollerWrapper img {
+  height:100%;
+  max-width:100%;
+  object-fit:cover;
 }
 
 
-} /* END OF DESKTOP VERSION */
+/* ENVELOPE ANIMATION */
 
+.openEnvelope {
+  animation: openEnvelope;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.openEnvelope:before,
+.openEnvelope:after {
+  animation: envelopeBeforeAndAfters;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+.openEnvelopePaper {
+  height: 96px;
+  animation: paperUnfold;
+  animation-duration:2s;
+  animation-fill-mode: forwards;
+  animation-delay:1s;
+}
+
+/* when you first click the envelope,
+first size up and go to center, then go down past the screen */
+@keyframes openEnvelope {
+  0% {
+    width: 98px;
+    height: 66px;
+    bottom:5vh;
+    right:10vw;
+  }
+  20% {
+    width: 128px;
+    height: 96px;
+    bottom:5vh;
+    right:32vw;
+  }
+
+  100%{
+    width: 128px;
+    height: 96px;
+    bottom:-30vh;
+    right:32vw;
+  }
+}
+/* the flaps in front need to be resized to fit, this is noodling work */
+@keyframes envelopeBeforeAndAfters {
+  0% {
+      border-width: 33px 49px;
+  }
+  100% {
+      border-width: 50px 64px;
+  }
+}
+
+@keyframes paperUnfold {
+  0% {
+    width: 90%;
+    height: 96px;
+    left: 6px;
+    top: -33px;
+    background: #fff;
+  }
+  100% {
+    width: 80vw;
+    height: 70vh;
+    left:-23vw;
+    top: -70vh;
+    background: #FFD575;
+
+  }
+}
+
+
+/* LOGIN SKÆRM SLUTTER HER */
 
 /*******MAGIKER VISUAL*******/
 
@@ -740,3 +1089,105 @@ KEEP AT BOTTOM */
 }
 
 
+/* DESKTOP VERSION
+KEEP AT BOTTOM */
+
+.desktopHeader {
+  display:none;
+}
+
+.desktopMainSection {
+  display:none;
+}
+
+.desktopBottomLinks {
+  display:none;
+}
+
+.darkOverlay {
+  display:none;
+}
+
+@media only screen and (min-width: 1000px) {
+
+
+#nav-icon {
+  display:none;
+}
+#mySidenav {
+  display:none;
+}
+.headerMenu {
+  display:none;
+}
+.logoHeader{
+  display:none;
+}
+
+.mainsection {
+  display:none;
+}
+.desktopHeader {
+  display:block;
+  width:15%;
+  margin:auto;
+}
+.desktopHeaderLogo {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.desktopMainSection {
+  display:block;
+  position:relative;
+  width:100vw;
+  margin:auto;
+  z-index:10;
+  margin-top:25vh;
+
+  text-align:center;
+}
+
+.desktopMainSection h1, .desktopMainSection h3 {
+  color:#D6C159;
+  font-family:'Surabanglus', serif;
+}
+.desktopMainSection img {
+  height:30vh;
+  margin-top:25px;
+  border-radius:20px;
+}
+
+.desktopBottomLinks {
+  display:block;
+  width:100vw;
+  height:200px;
+  position:absolute;
+  top:90vh;
+  text-align:center;
+  z-index:10;
+}
+.desktopBottomLinks span:nth-child(1), .desktopBottomLinks span:nth-child(2) {
+  margin-right:30px;
+}
+
+.desktopBottomLinks span a {
+    font-family:'Surabanglus', serif;
+    color:white;
+}
+
+
+.darkOverlay{
+  display:block;
+  width:100vw;
+  height:100vh;
+  background-color: rgb(0,0,0, 0.8);
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+}
+
+
+} /* END OF DESKTOP VERSION */
