@@ -98,13 +98,20 @@ nextPage.addEventListener("click", function(){
   // }
 
 // everytime you click the arrow, it moves the scroller -100vw to the left :c
-  if (imageScroller.style.left="0") {
+if (imageScroller.style.left="-100vw") {
+ imageScroller.style.left="-200vw";
+}
+
+if (imageScroller.style.left="-200vw") {
+ imageScroller.style.left="-300vw";
+}
+
+if (imageScroller.style.left="0") {
     imageScroller.style.left="-100vw";
-  } else if (imageScroller.style.left="-100vw") {
-    imageScroller.style.left="-200vw";
-  } else if (imageScroller.style.left="-200vw") {
-    imageScroller.style.left="-300vw";
   }
+
+
+
 
 //other attempt to change pages :c
     // for (var i = 0; i < pages.length; i++) {
