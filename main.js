@@ -79,62 +79,42 @@ envelopeOprettelse.addEventListener("click", clickOnEnvelope);
         console.log('you clicked on the envelope');
 };
 
+// END of openeing the oprettelsesbrev
+
+
 // Go to the next page of the oprettelses brev
-var nextPage = document.getElementById('paperNextArrow');
-var prevPage = document.getElementById('paperBackArrow');
-var pageArray = new Array ("paperPage1", "paperPage2", "paperPage3", "paperPage4");
-var imageScroller = document.getElementById("imageScroller");
-
-nextPage.addEventListener("click", function(){
-
-  //everytime you click, it moves the imagescroll -100vw to the left - or thats what I wanted it to do anyhow :c
-  // for (var i = -100; i < -300; i++) {
-  //   imageScroller.style.left=i +"vw";
-  // }
-
-//My attempt at changing what page is shown :c
-  // for (var i = 0; i < pageArray.length; i++) {
-  //   console.log(pageArray[i]);
-  // }
-
-// everytime you click the arrow, it moves the scroller -100vw to the left :c
-  if (imageScroller.style.left="0") {
-    imageScroller.style.left="-100vw";
-  } else if (imageScroller.style.left="-100vw") {
-    imageScroller.style.left="-200vw";
-  } else if (imageScroller.style.left="-200vw") {
-    imageScroller.style.left="-300vw";
-  }
-
-//other attempt to change pages :c
-    // for (var i = 0; i < pages.length; i++) {
-    //     if (i = 1) {
-    //
-    //       pages[1].style.opacity="0";
-    //       pages[i+1].style.display="block";
-    //       pages[i+1].style.opacity="1";
-    //
-    //       setTimeout(function(){
-    //         pages[1].style.display="none";
-    //       }, 1000);
-    //
-    //     } else {
-    //
-    //       pages[i-1].style.opacity="0";
-    //       pages[i].style.display="block";
-    //       pages[i].style.opacity="1";
-    //
-    //       setTimeout(function(){
-    //         pages[i-1].style.display="none";
-    //       }, 1000);
-    //
-    //     }
-    //
-    //
-    // }
+    var nextPage = document.getElementById('paperNextArrow');
+    var prevPage = document.getElementById('paperBackArrow');
+    var imageScroller = document.getElementById("imageScroller");
+    var click = 0;
+    var pageArray = document.getElementsByClassName('paperPage');
 
 
-  console.log("You clicked on the next arrow");
+    // Next page EVENTLISTNER
+    nextPage.addEventListener("click", function(){
+
+    //Add actual code to be executed here
+    console.log(pageArray[click]);
+    click++;
+
+
+    //switch statement for moving the imagescroller
+    var imageScrollerOffset = imageScroller.style.left;
+
+    switch(imageScrollerOffset) {
+      case "0px":
+        imageScroller.style.left="-100vw";
+        break;
+      case "-100vw":
+        imageScroller.style.left="-200vw";
+        break;
+      case "-200vw":
+        imageScroller.style.left="-300vw";
+        break;
+      default:
+        console.log('the switch statement did not work :c')
+    }
+
 }); //end of arrow forward eventlistener
 
 

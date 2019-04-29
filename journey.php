@@ -6,20 +6,21 @@ Template Name: Retning
 ?>
 <?php
 
-//include("config.php");
+include("config.php");
 //Fetch user data from database
-$host = "localhost"; /* Host name */
-$user = "Darlene"; /* User */
-$password = "Dgs55qhk:).."; /* Password */
-$dbname = "1221s_com_magikerensrejse"; /* Database name */
-
-//Create connection
-$con = mysqli_connect($host, $user, $password,$dbname);
-
-// Check connection
-if (!$con) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+// $host = "localhost"; /* Host name */
+// $user = "Darlene"; /* User */
+// $password = "Dgs55qhk:).."; /* Password */
+// $dbname = "1221s_com_magikerensrejse"; /* Database name */
+//
+// //Create connection
+// $con = mysqli_connect($host, $user, $password,$dbname);
+//
+// // Check connection
+// if (!$con) {
+//   die("Connection failed: " . mysqli_connect_error());
+//   $sql1 = "";
+// }
 
         $user = 28141151; //DETTE SKAL RETTES TIL SÅ DEN TAGER DEN BRUGER DER ER LOGGET IND
 
@@ -27,7 +28,7 @@ if (!$con) {
             $sql1 = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Magiker'";
             $result1 = $con->query($sql1);
         }
-    
+
         if(isset($_POST['alkymist'])){
             $sql1 = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Alkymist'";
             $result1 = $con->query($sql1);
