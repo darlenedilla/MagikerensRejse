@@ -1543,6 +1543,8 @@ Template Name: Kort
 
   </div>
 </section>
+<!-- baggrundsbillede -->
+<img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
 
     <script>
       // Don't use window.onLoad like this in production, because it can only listen to one function.

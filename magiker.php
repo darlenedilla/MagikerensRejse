@@ -111,7 +111,8 @@ $query = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseN
         </ul>
     </div>
 </section>
-<!--<img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">-->
+<!-- baggrundsbillede -->
+<img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
 
 <script>
     var journeyName = "<?php echo $journeyName?>";

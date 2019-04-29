@@ -64,6 +64,7 @@ Template Name: hus
   </table>
   </section>
 </section>
+<!-- baggrundsbillede -->
 <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
 
 <?php get_footer(); ?>
