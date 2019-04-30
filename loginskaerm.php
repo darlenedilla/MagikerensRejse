@@ -105,57 +105,80 @@ Template Name: Login
   </div>
 </div>
 
-<!--  The image scroller once envelope has been opened -->
-<div class="imageScroller" id="imageScroller">
-  <div class="unroller"></div>
-  <div class="imageScrollerWrapper">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/imagescroller.jpg" alt="firstImage">
+
+      <!--  The image scroller once envelope has been opened -->
+      <div class="imageScroller" id="imageScroller">
+        <div class="unroller"></div>
+        <!-- starting the while loop of the pages -->
+         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <!-- getting the data for the letter -->
+        <?php
+        $oprettelsesBrev = new Pod('oprettelsesbrev');
+        $oprettelsesBrev->findRecords('pagecontent ASC');
+        $total_pages = $oprettelsesBrev->getTotalRows();?>
+
+        <?php
+        while ($oprettelsesBrev->fetchRecord() ) {
+          $pageImg = $oprettelsesBrev->get_field('image.guid');?>
+
+        <div class="imageScrollerWrapper" id="imageScrollerImages">
+          <img src="<?php echo $pageImg; ?>" alt="photo for the page with the title <?php $title; ?>">
+
+            </div>
+
+          <?php  } endwhile; ?>
+          <?php  endif;?>
       </div>
 
-      <div class="imageScrollerWrapper">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/imagescroller.jpg" alt="firstImage">
+      <!-- Envelope snippet thingy -->
+      <div class="envelope" id="envelopeOprettelse">
+        <div class="paper" id="envelopePaper">
+          <div id="paperContent">
+
+            <!-- starting the while loop of the pages -->
+             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <!-- getting the data for the letter -->
+            <?php
+            $oprettelsesBrev = new Pod('oprettelsesbrev');
+            $oprettelsesBrev->findRecords('pagecontent ASC');
+            $total_pages = $oprettelsesBrev->getTotalRows();
+
+            while ($oprettelsesBrev->fetchRecord() ) {
+
+              $title = $oprettelsesBrev->get_field('title');
+              $pageContent = $oprettelsesBrev->get_field('pagecontent');
+
+              //cleanup - automatically makes <p>s
+              $pageContent = wpautop( $pageContent );
+
+            ?>
+             <!-- actual code -->
+             <div class="paperPage">
+               <h2> <?php echo $title; ?> </h2>
+               <div class="pageContent">
+                 <?php echo $pageContent; ?>
+               </div>
+             </div>
+
+            <?php } ?>
+            <?php endwhile; ?>
+            <?php  endif;?>
+
+            <div class="" id="paperNextArrow">
+              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="rightArrow">
+            </div>
+
+            <div class="" id="paperBackArrow">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
+            </div>
+
+            <div class="" id="paperOverlayOprettelse">
+              <img src="" alt="">
+            </div>
           </div>
 
-          <div class="imageScrollerWrapper">
-              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/imagescroller.jpg" alt="firstImage">
-              </div>
-</div>
-
-<!-- Envelope snippet thingy -->
-<div class="envelope" id="envelopeOprettelse">
-  <div class="paper" id="envelopePaper">
-    <div id="paperContent">
-      <div class="paperPage" id="paperPage1">
-        <h2>Tilykke!</h2>
-        <p>Du er hermed optaget på Tromheims trolddomsakademi!</p>
+        </div>
       </div>
-
-      <div class="paperPage" id="paperPage2">
-        <h2>Elementerne</h2>
-        <p>Dette er de fire elementer, der styrer hver og en af os</p>
-      </div>
-
-      <div class="paperPage" id="paperPage3">
-        <h2>Magiske Dage Odense</h2>
-        <p>Magien er omrking os</p>
-      </div>
-
-      <div class="paperPage" id="paperPage4">
-        <h2>Noget om fumlere ...</h2>
-        <p>Praktisk information eller noget andet vi har aftalt</p>
-      </div>
-
-      <div class="" id="paperNextArrow">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="rightArrow">
-      </div>
-
-      <div class="" id="paperBackArrow">
-<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
-      </div>
-    </div>
-
-  </div>
-</div>
 
 </section>
 <!-- baggrundsbillede -->
