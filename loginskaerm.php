@@ -1,7 +1,15 @@
+<?php
+    function setUserCookie($phoneNo){
+        $cookie_name = "user";
+        $cookie_value = $phoneNo;
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+    };
+?>
 <?php get_header();
 /*
 Template Name: Login
-*/?>
+*/
+?>
 
 
 <section class="desktopMainSection">
@@ -25,8 +33,8 @@ Template Name: Login
   //Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
   $server ="localhost";
-  $user ="root";
-  $pw ="";
+  $user ="Darlene";
+  $pw ="Dgs55qhk:)..";
   $db = "1221s_com_magikerensrejse";
 
   // Create connection
@@ -41,6 +49,52 @@ Template Name: Login
 // UN-COMMENT THIS WHEN UPLOADING TO LIVE
 // include("config.php");
 
+// Log ind funktionalitet
+//if 'log ind' is pressed:
+if (isset($_POST['logIn'])) {
+  $phoneNo = $_POST['phoneNo'];
+  $mPassword = $_POST['mPassword'];
+  $url = "";
+    //only do this if a phone number has been entered
+    if (isset($_POST['phoneNo'])) {
+    //sql query to ask for the password where it matches the phone number given
+    $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = '$phoneNo'";
+      $sqlLoginQuery = $conn->query($sqlCheckLogin);
+      if($sqlLoginQuery->num_rows > 0){
+        while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
+
+          $sqlPassword = $sqlQueryResult['mPassword'];
+          if ($sqlQueryResult['mPassword'] === $mPassword) {
+            //If the password is correct:
+            $url = "../badges";
+            setUserCookie($phoneNo);
+            echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
+            //echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
+            echo "login success";
+          }
+          else {
+            //if the password is incorrect:
+            echo "login no success :(";
+            $url ="";
+          } 
+        };
+      }
+      else{
+        echo "0 results";
+      }
+            //checks if the password from the server is the same as the one entered
+              // if ($sqlLoginQuery = $mPassword) {
+              //       echo "login succesful";
+              // };
+    } 
+    else {
+      echo "please enter a phone number";
+    };
+};
+
+
+
+
    ?>
 <div class="loginPaper" id="loginPaper">
   <!-- background image to login information -->
@@ -49,13 +103,13 @@ Template Name: Login
 
 
       <!-- Log ind form -->
-      <form class="logInForm" method="post">
+      <form id="loginForm" class="logInForm" method="post" >
 
             <!-- 'brugernavn' -->
             <input type="number" name="phoneNo" value="" placeholder="Telefonummer..."><br/>
 
             <!-- Password -->
-            <input type="text" name="mPassword" value="" placeholder="Magisk Kodeord ..."><br/>
+            <input id="mPassword" type="password" name="mPassword" value="" placeholder="Magisk Kodeord ..."><br/>
 
             <!-- log ind knap -->
             <input type="submit" name="logIn" value="Log Ind" class="submitBtnLogin">
@@ -63,38 +117,7 @@ Template Name: Login
 
       </form> <!-- end log ind form -->
 
-
       <!-- end log ind form -->
-
-      <?php
-      // Log ind funktionalitet
-      //if 'log ind' is pressed:
-      if (isset($_POST['logIn'])) {
-        $phoneNo = $_POST['phoneNo'];
-        $mPassword = $_POST['mPassword'];
-          //only do this if a phone number has been entered
-          if (isset($_POST['phoneNo'])) {
-          //sql query to ask for the password where it matches the phone number given
-          $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = '$phoneNo'";
-            $sqlLoginQuery = $conn->query($sqlCheckLogin);
-            while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
-            if ($sqlQueryResult['mPassword'] == $mPassword) {
-              //If the password is correct:
-              // code...
-            }
-             else {
-               //if the password is incorrect:
-              echo "login no success :(";
-            } };
-                  //checks if the password from the server is the same as the one entered
-                    // if ($sqlLoginQuery = $mPassword) {
-                    //       echo "login succesful";
-                    // };
-        } else {
-          echo "please enter a phone number";
-        };
-        };
-       ?>
 
 </div>
 
@@ -160,6 +183,5 @@ Template Name: Login
 </section>
 <!-- baggrundsbillede -->
   <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/login.jpg" alt="background">
-
 </body>
 </html>
