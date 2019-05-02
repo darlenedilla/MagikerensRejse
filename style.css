@@ -341,7 +341,7 @@ footer ul {
   width: 100%;
 }
 
-#ribbonContainer{
+.ribbonContainer{
   position: relative;
   text-align: center;
 }
@@ -356,7 +356,7 @@ footer ul {
   display: block;
 }
 
-#ribbon{
+.ribbon{
   width: 280px;
   height: 50px;
   margin-left: auto;
@@ -365,7 +365,7 @@ footer ul {
   display: block;
 }
 
-#magicalName{
+.magicalName{
   font-family: Surabanglus, serif;
   font-size: 20px;
   color: #232323;
@@ -465,6 +465,10 @@ footer ul {
 
   font-family:'Surabanglus', serif;
   font-size:1.2em;
+}
+
+#mPassword{
+  font-family: Arial;
 }
 
 .logInForm .submitBtnLogin {
@@ -1135,6 +1139,139 @@ first size up and go to center, then go down past the screen */
   width: 100vw;
   margin-top: 25%;
 }
+
+
+/*****BADGE HJEM*****/
+
+.badgeIndex{
+  margin-top: 25%;
+}
+
+.badgeContainer{
+  width: 100vw;
+  height: 100%;
+  position: relative;
+}
+
+.badge{
+  position: relative;
+  height: 60vh;
+  width: 100%;
+}
+
+.badgeImg{
+  border: none;
+  width: 90px;
+  height: 90px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.64);
+  border: solid #E1D7C2 2px;
+  border-radius: 100%;
+  position: absolute;
+}
+
+#magiker{
+  background: url("img/badges/magiker/magikerIllustration.png") no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
+#alkymist{
+  background: url("img/badges/alkymist/alkymistIllustration.png") no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
+#quidditch{
+  background: url("img/badges/quidditch/quidditchIllustration.png") no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
+#dragetaemmer{
+  background: url("img/badges/drage/drageIllustration.png") no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
+#erfaren{
+  background: url("img/badges/erfaren/erfarenIllustration.png") no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
+.journeyBadge{
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 100%;
+  border: solid 3px #E1D7C2;
+}
+
+#welcome{
+  font-family: Surabanglus, serif;
+  font-size: 12pt;
+  color: #232323;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.slick-next{
+  right: 30%;
+}
+
+.slick-prev{
+  left: 25%;
+}
+
+.slick-arrow{
+  margin-top: 55%;
+  z-index: 100;
+}
+
+.slick-next:before{
+  content: "";
+  background-image:url("img/arrows/arrowRight.png");
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 30px;
+  width:50px;
+  opacity: 1;
+}
+
+.slick-prev:before{
+  content: "";
+  background-image:url("img/arrows/arrowLeft.png");
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 30px;
+  width:50px;
+  opacity: 1;
+}
+
+
+
+.top-left{
+  top: 10%;
+  left: 10%;
+}
+
+.top-right{
+  top: 10%;
+  right: 10%;
+}
+
+.bottom-left{
+  bottom: 10%;
+  left: 10%;
+}
+
+.bottom-right{
+  bottom: 10%;
+  right: 10%;
+}
+
 
 
 /* DESKTOP VERSION

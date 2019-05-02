@@ -1,7 +1,5 @@
 <!doctype html>
 <html>
-
-
     <head>
     <!-- metadata -->
         <meta charset="UTF-8">
@@ -14,9 +12,9 @@
     <!-- favicon -->
         <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png" />
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/style.css?ver=<?php echo rand(111,999)?>">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/style.css?ver=<?php echo rand(111,999)?>">
 
 
     <!-- eksternt materiale-->
@@ -34,8 +32,7 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.5.0/dist/svg-pan-zoom.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-        <?php wp_head();?>
+        <?php //wp_head();?>
     </head>
 
 <body>

@@ -87,9 +87,9 @@ $query = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseN
     <div class="profileData">
         <div id="profileImgContainer">
             <img id="profileImg" src="<?php echo get_stylesheet_directory_uri().'/img/portraits/' .$imageName;?>" >
-            <div id="ribbonContainer">
-                <h3 id="magicalName"><?php echo $magicalName; ?></h3>
-                <img id="ribbon" src="<?php echo get_stylesheet_directory_uri();?>/img/ribbon.png" alt="Ribbon">
+            <div class="ribbonContainer">
+                <h3 class="magicalName"><?php echo $magicalName; ?></h3>
+                <img class="ribbon" src="<?php echo get_stylesheet_directory_uri();?>/img/ribbon.png" alt="Ribbon">
             </div>
         </div>
         <!--<img id="petImg" src="">-->

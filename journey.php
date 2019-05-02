@@ -86,35 +86,35 @@ $con->close();
         <div class="jBadgeContainer">
             <div class ="jBadge" id="magikerBadge">
                 <!--<input class="jBadgeImg" id="magikerBadgeImg" type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magikerBadge.png">-->
-                <img class="jBadgeImg" id="magikerBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magikerBadge.png">
+                <img class="jBadgeImg" id="magikerBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/magikerBadge.png">
                 <div class="jRibbonContainer">
                     <h3 class="journeyName">Magiker</h3>
                     <button style="border:none; background-color:transparent;" type="submit" name="magiker"><img  class="jRibbon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ribbon.png"></button>
                 </div>
             </div>
             <div class="jBadge" id="alkymistBadge">
-                <img class="jBadgeImg" id="alkymistBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymistBadge.png">
+                <img class="jBadgeImg" id="alkymistBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/alkymistBadge.png">
                 <div class="jRibbonContainer">
                     <h3 class="journeyName">Alkymist</h3>
                     <button style="border:none; background-color:transparent;" type="submit" name="alkymist"><img  class="jRibbon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ribbon.png"></button>
                 </div>
             </div>
             <div class ="jBadge" id="quidditchBadge">
-                <img class="jBadgeImg" id="quidditchBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditchBadge.png">
+                <img class="jBadgeImg" id="quidditchBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/qBadge.png">
                 <div class="jRibbonContainer">
                     <h3 class="journeyName">Quidditch Stjerne</h3>
                     <button style="border:none; background-color:transparent;" type="submit" name="quidditch"><img  class="jRibbon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ribbon.png"></button>
                 </div>
             </div>
             <div class ="jBadge" id="drageBadge">
-                <img class="jBadgeImg" id="drageBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drageBadge.png">
+                <img class="jBadgeImg" id="drageBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/drageBadge.png">
                     <div class="jRibbonContainer">
                         <h3 class="journeyName">Dragetæmmer</h3>
                         <button style="border:none; background-color:transparent;" type="submit" name="dragetaemmer"><img  class="jRibbon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ribbon.png"></button>
                     </div>
             </div>
             <div class ="jBadge" id="erfarenBadge">
-                <img class="jBadgeImg" id="erfarenBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfarenBadge.png">
+                <img class="jBadgeImg" id="erfarenBadgeImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/erfarenBadge.png">
                     <div class="jRibbonContainer" id="erfarenRibbon">
                         <h3 class="journeyName">Erfaren</h3>
                         <button style="border:none; background-color:transparent;" type="submit" name="erfaren"><img class="jRibbon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ribbon.png"></button>
