@@ -47,28 +47,35 @@ envelopeOprettelse.addEventListener("click", clickOnEnvelope);
     setTimeout(function(){
     var pageContent = document.getElementById('paperContent');
     var pages = document.getElementsByClassName('paperPage');
-    var page1 = document.getElementById('paperPage1');
-    var page2 = document.getElementById('paperPage2');
-    var page3 = document.getElementById('paperPage3');
-    var page4 = document.getElementById('paperPage4');
+
     var imageScroller = document.getElementById("imageScroller");
+    var imageScrollerImages = document.getElementsByClassName('imageScrollerWrapper');
 
     var nextPage = document.getElementById('paperNextArrow');
     var prevPage = document.getElementById('paperBackArrow');
 
     imageScroller.style.left="0";
+    imageScroller.style.width=pages.length * 100 + "vw";
+    //The images were showing underneath each other, so I set a timeoutfor them showing.
+    for (var i = 0; i < imageScrollerImages.length; i++) {
+      imageScrollerImages[i].style.display="block";
+    }
+    setTimeout(function(){
+      for (var i = 0; i < imageScrollerImages.length; i++) {
+        imageScrollerImages[i].style.opacity="1";
+      }
 
+    },1000);
 
 // set the display style to block before changing opacity within 200ms
     pageContent.style.display="block";
-    page1.style.display="block";
+    pages[0].style.display="block";
     nextPage.style.display="block";
-    prevPage.style.display="block";
 
 //After 1500ms, change the opacity, so it animates nicely
     setTimeout(function(){
       pageContent.style.opacity="1";
-      page1.style.opacity="1";
+      pages[0].style.opacity="1";
       nextPage.style.opacity="1";
       prevPage.style.opacity="1";
 
@@ -87,35 +94,130 @@ envelopeOprettelse.addEventListener("click", clickOnEnvelope);
     var prevPage = document.getElementById('paperBackArrow');
     var imageScroller = document.getElementById("imageScroller");
     var click = 0;
+    var imageScrollerOffsetAmount = -100;
     var pageArray = document.getElementsByClassName('paperPage');
 
 
-    // Next page EVENTLISTNER
+    // Next page EVENTLISTNER | ARROW ->
     nextPage.addEventListener("click", function(){
+          if (click < pageArray.length -2) {
+            //What to do before going to the next page
+            pageArray[click].style.opacity="0";
+            setTimeout ( function(){
+              pageArray[click].style.display="none";
 
-    //Add actual code to be executed here
-    console.log(pageArray[click]);
+              click++;
+
+              //what to do after going to the next page
+              pageArray[click].style.display="block";
+              setTimeout(function(){
+                pageArray[click].style.opacity="1";
+              }, 500);
+              //make the back-btn visible
+              prevPage.style.display="block";
+
+              imageScroller.style.left = imageScrollerOffsetAmount + "vw";
+              console.log("the images are offset by:" + imageScrollerOffsetAmount);
+              console.log("click:" + click);
+            },100);
+
+            // the imagescroller animations
+            if (click !=0) {
+              imageScrollerOffsetAmount = -100 * click -100;
+            } else {
+              imageScrollerOffsetAmount =  click -100;
+            }
+} else if(click = pageArray.length -2){
+  //what to do on the last page
+  //What to do before going to the next page
+  pageArray[click].style.opacity="0";
+  setTimeout ( function(){
+    pageArray[click].style.display="none";
+
     click++;
 
+    //what to do after going to the next page
+    pageArray[click].style.display="block";
+    setTimeout(function(){
+      pageArray[click].style.opacity="1";
+    }, 500);
+    //make the back-btn visible
+    prevPage.style.display="block";
 
-    //switch statement for moving the imagescroller
-    var imageScrollerOffset = imageScroller.style.left;
+    imageScroller.style.left = imageScrollerOffsetAmount + "vw";
+    console.log("the images are offset by:" + imageScrollerOffsetAmount);
+    console.log("click:" + click);
+  },100);
 
-    switch(imageScrollerOffset) {
-      case "0px":
-        imageScroller.style.left="-100vw";
-        break;
-      case "-100vw":
-        imageScroller.style.left="-200vw";
-        break;
-      case "-200vw":
-        imageScroller.style.left="-300vw";
-        break;
-      default:
-        console.log('the switch statement did not work :c')
-    }
+  // the imagescroller animations
+  if (click !=0) {
+    imageScrollerOffsetAmount = -100 * click -100;
+  } else {
+    imageScrollerOffsetAmount =  click -100;
+  }
+//removing the next arrow and replacing it with the little paper overlay
+  // var paperOverlay = document.getElementById('paperOverlayOprettelse');
 
+  nextPage.style.display="none";
+
+}
 }); //end of arrow forward eventlistener
+console.log(pageArray.length);
+
+// Next page EVENTLISTNER | ARROW ->
+prevPage.addEventListener("click", function(){
+      if (click < pageArray.length) {
+        //what to do before going to the previous page
+        pageArray[click].style.opacity="0";
+        setTimeout ( function(){
+          pageArray[click].style.display="none";
+          click--;
+
+          //what to do when on the previous page
+          pageArray[click].style.display="block";
+          setTimeout(function(){
+            pageArray[click].style.opacity="1";
+          }, 500);
+
+          imageScroller.style.left = imageScrollerOffsetAmount + "vw";
+          console.log("the images are offset by:" + imageScrollerOffsetAmount);
+          console.log("click:" + click);
+
+        },100);
+
+
+                  // the imagescroller animations
+                  if (click !=0) {
+                    imageScrollerOffsetAmount = -100 * click +100;
+                  } else {
+                    imageScrollerOffsetAmount =  click +100;
+                  }
+
+                  if (click <=1) {
+                    prevPage.style.display="none";
+                  }
+
+                  //enable the forward arrow again
+                  nextPage.style.display="block";
+
+
+
+  //If the scroller is on the last page:
+} else if (click >= pageArray.length) {
+  click--;
+  pageArray[click].style.display="block";
+  setTimeout(function(){
+    pageArray[click].style.opacity="1";
+  }, 500);
+
+  imageScrollerOffsetAmount = -100 * click +100;
+  imageScroller.style.left = imageScrollerOffsetAmount + "vw";
+  
+  console.log("the images are offset by:" + imageScrollerOffsetAmount);
+  console.log("click:" + click);
+}
+}); //end of arrow backward eventlistener
+
 
 
 
