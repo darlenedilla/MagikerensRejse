@@ -24,22 +24,22 @@ Template Name: Login
 
   //Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
-  $server ="localhost";
-  $user ="root";
-  $pw ="";
-  $db = "1221s_com_magikerensrejse";
-
-  // Create connection
-  $conn = new mysqli($server, $user, $pw, $db);
-  //check fann_get_total_connections
-  if ($conn->connect_error) {
-    die("Connection failed:" .$conn->connect_error);
-  } else {
-    echo '<script>console.log("connected succesfully")</script>';
-  }
+  // $server ="localhost";
+  // $user ="root";
+  // $pw ="";
+  // $db = "1221s_com_magikerensrejse";
+  //
+  // // Create connection
+  // $conn = new mysqli($server, $user, $pw, $db);
+  // //check fann_get_total_connections
+  // if ($conn->connect_error) {
+  //   die("Connection failed:" .$conn->connect_error);
+  // } else {
+  //   echo '<script>console.log("connected succesfully")</script>';
+  // }
 
 // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-// include("config.php");
+include("config.php");
 
    ?>
 <div class="loginPaper" id="loginPaper">
@@ -140,7 +140,7 @@ Template Name: Login
             <!-- getting the data for the letter -->
             <?php
             $oprettelsesBrev = new Pod('oprettelsesbrev');
-            $oprettelsesBrev->findRecords('pagecontent ASC');
+            $oprettelsesBrev->findRecords('page_number ASC');
             $total_pages = $oprettelsesBrev->getTotalRows();
 
             while ($oprettelsesBrev->fetchRecord() ) {
@@ -172,9 +172,11 @@ Template Name: Login
       <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
             </div>
 
-            <div class="" id="paperOverlayOprettelse">
-              <img src="" alt="">
-            </div>
+            <!-- CHANGE THIS LINK TO FIT THE CORRECT PATH - CHANGELATER -->
+            <a href="https://mr.1221s.com/optagelse/" class="" id="paperOverlayOprettelse">
+              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="the next button">
+              <p>Videre</p>
+            </a>
           </div>
 
         </div>
