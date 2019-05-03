@@ -440,7 +440,7 @@ footer ul {
   transform: rotate(15deg);
 }
 
-.logIn {
+.logInForm {
   display:block;
   position:absolute;
   width:80%;
@@ -452,7 +452,7 @@ footer ul {
 
 }
 
-.logIn input {
+.logInForm input {
   width:50vw;
   min-height:35px;
   margin-bottom:20px;
@@ -471,12 +471,12 @@ footer ul {
   font-family: Arial;
 }
 
-.logIn .submitBtnLogin {
+.logInForm .submitBtnLogin {
   border-style:none;
   font-size:2em;
 }
 
-.logIn ::placeholder {
+.logInForm ::placeholder {
   color: rgba(0, 0, 0, 0.5);
   font-family:'Surabanglus', serif;
   font-size:1.2em;
