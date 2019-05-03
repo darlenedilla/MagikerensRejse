@@ -75,10 +75,10 @@ body {
     height: 40px;
     position: absolute;
     top: 20%;
-    -webkit-trans: rotate(0deg);
-    -moz-trans: rotate(0deg);
-    -o-trans: rotate(0deg);
-    trans: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
     -webkit-transition: .5s ease-in-out;
     -moz-transition: .5s ease-in-out;
     -o-transition: .5s ease-in-out;
@@ -98,10 +98,10 @@ body {
         border-radius: 9px;
         opacity: 1;
         left: 0;
-        -webkit-trans: rotate(0deg);
-        -moz-trans: rotate(0deg);
-        -o-trans: rotate(0deg);
-        trans: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
         -webkit-transition: .25s ease-in-out;
         -moz-transition: .25s ease-in-out;
         -o-transition: .25s ease-in-out;
@@ -110,33 +110,33 @@ body {
 
   #nav-icon span:nth-child(1) {
     top: 0px;
-    -webkit-trans-origin: left center;
-    -moz-trans-origin: left center;
-    -o-trans-origin: left center;
-    trans-origin: left center;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
   }
 
   #nav-icon span:nth-child(2) {
     top: 10px;
-    -webkit-trans-origin: left center;
-    -moz-trans-origin: left center;
-    -o-trans-origin: left center;
-    trans-origin: left center;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
   }
 
   #nav-icon span:nth-child(3) {
     top: 20px;
-    -webkit-trans-origin: left center;
-    -moz-trans-origin: left center;
-    -o-trans-origin: left center;
-    trans-origin: left center;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
   }
 
   #nav-icon.open span:nth-child(1) {
-    -webkit-trans: rotate(45deg);
-    -moz-trans: rotate(45deg);
-    -o-trans: rotate(45deg);
-    trans: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
     top: -3px;
     left: 8px;
   }
@@ -147,10 +147,10 @@ body {
   }
 
   #nav-icon.open span:nth-child(3) {
-    -webkit-trans: rotate(-45deg);
-    -moz-trans: rotate(-45deg);
-    -o-trans: rotate(-45deg);
-    trans: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
     top: 26px;
     left: 8px;
   }
@@ -372,7 +372,7 @@ footer ul {
   position: absolute;
   top: 50%;
   left: 50%;
-  trans: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #listOfBadges{
@@ -437,10 +437,10 @@ footer ul {
   opacity:1;
   transition-duration:.5s;
 
-  trans: rotate(15deg);
+  transform: rotate(15deg);
 }
 
-.logIn {
+.logInForm {
   display:block;
   position:absolute;
   width:80%;
@@ -452,7 +452,7 @@ footer ul {
 
 }
 
-.logIn input {
+.logInForm input {
   width:50vw;
   min-height:35px;
   margin-bottom:20px;
@@ -471,12 +471,12 @@ footer ul {
   font-family: Arial;
 }
 
-.logIn .submitBtnLogin {
+.logInForm .submitBtnLogin {
   border-style:none;
   font-size:2em;
 }
 
-.logIn ::placeholder {
+.logInForm ::placeholder {
   color: rgba(0, 0, 0, 0.5);
   font-family:'Surabanglus', serif;
   font-size:1.2em;
@@ -495,8 +495,7 @@ footer ul {
   height:auto;
   top:40%;
   left:45%;
-
-  trans: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 /* Konvolut */
@@ -519,14 +518,14 @@ footer ul {
   height:auto;
   top:65vh;
   left:0;
-  trans:rotate(-15deg);
+  transform:rotate(-15deg);
 }
 
 .startDinRejseWrapper {
   position:absolute;
   top:75vh;
   left:25vw;
-  trans:rotate(-20deg);
+  transform:rotate(-20deg);
 }
 
 .startDinRejseWrapper img {
@@ -564,7 +563,7 @@ footer ul {
   height: 0;
   border: 0 solid transparent;
   border-width: 33px 49px;
-    transition-duration: inherit;
+  transition-duration: inherit;
 }
 .envelope:before {
   border-bottom-color: #c94548;
@@ -577,7 +576,7 @@ footer ul {
   border-bottom-color: #fa565a;
   top: 0;
   border-radius: 0 0 5px 5px;
-  trans: rotate(360deg);
+  transform: rotate(360deg);
   box-shadow: 0 1px 1px rgba(0,0,0,0.25);
 }
 
@@ -846,7 +845,7 @@ first size up and go to center, then go down past the screen */
   position: absolute;
   top: 50%;
   left: 50%;
-  trans: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #listOfBadges{
@@ -1380,6 +1379,9 @@ select{
 #submit{
   background-image:url("img/registerPaper.png");
   background-size: 100% 100%;
+  background-color: transparent;
+	color: inherit;
+	border: none;
   height: 100px;
   width:150px;
   opacity: 1;
