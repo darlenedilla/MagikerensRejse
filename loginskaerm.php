@@ -1,10 +1,10 @@
-<?php
-    function setUserCookie($phoneNo){
-        $cookie_name = "user";
-        $cookie_value = $phoneNo;
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-    };
-?>
+<!-- <?php
+    // function setUserCookie($phoneNo){
+    //     $cookie_name = "user";
+    //     $cookie_value = $phoneNo;
+    //     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+    // };
+?> -->
 <?php get_header();
 /*
 Template Name: Login
@@ -68,8 +68,8 @@ if (isset($_POST['logIn'])) {
             //If the password is correct:
             $url = "../badges";
             setUserCookie($phoneNo);
-            echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
-            //echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
+            //echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
+            echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
             echo "login success";
           }
           else {

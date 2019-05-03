@@ -220,6 +220,12 @@ prevPage.addEventListener("click", function(){
 
 
 
+//OPRETTELSESFORMULAR
+
+
+
+
+
 
 /*CAMERA ACCESS TIL HVIS VI NOGENSINDE SKAL KUNNE TAGE ET BILLEDE
 

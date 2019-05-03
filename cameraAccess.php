@@ -23,37 +23,82 @@ if (!$con) {
 
 //Tjek om der er trykket på submit-knappen i formularen
 if(isset($_POST['image_upload'])){
-  //Hent filnavn fra det vedhæftede billede i formularen
-  $name = $_FILES['file']['name'];
-  //Hent sti-navnet til der hvor billedet skal gemmes
-  $target_dir = get_stylesheet_directory_uri().'/img/portraits/';
-  echo $target_dir;
-  //Referer til filnavnet inde i den angivede sti
-  $target_file = $target_dir . basename($_FILES["file"]["name"]);
+  // //Hent filnavn fra det vedhæftede billede i formularen
+  // $name = $_FILES['file']['name'];
+  // //Hent sti-navnet til der hvor billedet skal gemmes
+  // $target_dir = get_stylesheet_directory_uri().'/img/portraits/';
 
-  // Vælg den slags filtype der må gemmes
-  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  $uploadFile = $target_dir. $name;
+  // //Referer til filnavnet inde i den angivede sti
+  // $target_file = $target_dir . basename($_FILES["file"]["name"]);
+  // echo "Target file: " .$target_file;
 
-  // Fil-typer der er gyldige
-  $extensions_arr = array("jpg","jpeg","png","gif");
-
-    //Tjek om den valgte fil overholder type-reglen
-  if( in_array($imageFileType,$extensions_arr) ){
-
-  // Indsæt billedet i databasen som string
-  $query = "UPDATE user SET image = '$name' WHERE phoneNo = 28141151";
-  //$query = "UPDATE badge SET image = '$name' WHERE badgeId = 1";
+  // // Vælg den slags filtype der må gemmes
+  // $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  // $uploadFile = $target_dir. $name;
 
 
-  //Send query'en afsted - send fejlmeddelse, hvis der opstår en fejl    
-  mysqli_query($con,$query) or die(mysqli_error($con));
+  // // Fil-typer der er gyldige
+  // $extensions_arr = array("jpg","jpeg","png","gif");
+
+  //   //Tjek om den valgte fil overholder type-reglen
+  // if( in_array($imageFileType,$extensions_arr) ){
+
+  // // Indsæt billedet i databasen som string
+  // $query = "UPDATE user SET image = '$name' WHERE phoneNo = 28141151";
+  // //$query = "UPDATE badge SET image = '$name' WHERE badgeId = 1";
+  //   // Upload filen til den valgte sti
+  //   if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+  //     echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+  //   } 
+  //   else {
+  //     echo "Sorry, there was an error uploading your file.";
+  //   }
+
+  // //Send query'en afsted - send fejlmeddelse, hvis der opstår en fejl    
+  // mysqli_query($con,$query) or die(mysqli_error($con));
   
-  // Upload filen til den valgte sti
-  move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile);
-  echo $uploadFile;
+  //  }
+
+$target_dir = get_stylesheet_directory_uri() .'/img/portraits/';
+$target_file = $target_dir . basename($_FILES["file"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+    $check = getimagesize($_FILES["file"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+            echo "file: " .$target_file;
+            echo "TEMP file: " .$_FILES["file"]["tmp_name"];
+        }
+    }
+
   }
-}
 ?>
 
 
@@ -88,7 +133,7 @@ $image_src = get_stylesheet_directory_uri().'/img/portraits/'.$image;
 
 //Udskriv billedet i img-tag
 ?>
-<!-- <img style="width: 150px; height: 250px;"src='<?php echo $image_src;  ?>' > -->
+<img style="width: 150px; height: 250px;"src='<?php echo $image_src;  ?>' >
 
 <?php get_footer();?>
 
