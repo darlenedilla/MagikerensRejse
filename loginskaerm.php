@@ -47,7 +47,7 @@ Template Name: Login
   }
 
 // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-include("config.php");
+//include("config.php");
 
 // Log ind funktionalitet
 //if 'log ind' is pressed:

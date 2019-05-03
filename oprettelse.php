@@ -7,25 +7,25 @@ Template Name: Oprettelse
 <!-- CONNECTION TO SERVER -->
 
 <?php
-include("config.php");
+//include("config.php");
 // $server ="localhost";
 // $user ="root";
 // $pw ="";
 // $db = "1221s_com_magikerensrejse";
 
-// $server ="localhost";
-// $user ="Darlene";
-// $pw ="Dgs55qhk:)..";
-// $db = "1221s_com_magikerensrejse";
+$server ="localhost";
+$user ="Darlene";
+$pw ="Dgs55qhk:)..";
+$db = "1221s_com_magikerensrejse";
 
-// // Create connection
-// $conn = new mysqli($server, $user, $pw, $db);
-// //check fann_get_total_connections
-// if ($conn->connect_error) {
-//   die("Connection failed:" .$conn->connect_error);
-// } else {
-//   echo "connected succesfully";
-// }
+// Create connection
+$conn = new mysqli($server, $user, $pw, $db);
+//check fann_get_total_connections
+if ($conn->connect_error) {
+  die("Connection failed:" .$conn->connect_error);
+} else {
+  echo "connected succesfully";
+}
 // FORM FUNCTIONALITY
 
 // When submit is pressed send info to db
