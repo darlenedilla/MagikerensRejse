@@ -33,8 +33,8 @@ Template Name: Login
   //Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
   $server ="localhost";
-  $user ="Darlene";
-  $pw ="Dgs55qhk:)..";
+  $user ="root";
+  $pw ="";
   $db = "1221s_com_magikerensrejse";
 
   // Create connection
@@ -47,7 +47,7 @@ Template Name: Login
   }
 
 // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-include("config.php");
+// include("config.php");
 
 // Log ind funktionalitet
 //if 'log ind' is pressed:
@@ -137,7 +137,7 @@ if (isset($_POST['logIn'])) {
         <!-- getting the data for the letter -->
         <?php
         $oprettelsesBrev = new Pod('oprettelsesbrev');
-        $oprettelsesBrev->findRecords('pagecontent ASC');
+        $oprettelsesBrev->findRecords('page_number ASC');
         $total_pages = $oprettelsesBrev->getTotalRows();?>
 
         <?php

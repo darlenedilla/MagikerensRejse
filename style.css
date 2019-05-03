@@ -648,7 +648,7 @@ footer ul {
 }
 #paperBackArrow {
   left:15vw;
-  trans:scale(-1, 1);
+  transform:scale(-1, 1);
 }
 
 #paperOverlayOprettelse {
