@@ -92,6 +92,7 @@ envelopeOprettelse.addEventListener("click", clickOnEnvelope);
 // Go to the next page of the oprettelses brev
     var nextPage = document.getElementById('paperNextArrow');
     var prevPage = document.getElementById('paperBackArrow');
+    var lastPagePaper = document.getElementById('paperOverlayOprettelse');
     var imageScroller = document.getElementById("imageScroller");
     var click = 0;
     var imageScrollerOffsetAmount = -100;
@@ -143,6 +144,7 @@ envelopeOprettelse.addEventListener("click", clickOnEnvelope);
     }, 500);
     //make the back-btn visible
     prevPage.style.display="block";
+    lastPagePaper.style.right="-10px";
 
     imageScroller.style.left = imageScrollerOffsetAmount + "vw";
     console.log("the images are offset by:" + imageScrollerOffsetAmount);
@@ -199,6 +201,7 @@ prevPage.addEventListener("click", function(){
 
                   //enable the forward arrow again
                   nextPage.style.display="block";
+                  lastPagePaper.style.right="-40vw";
 
 
 
@@ -212,7 +215,8 @@ prevPage.addEventListener("click", function(){
 
   imageScrollerOffsetAmount = -100 * click +100;
   imageScroller.style.left = imageScrollerOffsetAmount + "vw";
-  
+  lastPagePaper.style.right="-40vw";
+
   console.log("the images are offset by:" + imageScrollerOffsetAmount);
   console.log("click:" + click);
 }

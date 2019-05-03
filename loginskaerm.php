@@ -47,7 +47,7 @@ Template Name: Login
   }
 
 // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-// include("config.php");
+include("config.php");
 
 // Log ind funktionalitet
 //if 'log ind' is pressed:
@@ -76,7 +76,7 @@ if (isset($_POST['logIn'])) {
             //if the password is incorrect:
             echo "login no success :(";
             $url ="";
-          } 
+          }
         };
       }
       else{
@@ -86,7 +86,7 @@ if (isset($_POST['logIn'])) {
               // if ($sqlLoginQuery = $mPassword) {
               //       echo "login succesful";
               // };
-    } 
+    }
     else {
       echo "please enter a phone number";
     };
@@ -163,7 +163,7 @@ if (isset($_POST['logIn'])) {
             <!-- getting the data for the letter -->
             <?php
             $oprettelsesBrev = new Pod('oprettelsesbrev');
-            $oprettelsesBrev->findRecords('pagecontent ASC');
+            $oprettelsesBrev->findRecords('page_number ASC');
             $total_pages = $oprettelsesBrev->getTotalRows();
 
             while ($oprettelsesBrev->fetchRecord() ) {
@@ -195,9 +195,11 @@ if (isset($_POST['logIn'])) {
       <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
             </div>
 
-            <div class="" id="paperOverlayOprettelse">
-              <img src="" alt="">
-            </div>
+            <!-- CHANGE THIS LINK TO FIT THE CORRECT PATH - CHANGELATER -->
+            <a href="https://mr.1221s.com/optagelse/" class="" id="paperOverlayOprettelse">
+              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="the next button">
+              <p>Videre</p>
+            </a>
           </div>
 
         </div>
