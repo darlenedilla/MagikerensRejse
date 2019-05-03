@@ -27,6 +27,73 @@ Template Name: Login
 
 <section class="mainsection">
 
+  <?php
+  //Connect to server
+  //COMMENT THIS OUT WHEN UPLOADING TO LIVE
+  $server ="localhost";
+  $user ="root";
+  $pw ="";
+  $db = "1221s_com_magikerensrejse";
+
+  // Create connection
+  $conn = new mysqli($server, $user, $pw, $db);
+  //check fann_get_total_connections
+  if ($conn->connect_error) {
+    die("Connection failed:" .$conn->connect_error);
+  } else {
+    echo '<script>console.log("connected succesfully")</script>';
+  }
+
+// UN-COMMENT THIS WHEN UPLOADING TO LIVE
+// include("config.php");
+
+// Log ind funktionalitet
+//if 'log ind' is pressed:
+if (isset($_POST['logIn'])) {
+  $phoneNo = $_POST['phoneNo'];
+  $mPassword = $_POST['mPassword'];
+  $url = "";
+    //only do this if a phone number has been entered
+    if (isset($_POST['phoneNo'])) {
+    //sql query to ask for the password where it matches the phone number given
+    $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = '$phoneNo'";
+      $sqlLoginQuery = $conn->query($sqlCheckLogin);
+      if($sqlLoginQuery->num_rows > 0){
+        while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
+
+          $sqlPassword = $sqlQueryResult['mPassword'];
+          if ($sqlQueryResult['mPassword'] === $mPassword) {
+            //If the password is correct:
+            $url = "../badges";
+            setUserCookie($phoneNo);
+            //echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
+            echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
+            echo "login success";
+          }
+          else {
+            //if the password is incorrect:
+            echo "login no success :(";
+            $url ="";
+          }
+        };
+      }
+      else{
+        echo "0 results";
+      }
+            //checks if the password from the server is the same as the one entered
+              // if ($sqlLoginQuery = $mPassword) {
+              //       echo "login succesful";
+              // };
+    }
+    else {
+      echo "please enter a phone number";
+    };
+};
+
+
+
+
+   ?>
 <div class="loginPaper" id="loginPaper">
   <!-- background image to login information -->
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="loginPaper" class="loginPaperBG">
