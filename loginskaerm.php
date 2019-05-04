@@ -1,14 +1,14 @@
-<!-- <?php
-    // function setUserCookie($phoneNo){
-    //     $cookie_name = "user";
-    //     $cookie_value = $phoneNo;
-    //     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-    // };
-?> -->
 <?php get_header();
 /*
 Template Name: Login
 */
+?>
+<?php
+    function setUserCookie($phoneNo){
+        $cookie_name = "user";
+        $cookie_value = $phoneNo;
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+    };
 ?>
 
 
@@ -28,8 +28,6 @@ Template Name: Login
 <section class="mainsection">
 
   <?php
-
-
   //Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
   $server ="localhost";
@@ -103,7 +101,7 @@ if (isset($_POST['logIn'])) {
 
 
       <!-- Log ind form -->
-      <form id="loginForm" class="logInForm" method="post" >
+      <form id="loginForm" class="logInForm" method="post" action="">
 
             <!-- 'brugernavn' -->
             <input type="number" name="phoneNo" value="" placeholder="Telefonummer..."><br/>
@@ -205,7 +203,68 @@ if (isset($_POST['logIn'])) {
       </div>
 
 </section>
-<!-- baggrundsbillede -->
+  <!-- baggrundsbillede -->
   <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/login.jpg" alt="background">
 </body>
 </html>
+
+<?php
+
+
+//Connect to server
+//COMMENT THIS OUT WHEN UPLOADING TO LIVE
+// $server ="localhost";
+// $user ="Darlene";
+// $pw ="Dgs55qhk:)..";
+// $db = "1221s_com_magikerensrejse";
+
+// // Create connection
+// $conn = new mysqli($server, $user, $pw, $db);
+// //check fann_get_total_connections
+// if ($conn->connect_error) {
+//   die("Connection failed:" .$conn->connect_error);
+// } else {
+//   echo '<script>console.log("connected succesfully")</script>';
+// }
+
+// UN-COMMENT THIS WHEN UPLOADING TO LIVE
+include("config.php");
+
+// Log ind funktionalitet
+//if 'log ind' is pressed:
+if (isset($_POST['logIn'])) {
+  global $wp;
+  $homeUrl = home_url($wp->request);
+  $badgeUrl = "https://mr.1221s.com/badge/";
+  $phoneNo = $_POST['phoneNo'];
+  $mPassword = $_POST['mPassword'];
+
+  //sql query to ask for the password where it matches the phone number given
+  $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = $phoneNo";
+    $sqlLoginQuery = $con->query($sqlCheckLogin);
+
+    if($sqlLoginQuery->num_rows > 0){
+      while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
+        $sqlPassword = $sqlQueryResult['mPassword'];
+          if ($sqlQueryResult['mPassword'] === $mPassword) {
+            //If the password is correct:
+            setUserCookie($phoneNo);
+            echo "Cookie value is: " .$_COOKIE['user'];
+            //echo C"<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
+            //echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
+            echo "login success";
+          }
+          else {
+            //if the password is incorrect:
+            echo "login no success :(";
+          }
+      }
+    }
+    else{
+      echo "0 results";
+    }
+}
+else{
+  echo "Something went wrong with sending the form";
+};
+?>
