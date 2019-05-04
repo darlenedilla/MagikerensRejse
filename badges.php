@@ -5,10 +5,15 @@ Template name: slider
 
 //include("config.php");
 // Fetch user data from database
-$host = "localhost"; /* Host name */
-$user = "Darlene"; /* User */
-$password = "Dgs55qhk:).."; /* Password */
-$dbname = "1221s_com_magikerensrejse"; /* Database name */
+// $host = "localhost"; /* Host name */
+// $user = "Darlene"; /* User */
+// $password = "Dgs55qhk:).."; /* Password */
+// $dbname = "1221s_com_magikerensrejse"; /* Database name */
+
+$host ="localhost";
+$user ="root";
+$password ="";
+$dbname = "1221s_com_magikerensrejse";
 
 //Create connection
 $con = mysqli_connect($host, $user, $password,$dbname);
@@ -39,7 +44,7 @@ $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $user";
 
         echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
 
-        
+
 
 ?>
 
@@ -71,7 +76,7 @@ $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $user";
                 <img id="kost" class="badgeImg bottom-left" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/broomBadge.png">
                 <img id="snitch" class="badgeImg bottom-right" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/snitchBadge.png">
             </div>
-            <div class="badge slickItem" id="dragetaemmer"> 
+            <div class="badge slickItem" id="dragetaemmer">
                 <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/drage/drageBadge.png">
                 <img id="egg" class="badgeImg top-left" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/eggBadge.png">
                 <img id="foldDrage" class="badgeImg top-right" src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/dragonBadge.png">
@@ -98,3 +103,5 @@ $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $user";
         $(".slickContainer").slick().slick('slickFilter', '.slickItem');
     });
   </script>
+
+  <?php get_footer(); ?>

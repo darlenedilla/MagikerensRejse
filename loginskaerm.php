@@ -137,11 +137,10 @@ if (isset($_POST['logIn'])) {
         <!-- getting the data for the letter -->
         <?php
         $oprettelsesBrev = new Pod('oprettelsesbrev');
+        // $oprettelsesBrev->findRecords('page_number ASC');
         $oprettelsesBrev->findRecords('page_number ASC');
-        $total_pages = $oprettelsesBrev->getTotalRows();?>
-
-        <?php
-        while ($oprettelsesBrev->fetchRecord() ) {
+        $total_pages = $oprettelsesBrev->getTotalRows();
+        while ($oprettelsesBrev->fetchRecord('page_number ASC') ) {
           $pageImg = $oprettelsesBrev->get_field('image.guid');?>
 
         <div class="imageScrollerWrapper" id="imageScrollerImages">
