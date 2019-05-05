@@ -222,6 +222,7 @@ prevPage.addEventListener("click", function(){
 }
 }); //end of arrow backward eventlistener
 
+// THE BADGES HOMESCREEN
 
 
 //OPRETTELSESFORMULAR
