@@ -1315,14 +1315,9 @@ first size up and go to center, then go down past the screen */
 #createUserForm input, select{
   font-family: Surabanglus, serif;
   font-size: 12pt;
-  padding-left: 5px;
   border-radius: 8px;
   border: solid 1px #232323;
-}
-
-select{
-  padding-bottom: 10px;
-  font-size: 12pt;
+  padding-left: 5px;
 }
 
 .small-input{
@@ -1331,6 +1326,19 @@ select{
 
 .large-input{
   width: 160px;
+}
+
+select{
+  padding-bottom: 10px;
+  font-size: 12pt;
+}
+
+.small-select{
+  width: 87px;
+}
+
+.large-select{
+  width: 167px;
 }
 
 #createUserForm input:last-child{
@@ -1345,7 +1353,6 @@ select{
   display: block;
   text-align: center;
   padding-bottom: 50px;
-  border: solid;
 }
 
 .formSection h3{
@@ -1426,9 +1433,14 @@ input[type="file"] {
   margin-top: 20%;
 }
 
-.fa-camera-retro{
+.fa-camera{
   font-size: 50px;
-  color: #232323;
+  color: #D1B751;
+  width: 87px;
+  height: 60px;
+  padding-top: 10px;
+  border-radius: 8px;
+  background-color: #8E4B55;
 }
 
 

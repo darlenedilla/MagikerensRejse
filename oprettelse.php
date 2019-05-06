@@ -8,7 +8,7 @@ Template Name: Oprettelse
 
 <?php
 //UN-COMMENT WHEN UPLOADING TO LIVE
-include("config.php");
+//include("config.php");
 
 //COMMENT OUT WHEN UPLOADING TO LIVE
 //Nanna connect to server
@@ -18,19 +18,19 @@ include("config.php");
 // $db = "1221s_com_magikerensrejse";
 
 //Darlene connect to server
-// $server ="localhost";
-// $user ="Darlene";
-// $pw ="Dgs55qhk:)..";
-// $db = "1221s_com_magikerensrejse";
+$server ="localhost";
+$user ="Darlene";
+$pw ="Dgs55qhk:)..";
+$db = "1221s_com_magikerensrejse";
 
-// // Create connection
-// $con = new mysqli($server, $user, $pw, $db);
-// //check fann_get_total_connections
-// if ($con->connect_error) {
-//   die("Connection failed:" .$con->connect_error);
-// } else {
-//   echo "connected succesfully";
-// }
+// Create connection
+$con = new mysqli($server, $user, $pw, $db);
+//check fann_get_total_connections
+if ($con->connect_error) {
+  die("Connection failed:" .$con->connect_error);
+} else {
+  echo "connected succesfully";
+}
 
 
 // FORM FUNCTIONALITY
@@ -113,7 +113,7 @@ include("config.php");
 
         
         <!-- <label for="area">Område</label> -->
-        <select class="area large-input" name="area">
+        <select class="area large-select" name="area">
           <option selected>Område</option>
           <option value="1">Fyn</option>
           <option value="2">Sjælland</option>
@@ -124,7 +124,7 @@ include("config.php");
 
         <!-- <label for="gender">Køn</label> -->
         <!-- find a better solution -->
-        <select class="small-input" name="gender">
+        <select id="gender" class="small-select" name="gender">
           <option selected>Køn</option>
           <option value="1">Pige</option>
           <option value="0">Dreng</option>
@@ -141,33 +141,33 @@ include("config.php");
       <div id="secondFormSection" class="formSection">
         <h3>Beskriv din indre magiker</h3>
         <!-- <label for="mName">Magisk Navn</label> -->
-        <input class="large-input" id="mName" type="text" name="mName" placeholder="Magisk Navn"><br/>
+        <input class="large-input" id="mName" type="text" name="mName" placeholder="Magisk Navn">
 
         <!-- <label for="house">hus</label> -->
-        <select class="houseDropDown large-input" name="house">
+        <select class="houseDropDown small-select" name="house">
           <option selected>Hus</option>
           <option value="1">Ild</option>
           <option value="2">Jord</option>
           <option value="3">Luft</option>
           <option value="4">Vand</option>
-        </select> <br/>
+        </select><br/>
+        
+        <!-- <label for="pet">Kæledyr</label> -->
+        <select class="petDropDown small-select" name="pet">
+          <option selected>Kæledyr</option>
+          <option value="1">Kat</option>
+          <option value="2">Ugle</option>
+          <option value="3">Tudse</option>
+        </select>
 
         <!-- <label for="blood">Blodstatus</label> -->
-        <select class="bloodDropDown large-input" name="blood">
+        <select class="bloodDropDown large-select" name="blood">
           <option selected>Blodstatus</option>
           <option value="1">Fuldblods</option>
           <option value="2">Halvblods</option>
           <option value="3">Fumlerfødt</option>
           <option value="4">Vand</option>
-        </select> <br/>
-
-        <!-- <label for="pet">Kæledyr</label> -->
-        <select class="petDropDown large-input" name="pet">
-          <option selected>Kæledyr</option>
-          <option value="1">Kat</option>
-          <option value="2">Ugle</option>
-          <option value="3">Tudse</option>
-        </select> <br/>
+        </select>
       </div><!--END OF SECOND FORM SECTION-->
 
       <!-- third part of form -->
@@ -175,7 +175,7 @@ include("config.php");
         <h3>Magisk Portræt</h3>
         <!-- INDSÆT KAMERA FUNKTION -->
         <label for="image" class="custom-file-upload">
-        <i class="fas fa-camera-retro"></i><br/>
+        <i class="fas fa-camera"></i><br/>
         Vælg et billede fra telefonen
         </label>
         <input id="image" type="file" name="image">
