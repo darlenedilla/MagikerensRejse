@@ -23,46 +23,11 @@ if (!$con) {
 
 //Tjek om der er trykket på submit-knappen i formularen
 if(isset($_POST['image_upload'])){
-  // //Hent filnavn fra det vedhæftede billede i formularen
-  // $name = $_FILES['file']['name'];
-  // //Hent sti-navnet til der hvor billedet skal gemmes
-  // $target_dir = get_stylesheet_directory_uri().'/img/portraits/';
 
-  // //Referer til filnavnet inde i den angivede sti
-  // $target_file = $target_dir . basename($_FILES["file"]["name"]);
-  // echo "Target file: " .$target_file;
-
-  // // Vælg den slags filtype der må gemmes
-  // $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  // $uploadFile = $target_dir. $name;
-
-
-  // // Fil-typer der er gyldige
-  // $extensions_arr = array("jpg","jpeg","png","gif");
-
-  //   //Tjek om den valgte fil overholder type-reglen
-  // if( in_array($imageFileType,$extensions_arr) ){
-
-  // // Indsæt billedet i databasen som string
-  // $query = "UPDATE user SET image = '$name' WHERE phoneNo = 28141151";
-  // //$query = "UPDATE badge SET image = '$name' WHERE badgeId = 1";
-  //   // Upload filen til den valgte sti
-  //   if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-  //     echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-  //   } 
-  //   else {
-  //     echo "Sorry, there was an error uploading your file.";
-  //   }
-
-  // //Send query'en afsted - send fejlmeddelse, hvis der opstår en fejl    
-  // mysqli_query($con,$query) or die(mysqli_error($con));
-  
-  //  }
-
-$target_dir = get_stylesheet_directory_uri() .'/img/portraits/';
-$target_file = $target_dir . basename($_FILES["file"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $target_dir = get_stylesheet_directory_uri() .'/img/portraits/';
+    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
     $check = getimagesize($_FILES["file"]["tmp_name"]);
     if($check !== false) {
@@ -120,14 +85,14 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 <!--HER VISES DET BILLEDE SOM ER GEMT PÅ BRUGEREN MED TELEFONNUMMER 28141151-->
 <?php
 //Hent billedet fra databasen
-$sql = "SELECT image FROM user WHERE phoneNo= 28141151";
+$selectUserImageSql = "SELECT image FROM user WHERE phoneNo= 28141151";
 //Send query'en afsted
-$result = mysqli_query($con,$sql);
+$selectUserImageQuery = mysqli_query($con,$selectUserImageSql);
 //Lav et array med de resultater der kommer ud fra vores sql
-$row = mysqli_fetch_array($result);
+$selectUserImageRow = mysqli_fetch_array($selectUserImageQuery);
 
 //Tag image-attributten fra tabellen
-$image = $row['image'];
+$image = $selectUserImageRow['image'];
 //Lav en src-sti til billedet
 $image_src = get_stylesheet_directory_uri().'/img/portraits/'.$image;
 

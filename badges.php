@@ -3,46 +3,50 @@
 Template name: slider
 */
 
-//include("config.php");
-// Fetch user data from database
-// $host = "localhost"; /* Host name */
-// $user = "Darlene"; /* User */
-// $password = "Dgs55qhk:).."; /* Password */
-// $dbname = "1221s_com_magikerensrejse"; /* Database name */
+  // UN-COMMENT THIS WHEN UPLOADING TO LIVE
+  include("config.php");
 
-$host ="localhost";
-$user ="root";
-$password ="";
-$dbname = "1221s_com_magikerensrejse";
+  //Darlene Connect to server
+  // $server ="localhost";
+  // $user ="Darlene";
+  // $pw ="Dgs55qhk:)..";
+  // $db = "1221s_com_magikerensrejse";
 
-//Create connection
-$con = mysqli_connect($host, $user, $password,$dbname);
+  //Nanna Connect to server
+  //COMMENT THIS OUT WHEN UPLOADING TO LIVE
+  // $server ="localhost";
+  // $user ="root";
+  // $pw ="";
+  // $db = "1221s_com_magikerensrejse";
 
-// Check connection
-if (!$con) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-$user = 28141151; //SKAL LAVES OM SÅ DEN FINDER DEN BRUGER DER ER LOGGET IND!!!!
+  // Create connection
+  // $con = new mysqli($server, $user, $pw, $db);
+  // //check fann_get_total_connections
+  // if ($con->connect_error) {
+  //   die("Connection failed:" .$con->connect_error);
+  // } else {
+  //   echo '<script>console.log("connected succesfully")</script>';
+  // }
 
-$fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $user";
+    $user = 28141151; //SKAL LAVES OM SÅ DEN FINDER DEN BRUGER DER ER LOGGET IND!!!!
 
+    $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $user";
 
+    $fetchUserQuery = $con->query($fetchUser);
 
-        $result = $con->query($fetchUser);
-
-        if($result->num_rows > 0){
-            //output data of each row
-            while($row = $result->fetch_assoc()){
-                //Variables to use in html
-            $magicalName = $row['magicalName'];
-            }
-        }
-        else{
-            echo "0 results";
-        };
-        $cookie_name = "user";
-
-        echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
+    if($fetchUserQuery->num_rows > 0){
+      //output data of each row
+      while($fetchUserRow= $fetchUserQuery->fetch_assoc()){
+        //Variables to use in html
+        $magicalName = $fetchUserRow['magicalName'];
+      }
+    }
+    else{
+      echo "0 results";
+    };
+    
+    $cookie_name = "user";
+    echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
 
 
 

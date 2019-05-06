@@ -28,72 +28,71 @@ Template Name: Login
 <section class="mainsection">
 
   <?php
-  //Connect to server
+  // UN-COMMENT THIS WHEN UPLOADING TO LIVE
+  include("config.php");
+
+  //Darlene Connect to server
+  // $server ="localhost";
+  // $user ="Darlene";
+  // $pw ="Dgs55qhk:)..";
+  // $db = "1221s_com_magikerensrejse";
+
+  //Nanna Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
-  $server ="localhost";
-  $user ="root";
-  $pw ="";
-  $db = "1221s_com_magikerensrejse";
+  // $server ="localhost";
+  // $user ="root";
+  // $pw ="";
+  // $db = "1221s_com_magikerensrejse";
 
   // Create connection
-  $conn = new mysqli($server, $user, $pw, $db);
-  //check fann_get_total_connections
-  if ($conn->connect_error) {
-    die("Connection failed:" .$conn->connect_error);
-  } else {
-    echo '<script>console.log("connected succesfully")</script>';
-  }
+  // $con = new mysqli($server, $user, $pw, $db);
+  // //check fann_get_total_connections
+  // if ($con->connect_error) {
+  //   die("Connection failed:" .$con->connect_error);
+  // } else {
+  //   echo '<script>console.log("connected succesfully")</script>';
+  // }
 
-// UN-COMMENT THIS WHEN UPLOADING TO LIVE
-// include("config.php");
 
 // Log ind funktionalitet
 //if 'log ind' is pressed:
-if (isset($_POST['logIn'])) {
-  $phoneNo = $_POST['phoneNo'];
-  $mPassword = $_POST['mPassword'];
-  $url = "";
-    //only do this if a phone number has been entered
-    if (isset($_POST['phoneNo'])) {
+  if (isset($_POST['logIn'])) {
+    global $wp;
+    $homeUrl = home_url($wp->request);
+    $badgeUrl = "https://mr.1221s.com/badge/";
+    $phoneNo = $_POST['phoneNo'];
+    $mPassword = $_POST['mPassword'];
+  
     //sql query to ask for the password where it matches the phone number given
-    $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = '$phoneNo'";
-      $sqlLoginQuery = $conn->query($sqlCheckLogin);
+    $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = $phoneNo";
+      $sqlLoginQuery = $con->query($sqlCheckLogin);
+  
       if($sqlLoginQuery->num_rows > 0){
         while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
-
           $sqlPassword = $sqlQueryResult['mPassword'];
-          if ($sqlQueryResult['mPassword'] === $mPassword) {
-            //If the password is correct:
-            $url = "../badges";
-            setUserCookie($phoneNo);
-            //echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
-            echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
-            echo "login success";
-          }
-          else {
-            //if the password is incorrect:
-            echo "login no success :(";
-            $url ="";
-          }
-        };
+            if ($sqlQueryResult['mPassword'] === $mPassword) {
+              //If the password is correct:
+              setUserCookie($phoneNo);
+              echo "Cookie value is: " .$_COOKIE['user'];
+              //echo C"<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
+              //echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
+              echo "login success";
+            }
+            else {
+              //if the password is incorrect:
+              echo "login no success :(";
+            }
+        }
       }
       else{
         echo "0 results";
       }
-            //checks if the password from the server is the same as the one entered
-              // if ($sqlLoginQuery = $mPassword) {
-              //       echo "login succesful";
-              // };
-    }
-    else {
-      echo "please enter a phone number";
-    };
-};
+  }
+  else{
+    echo "Something went wrong with sending the form";
+  };
+?>
 
-
-
-
-   ?>
 <div class="loginPaper" id="loginPaper">
   <!-- background image to login information -->
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="loginPaper" class="loginPaperBG">
@@ -210,61 +209,4 @@ if (isset($_POST['logIn'])) {
 
 <?php
 
-
-//Connect to server
-//COMMENT THIS OUT WHEN UPLOADING TO LIVE
-// $server ="localhost";
-// $user ="Darlene";
-// $pw ="Dgs55qhk:)..";
-// $db = "1221s_com_magikerensrejse";
-
-// // Create connection
-// $conn = new mysqli($server, $user, $pw, $db);
-// //check fann_get_total_connections
-// if ($conn->connect_error) {
-//   die("Connection failed:" .$conn->connect_error);
-// } else {
-//   echo '<script>console.log("connected succesfully")</script>';
-// }
-
-// UN-COMMENT THIS WHEN UPLOADING TO LIVE
-include("config.php");
-
-// Log ind funktionalitet
-//if 'log ind' is pressed:
-if (isset($_POST['logIn'])) {
-  global $wp;
-  $homeUrl = home_url($wp->request);
-  $badgeUrl = "https://mr.1221s.com/badge/";
-  $phoneNo = $_POST['phoneNo'];
-  $mPassword = $_POST['mPassword'];
-
-  //sql query to ask for the password where it matches the phone number given
-  $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = $phoneNo";
-    $sqlLoginQuery = $con->query($sqlCheckLogin);
-
-    if($sqlLoginQuery->num_rows > 0){
-      while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
-        $sqlPassword = $sqlQueryResult['mPassword'];
-          if ($sqlQueryResult['mPassword'] === $mPassword) {
-            //If the password is correct:
-            setUserCookie($phoneNo);
-            echo "Cookie value is: " .$_COOKIE['user'];
-            //echo C"<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
-            //echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
-            echo "login success";
-          }
-          else {
-            //if the password is incorrect:
-            echo "login no success :(";
-          }
-      }
-    }
-    else{
-      echo "0 results";
-    }
-}
-else{
-  echo "Something went wrong with sending the form";
-};
 ?>

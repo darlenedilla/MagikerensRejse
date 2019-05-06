@@ -5,77 +5,85 @@ Template Name: Retning
 */
 ?>
 <?php
+  // UN-COMMENT THIS WHEN UPLOADING TO LIVE
+  // include("config.php");
 
-include("config.php");
-//Fetch user data from database
-// $host = "localhost"; /* Host name */
-// $user = "Darlene"; /* User */
-// $password = "Dgs55qhk:).."; /* Password */
-// $dbname = "1221s_com_magikerensrejse"; /* Database name */
-//
-// //Create connection
-// $con = mysqli_connect($host, $user, $password,$dbname);
-//
-// // Check connection
-// if (!$con) {
-//   die("Connection failed: " . mysqli_connect_error());
-//   $sql1 = "";
-// }
+  //Darlene Connect to server
+  // $server ="localhost";
+  // $user ="Darlene";
+  // $pw ="Dgs55qhk:)..";
+  // $db = "1221s_com_magikerensrejse";
+
+  //Nanna Connect to server
+  //COMMENT THIS OUT WHEN UPLOADING TO LIVE
+  // $server ="localhost";
+  // $user ="root";
+  // $pw ="";
+  // $db = "1221s_com_magikerensrejse";
+
+  // Create connection
+  // $con = new mysqli($server, $user, $pw, $db);
+  // //check fann_get_total_connections
+  // if ($con->connect_error) {
+  //   die("Connection failed:" .$con->connect_error);
+  // } else {
+  //   echo '<script>console.log("connected succesfully")</script>';
+  // }
 
         $user = 28141151; //DETTE SKAL RETTES TIL SÅ DEN TAGER DEN BRUGER DER ER LOGGET IND
 
         if(isset($_POST['magiker'])){
-            $sql1 = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Magiker'";
-            $result1 = $con->query($sql1);
+            $selectUserSql = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Magiker'";
+            $selectUserQuery = $con->query($selectUserSql);
         }
 
         if(isset($_POST['alkymist'])){
-            $sql1 = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Alkymist'";
-            $result1 = $con->query($sql1);
+            $selectUserSql = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Alkymist'";
+            $selectUserQuery = $con->query($selectUserSql);
 
         }
 
         if(isset($_POST['quidditch'])){
-            $sql1 = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Quidditch Stjerne'";
-            $result1 = $con->query($sql1);
+            $selectUserSql = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Quidditch Stjerne'";
+            $selectUserQuery = $con->query($selectUserSql);
         }
 
         if(isset($_POST['dragetaemmer'])){
-            $sql1 = "SELECT journey.journeyId FROM journey WHERE journey.name LIKE 'Draget%'";
-            $result1 = $con->query($sql1);
+            $selectUserSql = "SELECT journey.journeyId FROM journey WHERE journey.name LIKE 'Draget%'";
+            $selectUserQuery = $con->query($selectUserSql);
         }
 
         if(isset($_POST['erfaren'])){
-            $sql1 = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Erfaren'";
-            $result1 = $con->query($sql1);
+            $selectUserSql = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Erfaren'";
+            $selectUserQuery = $con->query($selectUserSql);
         }
 
             //SQL1 QUERY TO FETCH JOURNEYID
-            if($result1->num_rows > 0){
+            if($selectUserQuery->num_rows > 0){
                 //output data of each row
-                while($row1 = $result1->fetch_assoc()){
+                while($selectUserRow = $selectUserQuery->fetch_assoc()){
                     //Variables to use in html
-                    $journeyId = $row1['journeyId'];
+                    $journeyId = $selectUserRow['journeyId'];
                 }
 
                 //SQL2 QUERY TO INSERT DATA INTO USERJOURNEY ENTITY
-                    $sql2 = "INSERT INTO userjourney(userId,journeyId) VALUES ($user,$journeyId)";
-                    $result2 = $con->query($sql2);
+                    $insertUserJourneySql = "INSERT INTO userjourney(userId,journeyId) VALUES ($user,$journeyId)";
+                    $insertUserJourneyQuery = $con->query($insertUserJourneySql);
             }
 
-            $sql3 = "SELECT user.age FROM user WHERE phoneNo = $user";
+            $selectUserAgeSql = "SELECT user.age FROM user WHERE phoneNo = $user";
 
-                    $result3 = $con->query($sql3);
+                    $selectUserAgeQuery = $con->query($selectUserAgeSql);
 
-                    if($result3->num_rows > 0){
+                    if($selectUserAgeQuery->num_rows > 0){
                         //output data of each row
-                        while($row3 = $result3->fetch_assoc()){
+                        while($selectUserAgeRow = $selectUserAgeQuery->fetch_assoc()){
                             //Variables to use in html
-                            $userAge = $row3['age'];
+                            $userAge = $selectUserAgeRow['age'];
                         }
                     }
 
-$con->close();
+            $con->close();
 
 
 ?>

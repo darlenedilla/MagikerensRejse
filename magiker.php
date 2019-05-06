@@ -5,16 +5,25 @@ Template Name: magiker
 */
 ?>
 <?php
-
+//COMMENT THIS OUT WHEN LOCAL
 include("config.php");
-// Fetch user data from database
-// $host = "localhost"; /* Host name */
-// $user = "Darlene"; /* User */
-// $password = "Dgs55qhk:).."; /* Password */
-// $dbname = "1221s_com_magikerensrejse"; /* Database name */
+
+//Darlene connect to server
+// COMMENT THIS OUT WHEN UPLOADING TO LIVE
+// $server = "localhost";
+// $user = "Darlene"; 
+// $pw = "Dgs55qhk:).."; 
+// $db = "1221s_com_magikerensrejse"; 
+
+//Nanna Connect to server
+//COMMENT THIS OUT WHEN UPLOADING TO LIVE
+//  $server ="localhost";
+//  $user ="root";
+//  $pw ="";
+//  $db = "1221s_com_magikerensrejse";
 
 // //Create connection
-// $con = mysqli_connect($host, $user, $password,$dbname);
+// $con = mysqli_connect($server, $user, $pw,$db);
 
 // // Check connection
 // if (!$con) {
@@ -23,17 +32,17 @@ include("config.php");
 
 //HER HENTES SOM ER GEMT PÅ BRUGEREN MED TELEFONNUMMER 28141151-->
 //Hent billedet fra databasen
-$sql = "SELECT image FROM user WHERE phoneNo= 28141151";
+$selectUserSql = "SELECT image FROM user WHERE phoneNo= 28141151";
 //Send query'en afsted
-$result1 = mysqli_query($con,$sql);
+$selectUserQuery = mysqli_query($con,$selectUserSql);
 //Lav et array med de resultater der kommer ud fra vores sql
-$row1 = mysqli_fetch_array($result1);
+$selectUserRow = mysqli_fetch_array($selectUserQuery);
 
 //Tag image-attributten fra tabellen
-$imageName = $row1['image'];
+$imageName = $selectUserRow['image'];
 
 
-$query = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseName, pets.name AS petName, journey.name AS journeyName 
+$selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseName, pets.name AS petName, journey.name AS journeyName 
             FROM user, bloodtype, house, pets, journey, userjourney
             WHERE user.phoneNo = 28141151 
             AND bloodtype.bloodTypeId = user.bloodTypeId
@@ -43,17 +52,17 @@ $query = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseN
             AND userjourney.userId = user.phoneNo";
 
 
-        $result2 = $con->query($query);
+        $selectInfoQuery = $con->query($selectInfoSql);
 
-        if($result2->num_rows > 0){
+        if($selectInfoQuery->num_rows > 0){
             //output data of each row
-            while($row2 = $result2->fetch_assoc()){
+            while($selectInfoRow = $selectInfoQuery->fetch_assoc()){
                 //Variables to use in html
-            $magicalName = $row2['magicalName'];
-            $journeyName = $row2['journeyName'];
-            $houseName = $row2['houseName'];
-            $bloodTypeName = $row2['bloodTypeName'];
-            $petName = $row2['petName'];
+            $magicalName = $selectInfoRow['magicalName'];
+            $journeyName = $selectInfoRow['journeyName'];
+            $houseName = $selectInfoRow['houseName'];
+            $bloodTypeName = $selectInfoRow['bloodTypeName'];
+            $petName = $selectInfoRow['petName'];
             }
         }
         else{
@@ -61,20 +70,20 @@ $query = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseN
         };
 
 
-        $badgeQuery = "SELECT badge.image as badgeImg 
+        $selectBadgeSql = "SELECT badge.image as badgeImg 
                         FROM badge, userbadge 
                         WHERE userbadge.userId = 28141151
                         AND userbadge.badgeId = badge.badgeId
                         AND userbadge.badgeId IN (1,2,3,4) 
                         GROUP BY badge.image;";
 
-         $result3 = $con->query($badgeQuery);
-         if($result3->num_rows > 0){
+         $selectBadgeQuery = $con->query($selectBadgeSql);
+         if($selectBadgeQuery->num_rows > 0){
              //output data of each row
-             while($row3 = $result3->fetch_assoc()){
+             while($selectBadgeRow = $selectBadgeQuery->fetch_assoc()){
                  //Variables to use in html
                  //echo $row3['badgeImg'] .'</br>';
-                 $arrayOfBadges[$row3['badgeImg']][] = $result3;
+                 $arrayOfBadges[$selectBadgeRow['badgeImg']][] = $selectBadgeQuery;
             }
          }
          else{
