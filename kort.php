@@ -1394,150 +1394,112 @@ Template Name: Kort
       <path class="cls-116" d="M384.73,1402.94c0,7.36,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.69-18.78c7.65-2.1,13.19-8.32,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M422.49,1402.94c0-9.08-8.46-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Den fortryllende arkade</title>
       <text class="cls-241" transform="translate(424.13 1371.09)">8</text>
-    </a>
     <g>
       <path class="cls-116" d="M444.09,1285.32c0,7.35,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.69-18.78c7.65-2.1,13.19-8.33,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M481.85,1285.32c0-9.08-8.46-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Trædrejerens Værksted</title>
       <text class="cls-242" transform="translate(484.96 1252.14)">3</text>
-    </a>
     <g>
       <path class="cls-116" d="M744.82,1288.9c0,7.35,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.69-18.78c7.65-2.1,13.19-8.33,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M782.58,1288.9c0-9.08-8.46-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Botanik og eliksir</title>
       <text class="cls-242" transform="translate(785.68 1255.04)">7</text>
-    </a>
     <g>
       <path class="cls-116" d="M929.2,747.07c0,7.36,5.54,13.58,13.18,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.32,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M967,747.07c0-9.08-8.45-16.44-18.88-16.44S929.2,738,929.2,747.07" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Filmkoncert på ODEON</title>
       <text class="cls-241" transform="translate(967.82 715.38)">2</text>
-    </a>
     <g>
       <path class="cls-116" d="M919.67,1167c0,7.35,5.54,13.58,13.19,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M957.43,1167c0-9.08-8.45-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Eliksirkrypten</title>
       <text class="cls-242" transform="translate(961.54 1133.32)">1</text>
-    </a>
     <g>
       <path class="cls-116" d="M332.88,1158.82c0,7.35,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M370.64,1158.82c0-9.08-8.45-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Magiske dyrs pasning og pleje</title>
       <text class="cls-241" transform="translate(372.51 1127.34)">9</text>
-    </a>
     <g>
       <path class="cls-116" d="M330.35,261.2c0,7.35,5.54,13.57,13.18,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.11,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M368.1,261.2c0-9.08-8.45-16.44-18.88-16.44s-18.87,7.36-18.87,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Storms Pakhus</title>
       <text class="cls-241" transform="translate(370.04 231.93)">6</text>
-    </a>
     <g>
       <path class="cls-116" d="M225,1322c0,7.35,5.54,13.58,13.19,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M262.71,1322c0-9.08-8.45-16.44-18.88-16.44S225,1312.87,225,1322" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Sy din egen kappe</title>
       <text class="cls-241" transform="translate(264.19 1291.68)">4</text>
-    </a>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Fold din egen drage</title>
       <text class="cls-241" transform="translate(260.54 1330.31)">5</text>
-    </a>
     <g>
       <path class="cls-116" d="M723.83,1172.81c0,7.35,5.54,13.57,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.69-18.78c7.65-2.11,13.19-8.33,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M761.59,1172.81c0-9.08-8.45-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Nordheims Trolddomsakademi</title>
       <text class="cls-242" transform="translate(758.42 1138.95)">10</text>
-    </a>
     <g>
       <path class="cls-116" d="M1088.12,893.81c0,7.35,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.69-13.59,5.69-18.78c7.64-2.1,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M1125.87,893.81c0-9.08-8.45-16.44-18.87-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Spøgelseshistorier - Møntergården</title>
       <text class="cls-242" transform="translate(1122.7 859.95)">11</text>
-    </a>
     <g>
       <path class="cls-116" d="M939.53,1179.62c0,7.35,5.54,13.57,13.18,15.68,4,5.18,5.7,18.78,5.7,18.78s1.7-13.6,5.69-18.78c7.65-2.11,13.19-8.33,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M977.29,1179.62c0-9.08-8.46-16.45-18.88-16.45s-18.88,7.37-18.88,16.45" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Magiske skabninger</title>
       <text class="cls-242" transform="translate(974.12 1145.75)">12</text>
-    </a>
     <g>
       <path class="cls-116" d="M363.94,1174.12c0,7.36,5.54,13.58,13.19,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.32,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M401.7,1174.12c0-9.08-8.45-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>The Tipsy Toad</title>
       <text class="cls-242" transform="translate(398.53 1140.26)">18</text>
-    </a>
     <g>
       <path class="cls-116" d="M183.42,1243.87c0,7.36,5.54,13.58,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.69-13.59,5.69-18.78c7.64-2.1,13.18-8.32,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M221.17,1243.87c0-9.08-8.45-16.44-18.87-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Efterårsbal - Studenterhuset</title>
       <text class="cls-242" transform="translate(218 1210.01)">19</text>
-    </a>
     <g>
       <path class="cls-116" d="M829,1341.64c0,7.35,5.54,13.57,13.18,15.67,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.32,13.18-15.67" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M866.7,1341.64c0-9.09-8.45-16.45-18.88-16.45S829,1332.55,829,1341.64" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Quidditch - Eventyrhaven</title>
       <text class="cls-242" transform="translate(863.53 1307.77)">13</text>
-    </a>
     <g>
       <path class="cls-116" d="M503.71,730c0,7.35,5.54,13.57,13.18,15.68,4,5.18,5.7,18.78,5.7,18.78s1.69-13.6,5.69-18.78c7.64-2.11,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M541.46,730c0-9.08-8.45-16.45-18.87-16.45S503.71,721,503.71,730" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Quidditch Turnering - Kongens Have</title>
       <text class="cls-242" transform="translate(538.29 696.17)">14</text>
-    </a>
     <g>
       <path class="cls-116" d="M858.19,1343.91c0,7.35,5.54,13.57,13.18,15.68,4,5.19,5.7,18.78,5.7,18.78s1.7-13.59,5.69-18.78c7.65-2.11,13.19-8.33,13.19-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M896,1343.91c0-9.08-8.46-16.44-18.88-16.44s-18.88,7.36-18.88,16.44" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Byg din egen kost - Eventyrhaven</title>
       <text class="cls-242" transform="translate(892.78 1310.05)">15</text>
-    </a>
     <g>
       <path class="cls-116" d="M763.68,1326.4c0,7.35,5.54,13.57,13.18,15.68,4,5.18,5.69,18.78,5.69,18.78s1.7-13.6,5.7-18.78c7.64-2.11,13.18-8.33,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M801.43,1326.4c0-9.08-8.45-16.45-18.88-16.45s-18.87,7.37-18.87,16.45" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Mal et drageæg - Historiens Hus</title>
       <text class="cls-242" transform="translate(798.26 1292.53)">16</text>
-    </a>
     <g>
       <path class="cls-116" d="M204,1645.54c0,7.36,5.54,13.58,13.18,15.68,4,5.19,5.69,18.78,5.69,18.78s1.7-13.59,5.7-18.78c7.64-2.1,13.18-8.32,13.18-15.68" transform="translate(29.26 -41.97)"/>
       <path class="cls-116" d="M241.72,1645.54c0-9.08-8.45-16.44-18.88-16.44S204,1636.46,204,1645.54" transform="translate(29.26 -41.97)"/>
     </g>
-    <a xlink:href="https://www.google.dk" target="_blank">
       <title>Zoologmagisk Sejltur - Odense Aafar</title>
       <text class="cls-242" transform="translate(238.55 1611.68)">17</text>
-    </a>
   </g>
 </svg>
 
