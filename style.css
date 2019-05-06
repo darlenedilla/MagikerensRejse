@@ -1296,10 +1296,10 @@ first size up and go to center, then go down past the screen */
 /*****OPRETTELSE*****/
 
 #createUserFormWrapper{
-  margin-top: 10%;
   width: 300vw;
   min-width: 300vw;
   position: absolute;
+  top: 20%;
   left: 0;
   transition: 1.5s;
   font-family: Surabanglus, serif;
@@ -1325,21 +1325,27 @@ select{
   font-size: 12pt;
 }
 
+.small-input{
+  width: 80px;
+}
+
+.large-input{
+  width: 160px;
+}
+
 #createUserForm input:last-child{
   border: none;
 }
 
-#age{
-  width: 15%;
-}
 
 .formSection{
-  width: 100vw;
+  width: 85vw;
   position: absolute;
   height: 25vh;
   display: block;
   text-align: center;
   padding-bottom: 50px;
+  border: solid;
 }
 
 .formSection h3{
@@ -1348,22 +1354,22 @@ select{
 }
 
 #firstFormSection{
-  left: 0;
+  left: 6vw;
 }
 
 #secondFormSection{
-  left: 100vw;
+  left: 106vw;
 }
 
 #thirdFormSection{
-  left: 200vw;
+  left: 206vw;
 }
 
 
 #btnWrapper{
   z-index: 100;
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   width: 100vw;
   text-align: center;
 }
@@ -1405,10 +1411,24 @@ select{
   height: 100px;
   width:150px;
   opacity: 1;
+  display: none;
   position: absolute;
   right: 0;
   bottom: -35%;
+}
+
+input[type="file"] {
   display: none;
+}
+.custom-file-upload {
+  display: block;
+  padding: 6px 12px;
+  margin-top: 20%;
+}
+
+.fa-camera-retro{
+  font-size: 50px;
+  color: #232323;
 }
 
 

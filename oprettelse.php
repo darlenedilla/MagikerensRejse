@@ -19,10 +19,10 @@ $pw ="Dgs55qhk:)..";
 $db = "1221s_com_magikerensrejse";
 
 // Create connection
-$conn = new mysqli($server, $user, $pw, $db);
+$con = new mysqli($server, $user, $pw, $db);
 //check fann_get_total_connections
-if ($conn->connect_error) {
-  die("Connection failed:" .$conn->connect_error);
+if ($con->connect_error) {
+  die("Connection failed:" .$con->connect_error);
 } else {
   echo "connected succesfully";
 }
@@ -47,32 +47,38 @@ if ($conn->connect_error) {
           $pet = $_POST['pet'];
 
           // THIRD PART OF form
-          //$image = $_POST['image'];
-
-          //Hent filnavn fra det vedhæftede billede i formularen
-          $image = $_FILES['image']['name'];
-          //Hent sti-navnet til der hvor billedet skal gemmes
-          $target_dir = get_stylesheet_directory_uri().'/img/portraits/';
-          //Referer til filnavnet inde i den angivede sti
-          $target_file = $target_dir . basename($_FILES["image"]["name"]);
-
-          // Vælg den slags filtype der må gemmes
-          $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-          // Fil-typer der er gyldige
-          $extensions_arr = array("jpg","jpeg","png","gif");
-            //Tjek om den valgte fil overholder type-reglen
-          if( in_array($imageFileType,$extensions_arr) ){
-
-            // Upload filen til den valgte sti
-            // move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-              echo "The file ". basename($image). " has been uploaded.";
-            } 
-            else {
-              echo "Sorry, there was an error uploading your file.";
-              echo $_FILES["image"]["tmp_name"];
-              echo $target_file;
+          //IMAGE UPLOAD
+            $target_dir = get_stylesheet_directory(). "/img/portraits/";
+            $image = basename( $_FILES["image"]["name"]);
+            $target_file = $target_dir . $image;
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            // Check if image file is a actual image or fake image
+            $check = getimagesize($_FILES["image"]["tmp_name"]);
+            if($check !== false) {
+              //echo "File is an image - " . $check["mime"] . ".";
+              $uploadOk = 1;
+            } else {
+              //echo "File is not an image.";
+              $uploadOk = 0;
+            }
+  
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif" ) {
+                //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $uploadOk = 0;
+            }
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk == 0) {
+                echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+            } else {
+                if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                    //echo "The file ". $image. " has been uploaded.";
+                } else {
+                    //echo "Sorry, there was an error uploading your file.";
+                }
             }
 
             // SENDING INFO TO ENTITIET
@@ -81,8 +87,7 @@ if ($conn->connect_error) {
 
             //Sending to db
             $con->query($sqlCreateUser);
-          }
-  }
+        }
 // } else {
 //     echo "Please fill out all fields in the form";
 //   }
@@ -96,13 +101,13 @@ if ($conn->connect_error) {
       <div id="firstFormSection" class="formSection">
         <h3>Hvem starter denne rejse?</h3>
         <!-- <label for="fornavn">Fornavn</label> -->
-        <input id="firstname" type="text" name="fornavn" placeholder="Fornavn" value="">
+        <input class="large-input" id="firstname" type="text" name="fornavn" placeholder="Fornavn" value="">
         <!-- <label for="age">Alder</label> -->
-        <input id="age" type="number" name="age" placeholder="Alder"><br/>
+        <input class="small-input" id="age" type="number" name="age" placeholder="Alder"><br/>
 
         
         <!-- <label for="area">Område</label> -->
-        <select class="area" name="area">
+        <select class="area large-input" name="area">
           <option selected>Område</option>
           <option value="1">Fyn</option>
           <option value="2">Sjælland</option>
@@ -113,27 +118,27 @@ if ($conn->connect_error) {
 
         <!-- <label for="gender">Køn</label> -->
         <!-- find a better solution -->
-        <select name="gender">
+        <select class="small-input" name="gender">
           <option selected>Køn</option>
           <option value="1">Pige</option>
           <option value="0">Dreng</option>
         </select><br/>
 
         <!-- <label for="tlf">Telefon nummer</label> -->
-        <input id="phone" type="number" name="tlf" placeholder="Tlf.nr/Brugernavn"><br/>
+        <input class="large-input" id="phone" type="number" name="tlf" placeholder="Tlf.nr/Brugernavn"><br/>
 
         <!-- <label for="password">Magisk kodeord</label> -->
-        <input id="password" type="text" name="password" placeholder="Adgangskode"><br/>
+        <input class="large-input" id="password" type="text" name="password" placeholder="Adgangskode"><br/>
       </div><!-- END OF FIRST FORM SECTION-->       
                         
       <!-- second part of form -->
       <div id="secondFormSection" class="formSection">
         <h3>Beskriv din indre magiker</h3>
         <!-- <label for="mName">Magisk Navn</label> -->
-        <input id="mName" type="text" name="mName" placeholder="Magisk Navn"><br/>
+        <input class="large-input" id="mName" type="text" name="mName" placeholder="Magisk Navn"><br/>
 
         <!-- <label for="house">hus</label> -->
-        <select class="houseDropDown" name="house">
+        <select class="houseDropDown large-input" name="house">
           <option selected>Hus</option>
           <option value="1">Ild</option>
           <option value="2">Jord</option>
@@ -142,7 +147,7 @@ if ($conn->connect_error) {
         </select> <br/>
 
         <!-- <label for="blood">Blodstatus</label> -->
-        <select class="bloodDropDown" name="blood">
+        <select class="bloodDropDown large-input" name="blood">
           <option selected>Blodstatus</option>
           <option value="1">Fuldblods</option>
           <option value="2">Halvblods</option>
@@ -151,7 +156,7 @@ if ($conn->connect_error) {
         </select> <br/>
 
         <!-- <label for="pet">Kæledyr</label> -->
-        <select class="petDropDown" name="pet">
+        <select class="petDropDown large-input" name="pet">
           <option selected>Kæledyr</option>
           <option value="1">Kat</option>
           <option value="2">Ugle</option>
@@ -161,11 +166,14 @@ if ($conn->connect_error) {
 
       <!-- third part of form -->
       <div id="thirdFormSection" class="formSection">
-        <h3>Vælg et billede</h3>
+        <h3>Magisk Portræt</h3>
         <!-- INDSÆT KAMERA FUNKTION -->
+        <label for="image" class="custom-file-upload">
+        <i class="fas fa-camera-retro"></i><br/>
+        Vælg et billede fra telefonen
+        </label>
         <input id="image" type="file" name="image">
       </div><!--END OF THIRD FORM SECTION-->
-      <!--<input id="submit" type="image" name="submitUser" value="Gem oplysninger" src="<?php //echo get_stylesheet_directory_uri(); ?>/img/submitPaper.png" alt="submit">-->
       <input id="submit" type="submit" name="submitUser" value="Gem oplysninger">
     </form>
   </div>
