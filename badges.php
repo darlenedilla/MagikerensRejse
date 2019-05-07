@@ -4,7 +4,7 @@ Template name: slider
 */
 
   // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-  include("config.php");
+  // include("config.php");
 
   //Darlene Connect to server
   // $server ="localhost";
@@ -14,19 +14,19 @@ Template name: slider
 
   //Nanna Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
-  // $server ="localhost";
-  // $user ="root";
-  // $pw ="";
-  // $db = "1221s_com_magikerensrejse";
+  $server ="localhost";
+  $user ="root";
+  $pw ="";
+  $db = "1221s_com_magikerensrejse";
 
   // Create connection
-  // $con = new mysqli($server, $user, $pw, $db);
-  // //check fann_get_total_connections
-  // if ($con->connect_error) {
-  //   die("Connection failed:" .$con->connect_error);
-  // } else {
-  //   echo '<script>console.log("connected succesfully")</script>';
-  // }
+  $con = new mysqli($server, $user, $pw, $db);
+  //check fann_get_total_connections
+  if ($con->connect_error) {
+    die("Connection failed:" .$con->connect_error);
+  } else {
+    echo '<script>console.log("connected succesfully")</script>';
+  }
 
     $user = 28141151; //SKAL LAVES OM SÅ DEN FINDER DEN BRUGER DER ER LOGGET IND!!!!
 
@@ -44,7 +44,7 @@ Template name: slider
     else{
       echo "0 results";
     };
-    
+
     $cookie_name = "user";
     echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
 
@@ -65,29 +65,29 @@ if($fetchBadgeResult->num_rows > 0){
  $badge_4 = in_array(4, $badgesAcquired, TRUE);
 
  //check for 'Alkymist' badges
- $badge_1 = in_array(5, $badgesAcquired, TRUE);
- $badge_2 = in_array(6, $badgesAcquired, TRUE);
- $badge_3 = in_array(7, $badgesAcquired, TRUE);
- $badge_4 = in_array(8, $badgesAcquired, TRUE);
+ $badge_5 = in_array(5, $badgesAcquired, TRUE);
+ $badge_6 = in_array(6, $badgesAcquired, TRUE);
+ $badge_7 = in_array(7, $badgesAcquired, TRUE);
+ $badge_8 = in_array(8, $badgesAcquired, TRUE);
 
  //check for 'Quidditch stjerne' badges
  //NOTE: Jeg fuckede up med nummereringen så nr. 12 springes over!
- $badge_1 = in_array(9, $badgesAcquired, TRUE);
- $badge_2 = in_array(10, $badgesAcquired, TRUE);
- $badge_3 = in_array(11, $badgesAcquired, TRUE);
- $badge_4 = in_array(13, $badgesAcquired, TRUE);
+ $badge_9 = in_array(9, $badgesAcquired, TRUE);
+ $badge_10 = in_array(10, $badgesAcquired, TRUE);
+ $badge_11= in_array(11, $badgesAcquired, TRUE);
+ $badge_13 = in_array(13, $badgesAcquired, TRUE);
 
  //check for 'Dragetæmmer' badges
- $badge_1 = in_array(14, $badgesAcquired, TRUE);
- $badge_2 = in_array(15, $badgesAcquired, TRUE);
- $badge_3 = in_array(16, $badgesAcquired, TRUE);
- $badge_4 = in_array(17, $badgesAcquired, TRUE);
+ $badge_14 = in_array(14, $badgesAcquired, TRUE);
+ $badge_15 = in_array(15, $badgesAcquired, TRUE);
+ $badge_16 = in_array(16, $badgesAcquired, TRUE);
+ $badge_17 = in_array(17, $badgesAcquired, TRUE);
 
  //check for 'Erfaren Magiker' badges
- $badge_1 = in_array(18, $badgesAcquired, TRUE);
- $badge_2 = in_array(19, $badgesAcquired, TRUE);
- $badge_3 = in_array(20, $badgesAcquired, TRUE);
- $badge_4 = in_array(21, $badgesAcquired, TRUE);
+ $badge_18 = in_array(18, $badgesAcquired, TRUE);
+ $badge_19 = in_array(19, $badgesAcquired, TRUE);
+ $badge_20 = in_array(20, $badgesAcquired, TRUE);
+ $badge_21 = in_array(21, $badgesAcquired, TRUE);
 
 
  ?><h1><?php print_r($badgesAcquired); ?></h1>
@@ -118,8 +118,8 @@ echo "badge 1 found";
                   <?php
                   // check if badge has been acquired, and if it has, add an extra class to it:
                   // NOTE: Its important that the badge number is correct!!!
-                    if ($badge_1 ) {
-                    echo "badgeAcquired";
+                    if ($badge_1) {
+                    echo " badgeAcquired";
                   }; ?>"
 
                   src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/capeBadge.png">
@@ -144,7 +144,7 @@ echo "badge 1 found";
                   <?php
                   // check if badge has been acquired, and if it has, add an extra class to it:
                   // NOTE: Its important that the badge number is correct!!!
-                    if ($badge_4 ) {
+                    if ($badge_4) {
                     echo "badgeAcquired";
                   }; ?>"
 
