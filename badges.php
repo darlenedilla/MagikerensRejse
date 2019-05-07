@@ -102,6 +102,23 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
 
   ?>
 
+  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+      <!-- getting the data for the letter -->
+      <?php
+          $events = new Pod('event_lightboxes');
+          $events->findRecords('event_id ASC');
+          $total_events = $events->getTotalRows();
+          echo "<h1>Antal events:" .$total_events ."</h1>";
+
+          while ($events->fetchRecord('event_id ASC')) {
+              $title = $events->get_field('eventtitle');
+              $description = $events->get_field('eventdescription');
+              $badgeText = $events->get_field('badge_text');
+              $badgeImage = $events->get_field('badge_image.guid');
+              $Id = $events->get_field('event_id');
+              $eventId = (int)$Id;
+      ?>
+
 <section class="badgeIndex">
           <h2 id="welcome">Velkommen</h2>
           <div class="ribbonContainer">
@@ -117,12 +134,12 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                   <div id="cape" class="badgeImg top-left">
                     <img class="badgeActualImg
 
-                    <?php
-                    // check if badge has been acquired, and if it has, add an extra class to it:
-                    // NOTE: Its important that the badge number is correct!!!
-                      if ($badge_1) {
-                      echo " badgeAcquired";
-                    }; ?>"
+                      <?php
+                      // check if badge has been acquired, and if it has, add an extra class to it:
+                      // NOTE: Its important that the badge number is correct!!!
+                        if ($badge_1) {
+                        echo " badgeAcquired";
+                      }; ?>"
 
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/capeBadge.png">
                   </div>
