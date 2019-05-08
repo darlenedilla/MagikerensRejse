@@ -1453,14 +1453,13 @@ input[type="file"] {
 }
 
 .eTitle {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-top: 10%;
   text-align: center;
   width: 100%;
   line-height: 150%;
 }
 
-/* The Close Button */
 .close {
   position: absolute;
   top: -15%;
@@ -1532,39 +1531,47 @@ input[type="file"] {
 
 #peekaboo {
   position: absolute;
-  top: 20%;
+  top: 14%;
   left: 0;
-  width: 10%;
+  width: 5%;
   height: 100%;
-  background-color: slategrey;
+  background-color: lightgray;
   transition: 1s;
   z-index: 1000;
 }
 
 #peekabooLabel {
+  font-family: Surabanglus, serif;
+  font-size: 1.4em;
+  text-align: center;
   position: absolute;
   left: 0;
   width: 100px;
   height: 50px;
-  background-color: darkgrey;
+  background-color: lightgray;
   transition: 0.75;
 }
 
-#peekaboo h3 {
-  line-height: 200%;
-  width: 400px;
-}
 
 .mainEventTitles{
   display: none;
 }
 
 #eventList{
-  padding: 30% 5%;
+  padding: 20% 5%;
   display: none;
   font-family: Surabanglus, serif;
-  font-size: 15pt;
+  font-size: 1em;
   list-style-type: none;
+}
+
+#eventList li{
+  background-image: url("img/locationPoint.png");
+  background-repeat: no-repeat;
+  background-size: 30px 40px;
+  padding-left: 12px;
+  padding-bottom: 10px;
+  word-spacing: 10px;
 }
 
 /* The Close Button */
@@ -1575,9 +1582,9 @@ input[type="file"] {
   color: #232323;
   font-size: 60px;
   font-weight: bold;
-  transition: 0.3s;
   display: none;
   z-index: 10000;
+  transition: 2s;
 }
 
 

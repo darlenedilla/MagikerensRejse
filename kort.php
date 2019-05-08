@@ -11,8 +11,6 @@ Template Name: Kort
         $events = new Pod('event_lightboxes');
         $events->findRecords('event_id ASC');
         $total_events = $events->getTotalRows();
-        echo "<h1>Antal events:" .$total_events ."</h1>";
-
         while ($events->fetchRecord('event_id ASC')) {
             $title = $events->get_field('eventtitle');
             $description = $events->get_field('eventdescription');
@@ -21,7 +19,7 @@ Template Name: Kort
             $Id = $events->get_field('event_id');
             $eventId = (int)$Id;
     ?>
-    <h2 class="mainEventTitles"><?php echo $eventId . $title; ?></h2>
+    <h2 class="mainEventTitles"><?php echo $eventId . " " . $title; ?></h2>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -1627,7 +1625,7 @@ Template Name: Kort
         var closePeek = document.getElementById("closePeek");
 
         for(let i = 0; i < eventTitles.length; i++){
-          event += "<li class='eventTitle'>"; 
+          event += "<li class='eventTitle'>";
           event += eventTitles[i].innerHTML;
           event += "</li>";
           eventTitles[i].onclick = function(){
