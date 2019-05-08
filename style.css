@@ -1542,6 +1542,17 @@ input[type="file"] {
   height: 120px;
 }
 
+#peekaboo{
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 10%;
+  height: 200px;
+  background-color: black;
+  transition: 1s;
+  z-index: 1000;
+}
+
 
 /* DESKTOP VERSION
 KEEP AT BOTTOM */
