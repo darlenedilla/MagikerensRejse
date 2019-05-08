@@ -21,6 +21,7 @@ Template Name: Kort
             $Id = $events->get_field('event_id');
             $eventId = (int)$Id;
     ?>
+    <h2 class="mainEventTitles"><?php echo $eventId . $title; ?></h2>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -44,17 +45,14 @@ Template Name: Kort
         </div>
     </div>
         <?php } //End of second while?>
-        <div class="peekaboo">
-              <div class="peekabooLabel">Lokationer</div>
-              <?php 
-                foreach($events->get_field("eventtitle") as $eventtitle){
-                  //Her looper vi igennem hvert event
-                  echo("<li class='badges'>$eventtitle</li>");
-                }
-              ?>
-            </div>
     <?php endwhile;?>
 <?php endif;?>
+
+            <div id="peekaboo">
+              <div id="peekabooLabel">Lokationer</div>
+              <span id="closePeek">&times;</span>
+              <ul id="eventList"></ul>
+            </div>
 
 
   <div class="mapdiv">
@@ -1619,44 +1617,61 @@ Template Name: Kort
         , customEventsHandler: eventsHandler
         });
 
-        //SHOW EVENTS!!
-        var eventTitle = document.getElementsByClassName('mainEventTitle');
+        var peekaboo = document.getElementById("peekaboo");
+        var peekabooLabel = document.getElementById("peekabooLabel");
+        var eventTitles = document.getElementsByClassName("mainEventTitles");
+        var events = document.getElementsByClassName("eventTitle");
+        var eventList = document.getElementById("eventList");
+        var event = "";
         var modals = document.getElementsByClassName('modal');
-      
-        for(let i = 0; i < eventTitle.length; i++){
-            eventTitle[i].onclick = function(){
-                modals[i].style.display = "block";
-                console.log("This works");
-            };
-        };
+        var closePeek = document.getElementById("closePeek");
 
+        for(let i = 0; i < eventTitles.length; i++){
+          event += "<li class='eventTitle'>"; 
+          event += eventTitles[i].innerHTML;
+          event += "</li>";
+          eventTitles[i].onclick = function(){
+          console.log("This works");
+          }
+        };
+          eventList.innerHTML += event;
+
+          peekaboo.onclick = function(){
+              peekaboo.style.width = "80%";
+              peekabooLabel.style.width = "100%";
+              peekaboo.style.transition = "1s";
+              eventList.style.display = "block";
+              closePeek.style.display = "block";
+          };
+
+          closePeek.onclick = function() {
+                peekaboo.style.width = "10%";
+                peekabooLabel.style.width = "100%";
+                peekaboo.style.transition = "1s";
+                eventList.style.display = "none";
+                console.log("nagging works");
+                console.log(peekaboo.style.width);
+          };
+
+        //SHOW EVENTS!!
+        for (let i = 0; i < events.length;i++) {
+          events[i].onclick = function(){
+            modals[i].style.display = "block";
+            peekaboo.style.width = "10%";
+            peekabooLabel.style.width = "100%";
+            peekaboo.style.transition = "1s";
+            eventList.style.display = "none";
+          }
+        };
+        
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close");
-
         for(let i = 0; i <span.length; i++){
             // When the user clicks on <span> (x), close the modal
             span[i].onclick = function() { 
                 modals[i].style.display = "none";
             };
         };
-
-        var peekaboo = document.getElementsByClassName("peekaboo");
-        var peekabooLabel = document.getElementsByClassName("peekabooLabel");
-        for(let i = 0; i < peekaboo.length; i++){
-          peekaboo[i].onclick = function(){
-            if(peekaboo[i].style.width == "60%"){
-              peekaboo[i].style.width = "10%";
-              peekabooLabel[i].style.width = "100px";
-              peekaboo[i].style.transition = "0s";
-            }
-            else{
-              peekaboo[i].style.width = "60%";
-              peekabooLabel[i].style.width = "100%";
-              peekaboo[i].style.transition = "1s";
-            }
-          }
-        };
-
       
       }; // END OF WINDOW.ONLOAD
 </script>
