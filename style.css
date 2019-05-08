@@ -1532,13 +1532,27 @@ input[type="file"] {
 
 #peekaboo {
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 0;
   width: 10%;
-  height: 200px;
-  background-color: black;
+  height: 100%;
+  background-color: slategrey;
   transition: 1s;
   z-index: 1000;
+}
+
+.peekabooLabel {
+  position: absolute;
+  left: 0;
+  width: 100px;
+  height: 50px;
+  background-color: darkgrey;
+  transition: 0.75;
+}
+
+.peekaboo h3 {
+  line-height: 200%;
+  width: 400px;
 }
 
 /* DESKTOP VERSION

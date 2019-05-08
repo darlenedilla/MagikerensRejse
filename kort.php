@@ -21,9 +21,6 @@ Template Name: Kort
             $Id = $events->get_field('event_id');
             $eventId = (int)$Id;
     ?>
-    <div id="peekaboo">
-      <h2 class="mainEventTitle"><?php echo $eventId . $title; ?></h2>
-    </div>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -47,6 +44,15 @@ Template Name: Kort
         </div>
     </div>
         <?php } //End of second while?>
+        <div class="peekaboo">
+              <div class="peekabooLabel">Lokationer</div>
+              <?php 
+                foreach($events->get_field("eventtitle") as $eventtitle){
+                  //Her looper vi igennem hvert event
+                  echo("<li class='badges'>$eventtitle</li>");
+                }
+              ?>
+            </div>
     <?php endwhile;?>
 <?php endif;?>
 
@@ -1612,7 +1618,7 @@ Template Name: Kort
         , center: 1
         , customEventsHandler: eventsHandler
         });
-        
+
         //SHOW EVENTS!!
         var eventTitle = document.getElementsByClassName('mainEventTitle');
         var modals = document.getElementsByClassName('modal');
@@ -1626,6 +1632,7 @@ Template Name: Kort
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close");
+
         for(let i = 0; i <span.length; i++){
             // When the user clicks on <span> (x), close the modal
             span[i].onclick = function() { 
@@ -1633,15 +1640,25 @@ Template Name: Kort
             };
         };
 
-        var peekaboo = document.getElementById("peekaboo");
-        console.log(peekaboo);
-
-        peekaboo.onclick = function(){
-          peekaboo.style.width = "40%";
-          console.log("it works");
+        var peekaboo = document.getElementsByClassName("peekaboo");
+        var peekabooLabel = document.getElementsByClassName("peekabooLabel");
+        for(let i = 0; i < peekaboo.length; i++){
+          peekaboo[i].onclick = function(){
+            if(peekaboo[i].style.width == "60%"){
+              peekaboo[i].style.width = "10%";
+              peekabooLabel[i].style.width = "100px";
+              peekaboo[i].style.transition = "0s";
+            }
+            else{
+              peekaboo[i].style.width = "60%";
+              peekabooLabel[i].style.width = "100%";
+              peekaboo[i].style.transition = "1s";
+            }
+          }
         };
 
-      };
-    </script>
+      
+      }; // END OF WINDOW.ONLOAD
+</script>
 
 <?php get_footer(); ?>

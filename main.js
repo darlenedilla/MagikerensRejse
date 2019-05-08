@@ -225,7 +225,8 @@ prevPage.addEventListener("click", function(){
 // THE BADGES HOMESCREEN
 
 
-// SHOW EVENTS
+// MAP AND EVENTS
+
     var eventTitle = document.getElementsByClassName('mainEventTitle');
     var modals = document.getElementsByClassName('modal');
    
@@ -243,12 +244,4 @@ prevPage.addEventListener("click", function(){
         span[i].onclick = function() { 
             modals[i].style.display = "none";
         };
-    };
-
-    var peekaboo = document.getElementById("peekaboo");
-    console.log(peekaboo);
-
-    peekaboo.onclick = function(){
-      peekaboo.style.width = "40%";
-      console.log("it works");
     };
