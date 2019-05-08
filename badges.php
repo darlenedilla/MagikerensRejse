@@ -99,25 +99,52 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
   $badge_19 = in_array(19, $badgeArray);
   $badge_20 = in_array(20, $badgeArray);
   $badge_21 = in_array(21, $badgeArray);
-
   ?>
 
-  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      <!-- getting the data for the letter -->
-      <?php
-          $events = new Pod('event_lightboxes');
-          $events->findRecords('event_id ASC');
-          $total_events = $events->getTotalRows();
-          echo "<h1>Antal events:" .$total_events ."</h1>";
+  <!-- starting the while loop of the pages -->
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <!-- getting the data for the letter -->
+    <?php
+        $badges = new Pod('badge_lb');
+        $badges->findRecords('badge_id ASC');
+        $total_badges = $badges->getTotalRows();
 
-          while ($events->fetchRecord('event_id ASC')) {
-              $title = $events->get_field('eventtitle');
-              $description = $events->get_field('eventdescription');
-              $badgeText = $events->get_field('badge_text');
-              $badgeImage = $events->get_field('badge_image.guid');
-              $Id = $events->get_field('event_id');
-              $eventId = (int)$Id;
-      ?>
+        while ($badges->fetchRecord('badge_id ASC')) {
+            $title = $badges->get_field('badge_title');
+            $badgeImage = $badges->get_field('badge_image.guid');
+            $eventLink = $badges->get_field('event_link');
+            $badgeRetning = $badges->get_field('badge_retning');
+            $Id = $badges->get_field('badge_id');
+            $badgeId = (int)$Id;
+    ?>
+<div id="darkoverlay"></div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modalContent">
+            <h3 class="eTitle"><?php echo $title; ?></h3>
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- The actual Badge -->
+            <div class="eventDescription">
+              <p>Ved at opnå dette badge er du et skridt tættere på at opnå titlen:</p>
+                <h3 class="badgeRetning"><?php echo $badgeRetning ?></h3>
+            <div class="badgeKortLink">
+              <a href="#">Dette Badge opnås ved <?php echo $eventLink ?>, Se på kort</a>
+            </div>
+              </div>
+            
+            <!-- The badge -->
+            <div class="badgeDescription">
+                <p><?php echo $badgeText?>
+                    
+                </p>
+                <div class="eventBadgeImgContainer badgeLightboxImg">
+                    <img class="eventBadgeImg" src="<?php echo $badgeImage ?>">
+                </div>
+            </div>
+        </div>
+    </div>
+  
 
 <section class="badgeIndex">
           <h2 id="welcome">Velkommen</h2>
@@ -131,7 +158,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
               <div class="badge slickItem" id="magiker">
                   <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/magiker/magikerBadge.png">
 
-                  <div id="cape" class="badgeImg top-left">
+                  <div id="1" class="badgeImg top-left mainBadgeTitle">
                     <img class="badgeActualImg
 
                       <?php
@@ -144,7 +171,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/capeBadge.png">
                   </div>
 
-                  <div id="wand" class="badgeImg top-right">
+                  <div id="2" class="badgeImg top-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -157,7 +184,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/wandBadge.png">
                   </div>
 
-                  <div id="ghost" class="badgeImg bottom-left">
+                  <div id="4" class="badgeImg bottom-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -170,7 +197,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/ghostBadge.png">
                   </div>
 
-                  <div id="nordheim" class="badgeImg bottom-right">
+                  <div id="3" class="badgeImg bottom-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -189,7 +216,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
               <div class="badge slickItem" id="alkymist">
                   <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/alkymist/alkymistBadge.png">
 
-                  <div id="botanik" class="badgeImg top-left">
+                  <div id="7" class="badgeImg top-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -202,7 +229,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/botanikBadge.png">
                   </div>
 
-                  <div id="skabninger" class="badgeImg top-right">
+                  <div id="8" class="badgeImg top-right">
                     <img  class="badgeActualImg
 
                     <?php
@@ -215,7 +242,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/creatureBadge.png">
                   </div>
 
-                  <div id="eliksir" class="badgeImg bottom-left">
+                  <div id="5" class="badgeImg bottom-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -228,7 +255,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/eliksirBadge.png">
                   </div>
 
-                  <div id="spisWand" class="badgeImg bottom-right">
+                  <div id="6" class="badgeImg bottom-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -247,7 +274,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
               <div class="badge slickItem" id="quidditch">
                   <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/quidditch/qBadge.png">
 
-                  <div id="qturnering" class="badgeImg top-left">
+                  <div id="10" class="badgeImg top-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -260,7 +287,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/qtournamentBadge.png">
                   </div>
 
-                  <div id="quidditch" class="badgeImg top-right">
+                  <div id="9" class="badgeImg top-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -273,7 +300,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/quidditchBadge.png">
                   </div>
 
-                  <div id="kost" class="badgeImg bottom-left">
+                  <div id="13" class="badgeImg bottom-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -286,7 +313,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/broomBadge.png">
                   </div>
 
-                  <div id="snitch" class="badgeImg bottom-right">
+                  <div id="11" class="badgeImg bottom-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -305,7 +332,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
               <div class="badge slickItem" id="dragetaemmer">
                   <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/drage/drageBadge.png">
 
-                  <div id="egg" class="badgeImg top-left">
+                  <div id="14" class="badgeImg top-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -318,7 +345,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/eggBadge.png">
                   </div>
 
-                  <div id="foldDrage" class="badgeImg top-right">
+                  <div id="16" class="badgeImg top-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -331,7 +358,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/dragonBadge.png">
                   </div>
 
-                  <div id="dyrsPasning" class="badgeImg bottom-left">
+                  <div id="15" class="badgeImg bottom-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -344,7 +371,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/animalBadge.png">
                   </div>
 
-                  <div id="zoo" class="badgeImg bottom-right">
+                  <div id="17" class="badgeImg bottom-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -363,7 +390,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
               <div class="badge slickItem" id="erfaren">
                   <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/erfaren/erfarenBadge.png">
 
-                  <div id="concert" class="badgeImg top-left">
+                  <div id="20" class="badgeImg top-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -376,7 +403,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/concertBadge.png">
                   </div>
 
-                  <div id="prom" class="badgeImg top-right">
+                  <div id="21" class="badgeImg top-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -389,7 +416,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/promBadge.png">
                   </div>
 
-                  <div id="storms" class="badgeImg bottom-left">
+                  <div id="19" class="badgeImg bottom-left">
                     <img class="badgeActualImg
 
                     <?php
@@ -402,7 +429,7 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                      src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/stormsBadge.png">
                   </div>
 
-                  <div id="toad" class="badgeImg bottom-right">
+                  <div id="18" class="badgeImg bottom-right">
                     <img class="badgeActualImg
 
                     <?php
@@ -416,23 +443,57 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                   </div>
 
               </div>
-              <p>
-                  Shouldn't be an item.
-              </p>
           </div>
-      </section>
-<?php
-
-};
+</section>
+      
+        <?php } //End of second while?>
+    <?php endwhile;?>
+<?php endif;
+          };
 
 ?>
 
+<!-- Jscript for making the boxes go from side to side -->
 <script type="text/javascript">
   $(document).ready(function () {
       $(".slickContainer").slick().slick('slickFilter', '.slickItem');
   });
 </script>
 
+
+<!-- Jscript til lightboxes -->
+<script>
+    var badgeTitle = document.getElementsByClassName('mainBadgeTitle');
+    var modals = document.getElementsByClassName('modal');
+    var badges = document.getElementsByClassName('badgeImg');
+    var darkOverlay = document.getElementById('darkoverlay');
+    
+    for(let i = 0; i < badges.length; i++){
+        badges[i].onclick = function(){
+            darkOverlay.style.display="block";
+            modals[i].style.display = "block";
+            console.log("This works");
+        }
+    };
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close");
+    for(let i = 0; i <span.length; i++){
+        // When the user clicks on <span> (x), close the modal
+        span[i].onclick = function() {
+            darkOverlay.style.display="none";
+            modals[i].style.display = "none";
+        }
+    }
+
+      for(let i = 0; i <span.length; i++){
+        // When the user clicks on <span> (x), close the modal
+        darkOverlay.onclick = function() {
+            darkOverlay.style.display="none";
+            modals[i].style.display = "none";
+        }
+    }
+</script>
 
     <!-- baggrundsbillede -->
     <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
