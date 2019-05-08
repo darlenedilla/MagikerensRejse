@@ -225,39 +225,30 @@ prevPage.addEventListener("click", function(){
 // THE BADGES HOMESCREEN
 
 
-//OPRETTELSESFORMULAR
+// SHOW EVENTS
+    var eventTitle = document.getElementsByClassName('mainEventTitle');
+    var modals = document.getElementsByClassName('modal');
+   
+    for(let i = 0; i < eventTitle.length; i++){
+        eventTitle[i].onclick = function(){
+            modals[i].style.display = "block";
+            console.log("This works");
+        };
+    };
 
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close");
+    for(let i = 0; i <span.length; i++){
+        // When the user clicks on <span> (x), close the modal
+        span[i].onclick = function() { 
+            modals[i].style.display = "none";
+        };
+    };
 
+    var peekaboo = document.getElementById("peekaboo");
+    console.log(peekaboo);
 
-
-
-
-/*CAMERA ACCESS TIL HVIS VI NOGENSINDE SKAL KUNNE TAGE ET BILLEDE
-
-function createCanvas(){
-  const player = document.getElementById('player');
-  const canvas = document.querySelector('canvas'); // Create canvas
-  const context = canvas.getContext('2d'); // Create context
-  let captureButton = document.getElementById('capture');
-
-  captureButton.addEventListener('click', () => {
-      // Draw the video frame to the canvas
-      context.drawImage(player, 0, 0);
-  });
-}
-
-const vid = document.querySelector('video');
-
-navigator.mediaDevices.getUserMedia({video: { width: 320, height: 240 }}) // request cam
-.then(stream => {
-  vid.srcObject = stream; // don't use createObjectURL(MediaStream)
-  return vid.play(); // returns a Promise
-})
-.then(()=>{ // enable the button
-  const btn = document.querySelector('button');
-  btn.disabled = false;
-  btn.onclick = e => {
-    createCanvas();
-  };
-});
-*/
+    peekaboo.onclick = function(){
+      peekaboo.style.width = "40%";
+      console.log("it works");
+    };
