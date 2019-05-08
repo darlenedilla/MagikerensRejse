@@ -55,7 +55,7 @@ Template Name: Events
 <script>
     var eventTitle = document.getElementsByClassName('mainEventTitle');
     var modals = document.getElementsByClassName('modal');
-
+   
     for(let i = 0; i < eventTitle.length; i++){
         eventTitle[i].onclick = function(){
             modals[i].style.display = "block";
@@ -67,7 +67,7 @@ Template Name: Events
     var span = document.getElementsByClassName("close");
     for(let i = 0; i <span.length; i++){
         // When the user clicks on <span> (x), close the modal
-        span[i].onclick = function() {
+        span[i].onclick = function() { 
             modals[i].style.display = "none";
         }
     }
@@ -75,3 +75,4 @@ Template Name: Events
 
 </body>
 </html>
+
