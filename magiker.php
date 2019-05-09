@@ -30,7 +30,7 @@ include("config.php");
 //   die("Connection failed: " . mysqli_connect_error());
 // }
 
-//HER HENTES SOM ER GEMT PÅ BRUGEREN MED TELEFONNUMMER 28141151-->
+//HER HENTES SOM ER GEMT PÅ BRUGEREN DER ER LOGGET IND-->
 $userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 //Hent billedet fra databasen
 $selectUserSql = "SELECT image FROM user WHERE phoneNo= $userCookie";
