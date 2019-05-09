@@ -28,9 +28,10 @@ Template name: slider
     echo '<script>console.log("connected succesfully")</script>';
   }
 
-    $user = 28141151; //SKAL LAVES OM SÅ DEN FINDER DEN BRUGER DER ER LOGGET IND!!!!
+    $userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 
-    $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $user";
+
+    $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $userCookie";
 
     $fetchUserQuery = $con->query($fetchUser);
 
@@ -45,15 +46,12 @@ Template name: slider
       echo "0 results";
     };
 
-    $cookie_name = "user";
-    echo "<script>console.log('Cookie was set: $_COOKIE[$cookie_name]');</script>";
-
 
 
 //Fetching the badges this user has
 $selectBadgeSql = "SELECT badge.badgeId as badgeId
                 FROM badge, userbadge
-                WHERE userbadge.userId = 28141151
+                WHERE userbadge.userId = $userCookie
                 AND userbadge.badgeId = badge.badgeId
                 AND userbadge.badgeId IN (1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21)
                 GROUP BY badge.badgeId;";
