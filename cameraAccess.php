@@ -82,10 +82,11 @@ if(isset($_POST['image_upload'])){
 
 
 
-<!--HER VISES DET BILLEDE SOM ER GEMT PÅ BRUGEREN MED TELEFONNUMMER 28141151-->
+<!--HER VISES DET BILLEDE SOM ER GEMT PÅ BRUGEREN DER ER LOGGET IND-->
 <?php
+$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 //Hent billedet fra databasen
-$selectUserImageSql = "SELECT image FROM user WHERE phoneNo= 28141151";
+$selectUserImageSql = "SELECT image FROM user WHERE phoneNo= $userCookie";
 //Send query'en afsted
 $selectUserImageQuery = mysqli_query($con,$selectUserImageSql);
 //Lav et array med de resultater der kommer ud fra vores sql

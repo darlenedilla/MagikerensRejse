@@ -31,8 +31,9 @@ include("config.php");
 // }
 
 //HER HENTES SOM ER GEMT PÅ BRUGEREN MED TELEFONNUMMER 28141151-->
+$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 //Hent billedet fra databasen
-$selectUserSql = "SELECT image FROM user WHERE phoneNo= 28141151";
+$selectUserSql = "SELECT image FROM user WHERE phoneNo= $userCookie";
 //Send query'en afsted
 $selectUserQuery = mysqli_query($con,$selectUserSql);
 //Lav et array med de resultater der kommer ud fra vores sql
@@ -44,7 +45,7 @@ $imageName = $selectUserRow['image'];
 
 $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseName, pets.name AS petName, journey.name AS journeyName 
             FROM user, bloodtype, house, pets, journey, userjourney
-            WHERE user.phoneNo = 28141151 
+            WHERE user.phoneNo = $userCookie 
             AND bloodtype.bloodTypeId = user.bloodTypeId
             AND house.houseId = user.houseId
             AND pets.petId = user.petId
@@ -72,7 +73,7 @@ $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name A
 
         $selectBadgeSql = "SELECT badge.image as badgeImg 
                         FROM badge, userbadge 
-                        WHERE userbadge.userId = 28141151
+                        WHERE userbadge.userId = $userCookie
                         AND userbadge.badgeId = badge.badgeId
                         AND userbadge.badgeId IN (1,2,3,4) 
                         GROUP BY badge.image;";

@@ -452,7 +452,6 @@ footer ul {
   width: 120%;
   height: 100%;
   top: 15%;
-  left: -30%;
   position: relative;
   opacity: 1;
   transition-duration: 0.5s;
@@ -465,8 +464,8 @@ footer ul {
   position: absolute;
   width: 80%;
   height: 100%;
-  top: 10%;
-  left: 28%;
+  top: 2%;
+  left: 10%;
 
   overflow: visible;
 }
@@ -533,11 +532,11 @@ footer ul {
 .konvolutLoginSkærmImg {
   position: absolute;
   display: block;
-  width: 140%;
+  width: 120%;
   height: auto;
   top: 65vh;
-  left: 0;
-  transform: rotate(-15deg);
+  left: 10%;
+  transform: rotate(-25deg);
 }
 
 .startDinRejseWrapper {
@@ -648,9 +647,7 @@ footer ul {
 
 #paperNextArrow,
 #paperBackArrow {
-  display: none;
-  opacity: 0;
-
+  z-index: 100;
   width: 10%;
   height: auto;
 

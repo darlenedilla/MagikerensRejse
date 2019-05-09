@@ -6,13 +6,13 @@ Template Name: Retning
 ?>
 <?php
   // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-  // include("config.php");
+include("config.php");
 
   //Darlene Connect to server
-  // $server ="localhost";
-  // $user ="Darlene";
-  // $pw ="Dgs55qhk:)..";
-  // $db = "1221s_com_magikerensrejse";
+//   $server ="localhost";
+//   $user ="Darlene";
+//   $pw ="Dgs55qhk:)..";
+//   $db = "1221s_com_magikerensrejse";
 
   //Nanna Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
@@ -22,15 +22,14 @@ Template Name: Retning
   // $db = "1221s_com_magikerensrejse";
 
   // Create connection
-  // $con = new mysqli($server, $user, $pw, $db);
-  // //check fann_get_total_connections
-  // if ($con->connect_error) {
-  //   die("Connection failed:" .$con->connect_error);
-  // } else {
-  //   echo '<script>console.log("connected succesfully")</script>';
-  // }
-
-        $user = 28141151; //DETTE SKAL RETTES TIL SÅ DEN TAGER DEN BRUGER DER ER LOGGET IND
+//   $con = new mysqli($server, $user, $pw, $db);
+//   //check fann_get_total_connections
+//   if ($con->connect_error) {
+//     die("Connection failed:" .$con->connect_error);
+//   } else {
+//     echo '<script>console.log("connected succesfully")</script>';
+//   }
+        $userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 
         if(isset($_POST['magiker'])){
             $selectUserSql = "SELECT journey.journeyId FROM journey WHERE journey.name = 'Magiker'";
@@ -67,11 +66,11 @@ Template Name: Retning
                 }
 
                 //SQL2 QUERY TO INSERT DATA INTO USERJOURNEY ENTITY
-                    $insertUserJourneySql = "INSERT INTO userjourney(userId,journeyId) VALUES ($user,$journeyId)";
+                    $insertUserJourneySql = "INSERT INTO userjourney(userId,journeyId) VALUES ($userCookie,$journeyId)";
                     $insertUserJourneyQuery = $con->query($insertUserJourneySql);
             }
 
-            $selectUserAgeSql = "SELECT user.age FROM user WHERE phoneNo = $user";
+            $selectUserAgeSql = "SELECT user.age FROM user WHERE phoneNo = $userCookie";
 
                     $selectUserAgeQuery = $con->query($selectUserAgeSql);
 
