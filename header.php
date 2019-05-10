@@ -60,7 +60,7 @@
             <div class="appLinks">
                 <a href="#" target="_blank">Se profil</a>
                 <a href="#" target="_blank">Se tutorial igen</a>
-                <a href="#" target="_blank">Skift kodeord</a>
+                <a href="#" target="_blank">Skift indstillinger</a>
             </div>
             <div class="websiteLinks">
                 <p ><strong>Vores hjemmesider</strong></p>

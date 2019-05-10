@@ -46,11 +46,18 @@ Template Name: Kort
     <?php endwhile;?>
 <?php endif;?>
 
-            <div id="peekaboo">
-              <div id="peekabooLabel">Lokationer</div>
+    <section id="peekabooWrapper">
+          <div id="peekabooLabel">
+                <h3>Se Lokationer</h3>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/curvedarrow.png" alt="curvedarrow">
+              </div>
+          <div id="peekaboo">
               <span id="closePeek">&times;</span>
               <ul id="eventList"></ul>
             </div>
+
+    </section>
+            
 
 
   <div class="mapdiv">
@@ -1556,7 +1563,7 @@ Template Name: Kort
 <!-- baggrundsbillede -->
 <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
 
-    <script>
+    <script defer>
       // Don't use window.onLoad like this in production, because it can only listen to one function.
       window.onload = function() {
         var eventsHandler;
@@ -1613,8 +1620,11 @@ Template Name: Kort
         , fit: 1
         , center: 1
         , customEventsHandler: eventsHandler
-        });
+});
+      
+}; // END OF WINDOW.ONLOAD
 
+            //HERE STARTS PEEKABOO
         var peekaboo = document.getElementById("peekaboo");
         var peekabooLabel = document.getElementById("peekabooLabel");
         var eventTitles = document.getElementsByClassName("mainEventTitles");
@@ -1624,41 +1634,46 @@ Template Name: Kort
         var modals = document.getElementsByClassName('modal');
         var closePeek = document.getElementById("closePeek");
 
-        for(let i = 0; i < eventTitles.length; i++){
+          peekaboo.onclick = function(){
+                switch(this.style.left) {
+                  case '0%':
+                    peekaboo.style.left="-65%";
+                    break;
+                  case '-65%':
+                    peekaboo.style.left="0%";
+                    
+                    break;
+                  default:
+                    peekaboo.style.left="0%";
+                    peekabooLabel.style.display="none";
+                };
+
+            };
+
+
+      for(let i = 0; i < eventTitles.length; i++){
           event += "<li class='eventTitle'>";
           event += eventTitles[i].innerHTML;
           event += "</li>";
           eventTitles[i].onclick = function(){
           console.log("This works");
           }
-        };
+      };
           eventList.innerHTML += event;
 
-          peekaboo.onclick = function(){
-              peekaboo.style.width = "80%";
-              peekabooLabel.style.width = "100%";
-              peekaboo.style.transition = "1s";
-              eventList.style.display = "block";
-              closePeek.style.display = "block";
-          };
-
-          closePeek.onclick = function() {
-                peekaboo.style.width = "10%";
-                peekabooLabel.style.width = "100%";
-                peekaboo.style.transition = "1s";
-                eventList.style.display = "none";
-                console.log("nagging works");
-                console.log(peekaboo.style.width);
-          };
+      
+      
+          
+          
 
         //SHOW EVENTS!!
         for (let i = 0; i < events.length;i++) {
           events[i].onclick = function(){
             modals[i].style.display = "block";
-            peekaboo.style.width = "10%";
-            peekabooLabel.style.width = "100%";
+            // peekaboo.style.width = "10%";
+            // peekabooLabel.style.width = "100%";
             peekaboo.style.transition = "1s";
-            eventList.style.display = "none";
+            peekaboo.style.left="-65%";
           }
         };
         
@@ -1670,8 +1685,6 @@ Template Name: Kort
                 modals[i].style.display = "none";
             };
         };
-      
-      }; // END OF WINDOW.ONLOAD
 </script>
 
 <?php get_footer(); ?>

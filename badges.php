@@ -27,8 +27,8 @@ Template name: slider
   } else {
     echo '<script>console.log("connected succesfully")</script>';
   }
-
-    $userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
+    $userCookie = 28141151;
+    // $userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 
 
     $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $userCookie";
