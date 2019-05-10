@@ -218,23 +218,23 @@ if (prevPage != null) {
 
 // THE BADGES HOMESCREEN
 
-// MAP AND EVENTS
+// // MAP AND EVENTS
 
-var eventTitle = document.getElementsByClassName("mainEventTitle");
-var modals = document.getElementsByClassName("modal");
+// var eventTitle = document.getElementsByClassName("mainEventTitle");
+// var modals = document.getElementsByClassName("modal");
 
-for (let i = 0; i < eventTitle.length; i++) {
-  eventTitle[i].onclick = function() {
-    modals[i].style.display = "block";
-    console.log("This works");
-  };
-}
+// for (let i = 0; i < eventTitle.length; i++) {
+//   eventTitle[i].onclick = function() {
+//     modals[i].style.display = "block";
+//     console.log("This works");
+//   };
+// }
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close");
-for (let i = 0; i < span.length; i++) {
-  // When the user clicks on <span> (x), close the modal
-  span[i].onclick = function() {
-    modals[i].style.display = "none";
-  };
-}
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close");
+// for (let i = 0; i < span.length; i++) {
+//   // When the user clicks on <span> (x), close the modal
+//   span[i].onclick = function() {
+//     modals[i].style.display = "none";
+//   };
+// }

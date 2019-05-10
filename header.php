@@ -1,3 +1,11 @@
+<?php
+    if (isset($_GET['logout'])) {
+        setcookie("user", "", time() - 3600);
+        $cookie = $_COOKIE['user'];
+        echo $cookie;
+    };
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -44,9 +52,7 @@
     //$bgImg ="baseBg";
   }
 
-  // echo get_stylesheet_directory_uri();
-
-   ?>
+?>
   <section class=" <?php echo $bgImg ?> ">
 
     <header class="header">
@@ -64,11 +70,11 @@
             </div>
             <div class="websiteLinks">
                 <p ><strong>Vores hjemmesider</strong></p>
-                <a href="https://magiskedageodense.dk/" target="_blank"><u>Magiske Dage</u></a>
-                <a href="https://www.odense.dk/" target="_blank"><u>Odense Kommune</u></a>
+                <a href="https://magiskedageodense.dk/" target="_blank"><u>Magiske Dage Odense</u></a>
                 <a href="https://www.odensebib.dk/" target="_blank"><u>Odense Biblioteker</u></a>
+                <a href="https://www.odense.dk/" target="_blank"><u>Odense Kommune</u></a>
             </div>
-            <a href="#" target="_blank">Log ud</a>
+            <a href="https://mr.1221s.com/login/?logout=true" id="logOut">Log ud</a>
             <a href="https://www.facebook.com/magiskedageodense/" target="_blank"><i class="fab fa-facebook-square"><p>Følg os på Facebook!</p></i></a>
         </div>
 

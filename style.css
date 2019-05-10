@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url("customFonts/customfonts.css");
 /* CSS Document */
 
 /*
@@ -463,7 +464,8 @@ footer ul {
 #loginPaper {
   width: 120%;
   height: 100%;
-  top: 15%;
+  right: 10%;
+  top: 25%;
   position: relative;
   opacity: 1;
   transition-duration: 0.5s;
@@ -493,7 +495,7 @@ footer ul {
   padding-bottom: 1px;
   overflow: visible;
 
-  font-family: "Surabanglus", serif;
+  font-family: "Surabanglus", Fallback, serif;
   font-size: 1.2em;
 }
 
@@ -509,7 +511,7 @@ footer ul {
 .logInForm ::placeholder {
   color: rgba(0, 0, 0, 0.5);
   font-family: "Surabanglus", serif;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .loginPaperBG {
@@ -523,8 +525,8 @@ footer ul {
 .waxseal {
   width: 35%;
   height: auto;
-  top: 40%;
-  left: 45%;
+  top: 35%;
+  left: 20%;
   transform: rotate(45deg);
 }
 
@@ -553,9 +555,9 @@ footer ul {
 
 .startDinRejseWrapper {
   position: absolute;
-  top: 75vh;
-  left: 25vw;
-  transform: rotate(-20deg);
+  top: 68vh;
+  left: 35vw;
+  transform: rotate(-25deg);
 }
 
 .startDinRejseWrapper img {
