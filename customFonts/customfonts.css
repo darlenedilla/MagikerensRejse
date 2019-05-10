@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Surabanglus';
+    src: url('fonts/Surabanglus.eot');
+    src: url('fonts/Surabanglus.eot?#iefix') format('embedded-opentype'),
+            url('fonts/Surabanglus.woff2') format('woff2'),
+            url('fonts/Surabanglus.woff') format('woff'),
+            url('fonts/Surabanglus.ttf')  format('truetype'),
+            url('fonts/Surabanglus.svg#Surabanglus') format('svg');
+        
+}
+
+@font-face{
+        font-family: 'Caslon Antique';
+        src: url('fonts/Caslo-an.eot');
+        src: url('fonts/Caslo-an.eot?#iefix') format('embedded-opentype'),
+                url('fonts/Caslo-an.woff2') format('woff2'),
+                url('fonts/Caslo-an.woff') format('woff'),
+                url('fonts/Caslo-an.ttf')  format('truetype'),
+                url('fonts/Caslo-an.svg#Caslon Antique') format('svg');
+}

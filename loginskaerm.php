@@ -19,8 +19,8 @@ Template Name: Login
 </section>
 <section class="desktopBottomLinks">
 <span>   <a href="https://magiskedageodense.dk/" target="_blank"><u>Magiske Dage</u></a> </span>
-<span>   <a href="https://www.odense.dk/" target="_blank"><u>Odense Kommune</u></a> </span>
 <span>   <a href="https://www.odensebib.dk/" target="_blank"><u>Odense Biblioteker</u></a> </span>
+<span>   <a href="https://www.odense.dk/" target="_blank"><u>Odense Kommune</u></a> </span>
 </section>
 
 <div class="darkOverlay"></div>
@@ -29,7 +29,7 @@ Template Name: Login
 
   <?php
   // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-  include("config.php");
+include("config.php");
 
   //Darlene Connect to server
   // $server ="localhost";
@@ -76,21 +76,18 @@ Template Name: Login
               echo "Cookie value is: " .$_COOKIE['user'];
               echo "<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
               echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
-              echo "login success";
+              //echo "login success";
             }
             else {
               //if the password is incorrect:
-              echo "login no success :(";
+              //echo "login no success :(";
             }
         }
       }
       else{
-        echo "0 results";
+        //echo "0 results";
       }
   }
-  else{
-    echo "Something went wrong with sending the form";
-  };
 ?>
 
 <div class="loginPaper" id="loginPaper">

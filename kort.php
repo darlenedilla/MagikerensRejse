@@ -1,4 +1,9 @@
-<?php get_header();
+<?php 
+    if (!isset($_COOKIE['cookie'])){
+      header('Location: https://mr.1221s.com/login/');
+      exit;
+    }
+get_header();
 /*
 Template Name: Kort
 */

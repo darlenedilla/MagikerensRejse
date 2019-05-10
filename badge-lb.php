@@ -41,6 +41,8 @@ if($selectBadgeQuery->num_rows > 0){
   }
 
 
-};
+}
+else{
+  echo "<a href='https://mr.1221s.com/login/'>Gå til forsiden</a>";
 
- ?>
+?>
