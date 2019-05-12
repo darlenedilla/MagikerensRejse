@@ -18,7 +18,7 @@ Template Name: Login
   <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/qr.png" alt="QR-kode">
 </section>
 <section class="desktopBottomLinks">
-<span>   <a href="https://magiskedageodense.dk/" target="_blank"><u>Magiske Dage</u></a> </span>
+<span>   <a href="https://magiskedageodense.dk/" target="_blank"><u>Magiske Dage Odense</u></a> </span>
 <span>   <a href="https://www.odensebib.dk/" target="_blank"><u>Odense Biblioteker</u></a> </span>
 <span>   <a href="https://www.odense.dk/" target="_blank"><u>Odense Kommune</u></a> </span>
 </section>
@@ -39,19 +39,19 @@ include("config.php");
 
   //Nanna Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
-  $server ="localhost";
-  $user ="root";
-  $pw ="";
-  $db = "1221s_com_magikerensrejse";
+  // $server ="localhost";
+  // $user ="root";
+  // $pw ="";
+  // $db = "1221s_com_magikerensrejse";
 
-  // Create connection
-  $con = new mysqli($server, $user, $pw, $db);
-  //check fann_get_total_connections
-  if ($con->connect_error) {
-    die("Connection failed:" .$con->connect_error);
-  } else {
-    echo '<script>console.log("connected succesfully")</script>';
-  }
+  // // Create connection
+  // $con = new mysqli($server, $user, $pw, $db);
+  // //check fann_get_total_connections
+  // if ($con->connect_error) {
+  //   die("Connection failed:" .$con->connect_error);
+  // } else {
+  //   echo '<script>console.log("connected succesfully")</script>';
+  // }
 
 
 // Log ind funktionalitet
@@ -97,7 +97,7 @@ include("config.php");
 
 
       <!-- Log ind form -->
-      <form id="loginForm" class="logInForm" method="post" action="">
+      <form id="loginForm" class="logInForm" method="post" action="https://mr.1221s.com/badge/">
 
             <!-- 'brugernavn' -->
             <input type="number" name="phoneNo" value="" placeholder="Telefonummer..."><br/>

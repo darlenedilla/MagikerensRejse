@@ -1,6 +1,6 @@
 <?php 
     if (!isset($_COOKIE['cookie'])){
-      header('Location: https://mr.1221s.com/login/');
+      header('Location: https://mr.1221s.com/');
       exit;
     }
 get_header();
@@ -13,7 +13,7 @@ Template Name: Oprettelse
 
 <?php
 //UN-COMMENT WHEN UPLOADING TO LIVE
-//include("config.php");
+include("config.php");
 
 //COMMENT OUT WHEN UPLOADING TO LIVE
 //Nanna connect to server
@@ -23,19 +23,19 @@ Template Name: Oprettelse
 // $db = "1221s_com_magikerensrejse";
 
 //Darlene connect to server
-$server ="localhost";
-$user ="Darlene";
-$pw ="Dgs55qhk:)..";
-$db = "1221s_com_magikerensrejse";
+// $server ="localhost";
+// $user ="Darlene";
+// $pw ="Dgs55qhk:)..";
+// $db = "1221s_com_magikerensrejse";
 
 // Create connection
-$con = new mysqli($server, $user, $pw, $db);
-//check fann_get_total_connections
-if ($con->connect_error) {
-  die("Connection failed:" .$con->connect_error);
-} else {
-  echo "connected succesfully";
-}
+// $con = new mysqli($server, $user, $pw, $db);
+// //check fann_get_total_connections
+// if ($con->connect_error) {
+//   die("Connection failed:" .$con->connect_error);
+// } else {
+//   echo "connected succesfully";
+// }
 
 
 // FORM FUNCTIONALITY
@@ -107,7 +107,7 @@ if ($con->connect_error) {
 <section class="mainsection">
 
   <div id="createUserFormWrapper"> 
-    <form id="createUserForm" method="POST" enctype="multipart/form-data" action="">
+    <form id="createUserForm" method="POST" enctype="multipart/form-data" action="https://mr.1221s.com/badge/">
       <!-- First part of form -->
       <div id="firstFormSection" class="formSection">
         <h3>Hvem starter denne rejse?</h3>

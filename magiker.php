@@ -1,7 +1,7 @@
 
 <?php 
     if (!isset($_COOKIE['cookie'])){
-        header('Location: https://mr.1221s.com/login/');
+        header('Location: https://mr.1221s.com/');
         exit;
     }
 get_header();
@@ -11,7 +11,7 @@ Template Name: magiker
 ?>
 <?php
 //COMMENT THIS OUT WHEN LOCAL
-// include("config.php");
+include("config.php");
 
 //Darlene connect to server
 // COMMENT THIS OUT WHEN UPLOADING TO LIVE
@@ -22,21 +22,21 @@ Template Name: magiker
 
 //Nanna Connect to server
 //COMMENT THIS OUT WHEN UPLOADING TO LIVE
- $server ="localhost";
- $user ="root";
- $pw ="";
- $db = "1221s_com_magikerensrejse";
+//  $server ="localhost";
+//  $user ="root";
+//  $pw ="";
+//  $db = "1221s_com_magikerensrejse";
 
-// //Create connection
-$con = mysqli_connect($server, $user, $pw,$db);
+// // //Create connection
+// $con = mysqli_connect($server, $user, $pw,$db);
 
-// Check connection
-if (!$con) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+// // Check connection
+// if (!$con) {
+//   die("Connection failed: " . mysqli_connect_error());
+// }
 
-//COMMENT THIS OUT WHEN UPLOADING TO LIVE:
-$userCookie = 28141151;
+// //COMMENT THIS OUT WHEN UPLOADING TO LIVE:
+// $userCookie = 28141151;
 
 //HER HENTES SOM ER GEMT PÅ BRUGEREN DER ER LOGGET IND--> 
 // UNCOMMENT WHEN UPLOADING TO LIVE:
