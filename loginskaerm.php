@@ -1,15 +1,17 @@
-<?php get_header();
+<?php 
+get_header();
 /*
 Template Name: Login
 */
 ?>
 <?php
-    function setUserCookie($phoneNo){
-        $cookie_name = "user";
-        $cookie_value = $phoneNo;
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-    };
+// function setUserCookie($phoneNo){
+//   $cookie_name = "user";
+//   $cookie_value = $phoneNo;
+//   setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+// };
 ?>
+
 
 
 <section class="desktopMainSection">
@@ -59,7 +61,6 @@ include("config.php");
   if (isset($_POST['logIn'])) {
     global $wp;
     $homeUrl = home_url($wp->request);
-    $badgeUrl = "https://mr.1221s.com/badge/";
     $phoneNo = $_POST['phoneNo'];
     $mPassword = $_POST['mPassword'];
   
@@ -72,11 +73,11 @@ include("config.php");
           $sqlPassword = $sqlQueryResult['mPassword'];
             if ($sqlQueryResult['mPassword'] === $mPassword) {
               //If the password is correct:
-              setUserCookie($phoneNo);
+              setcookie('user', $phoneNo, time() + (86400 * 30), "/");
               echo "Cookie value is: " .$_COOKIE['user'];
-              echo "<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
-              echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
-              //echo "login success";
+              //echo "<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
+              //echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
+              echo "login success";
             }
             else {
               //if the password is incorrect:
@@ -97,7 +98,7 @@ include("config.php");
 
 
       <!-- Log ind form -->
-      <form id="loginForm" class="logInForm" method="post" action="https://mr.1221s.com/badge/">
+      <form id="loginForm" class="logInForm" method="post">
 
             <!-- 'brugernavn' -->
             <input type="number" name="phoneNo" value="" placeholder="Telefonummer..."><br/>
