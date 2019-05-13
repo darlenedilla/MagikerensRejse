@@ -1,4 +1,7 @@
-<?php get_header();
+<?php 
+include("cookieRedirect.php");
+
+get_header();
 /*
 Template Name: Login
 */
