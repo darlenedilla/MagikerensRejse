@@ -45,7 +45,6 @@
 
 <body>
 
-?>
   <section class=" <?php echo $bgImg ?> ">
 
     <header class="header">
