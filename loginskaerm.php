@@ -1,15 +1,15 @@
+<?php
+    function setUserCookie($phoneNo){
+        $cookie_name = "user";
+        $cookie_value = $phoneNo;
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+    };
+?>
 <?php 
 get_header();
 /*
 Template Name: Login
 */
-?>
-<?php
-// function setUserCookie($phoneNo){
-//   $cookie_name = "user";
-//   $cookie_value = $phoneNo;
-//   setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-// };
 ?>
 
 
@@ -31,13 +31,13 @@ Template Name: Login
 
   <?php
   // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-include("config.php");
+//include("config.php");
 
   //Darlene Connect to server
-  // $server ="localhost";
-  // $user ="Darlene";
-  // $pw ="Dgs55qhk:)..";
-  // $db = "1221s_com_magikerensrejse";
+  $server ="localhost";
+  $user ="Darlene";
+  $pw ="Dgs55qhk:)..";
+  $db = "1221s_com_magikerensrejse";
 
   //Nanna Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
@@ -47,13 +47,13 @@ include("config.php");
   // $db = "1221s_com_magikerensrejse";
 
   // // Create connection
-  // $con = new mysqli($server, $user, $pw, $db);
-  // //check fann_get_total_connections
-  // if ($con->connect_error) {
-  //   die("Connection failed:" .$con->connect_error);
-  // } else {
-  //   echo '<script>console.log("connected succesfully")</script>';
-  // }
+  $con = new mysqli($server, $user, $pw, $db);
+  //check fann_get_total_connections
+  if ($con->connect_error) {
+    die("Connection failed:" .$con->connect_error);
+  } else {
+    echo '<script>console.log("connected succesfully")</script>';
+  }
 
 
 // Log ind funktionalitet
@@ -61,6 +61,7 @@ include("config.php");
   if (isset($_POST['logIn'])) {
     global $wp;
     $homeUrl = home_url($wp->request);
+    $badgeUrl = "https://mr.1221s.com/badge/";
     $phoneNo = $_POST['phoneNo'];
     $mPassword = $_POST['mPassword'];
   
@@ -73,22 +74,25 @@ include("config.php");
           $sqlPassword = $sqlQueryResult['mPassword'];
             if ($sqlQueryResult['mPassword'] === $mPassword) {
               //If the password is correct:
-              setcookie('user', $phoneNo, time() + (86400 * 30), "/");
+              setUserCookie($phoneNo);
               echo "Cookie value is: " .$_COOKIE['user'];
-              //echo "<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
+              //echo C"<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
               //echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
               echo "login success";
             }
             else {
               //if the password is incorrect:
-              //echo "login no success :(";
+              echo "login no success :(";
             }
         }
       }
       else{
-        //echo "0 results";
+        echo "0 results";
       }
   }
+  else{
+    echo "Something went wrong with sending the form";
+  };
 ?>
 
 <div class="loginPaper" id="loginPaper">
@@ -98,7 +102,7 @@ include("config.php");
 
 
       <!-- Log ind form -->
-      <form id="loginForm" class="logInForm" method="post">
+      <form id="loginForm" class="logInForm" method="post" action="">
 
             <!-- 'brugernavn' -->
             <input type="number" name="phoneNo" value="" placeholder="Telefonummer..."><br/>
