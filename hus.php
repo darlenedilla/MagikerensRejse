@@ -1,8 +1,5 @@
 <?php 
-    if (!isset($_COOKIE['cookie'])){
-      header('Location: https://mr.1221s.com/login/');
-      exit;
-    }
+include("cookieRedirect.php");
 get_header();
 /*
 Template Name: hus
