@@ -45,13 +45,6 @@
 
 <body>
 
-  <?php
-  if (get_template_directory().'/') {
-    //$bgImg ="loginBg";
-  } else {
-    //$bgImg ="baseBg";
-  }
-
 ?>
   <section class=" <?php echo $bgImg ?> ">
 
