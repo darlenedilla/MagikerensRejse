@@ -1,5 +1,5 @@
 <?php 
-include("cookieRedirect.php");
+
 
 get_header();
 /*

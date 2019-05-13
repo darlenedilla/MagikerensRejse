@@ -4,6 +4,9 @@ get_header();
 /*
 Template Name: Kort
 */
+
+include("config.php");
+
 ?>
 <section class="mainsection">
 <!-- starting the while loop of the pages -->
