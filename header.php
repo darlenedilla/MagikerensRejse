@@ -55,7 +55,7 @@
         </div>
         <div id="mySidenav" class="sidenav">
             <div class="appLinks">
-                <a href="#" target="_blank">Se profil</a>
+                <a href="https://mr.1221s.com/magiker">Se profil</a>
                 <a href="#" target="_blank">Se tutorial igen</a>
                 <a href="#" target="_blank">Skift indstillinger</a>
             </div>
