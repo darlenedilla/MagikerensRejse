@@ -1,12 +1,13 @@
 <?php 
-//include("cookieRedirect.php");
+include("cookieRedirect.php");
 get_header();
 /*
 Template name: Badges
 */
-
-  // UN-COMMENT THIS WHEN UPLOADING TO LIVE
- include("config.php");
+?>
+<?php
+// UN-COMMENT THIS WHEN UPLOADING TO LIVE
+include("config.php");
 
   //Darlene Connect to server
   // $server ="localhost";
@@ -30,7 +31,8 @@ Template name: Badges
   //   echo '<script>console.log("connected succesfully")</script>';
   // }
 
-$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
+//$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
+$userCookie = 28141151;
 
 //Query til at hente magiske navn via telefonnummer
 $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $userCookie";
@@ -56,11 +58,11 @@ $selectBadgeSql = "SELECT badge.badgeId as badgeId
                 GROUP BY badge.badgeId;";
 
 //Query sendes med db-forbindelse
- $selectBadgeQuery = $con->query($selectBadgeSql);
+$selectBadgeQuery = $con->query($selectBadgeSql);
 
 //Tjekker om resultatet er mere end 0
 if($selectBadgeQuery->num_rows > 0){
-  //Tomt oprettes
+  //Tomt array oprettes
   $badgeArray = array();
   //For hver række i resultatet
   while ($selectBadgeRow = $selectBadgeQuery->fetch_assoc()) {
@@ -100,6 +102,7 @@ if($selectBadgeQuery->num_rows > 0){
   $badge_19 = in_array(19, $badgeArray);
   $badge_20 = in_array(20, $badgeArray);
   $badge_21 = in_array(21, $badgeArray);
+}
 ?>
 
 <!--Her starter while loop for pages-->
@@ -171,8 +174,7 @@ if($selectBadgeQuery->num_rows > 0){
                       // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
                         if ($badge_1) {
                         echo " badgeAcquired";
-                      }; 
-                      ?>"
+                      }; ?>"
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/capeBadge.png">
                   </div>
                   <!--Cape badge, slut-->
@@ -186,8 +188,7 @@ if($selectBadgeQuery->num_rows > 0){
                       // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
                       if ($badge_2) {
                       echo "badgeAcquired";
-                    }; 
-                    ?>"
+                    }; ?>"
 
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/wandBadge.png">
                   </div>
@@ -202,8 +203,7 @@ if($selectBadgeQuery->num_rows > 0){
                       // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
                       if ($badge_4) {
                       echo "badgeAcquired";
-                    }; 
-                    ?>"
+                    }; ?>"
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/ghostBadge.png">
                   </div>
                   <!--Ghost badge, slut-->
@@ -238,8 +238,7 @@ if($selectBadgeQuery->num_rows > 0){
                       // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
                       if ($badge_7 ) {
                       echo "badgeAcquired";
-                    }; 
-                    ?>"
+                    }; ?>"
 
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/botanikBadge.png">
                   </div>
@@ -254,8 +253,7 @@ if($selectBadgeQuery->num_rows > 0){
                       // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
                       if ($badge_8 ) {
                       echo "badgeAcquired";
-                    }; 
-                    ?>"
+                    }; ?>"
 
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/creatureBadge.png">
                   </div>
@@ -270,8 +268,7 @@ if($selectBadgeQuery->num_rows > 0){
                       // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
                       if ($badge_5 ) {
                       echo "badgeAcquired";
-                    }; 
-                    ?>"
+                    }; ?>"
 
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/eliksirBadge.png">
                   </div>
@@ -494,7 +491,7 @@ if($selectBadgeQuery->num_rows > 0){
             </div><!--Her slutter slickcontaineren med slickitems-->
         </section><!--Her slutter badge sektionen-->
       
-        <?php } //Her slutter while, der tjekker badges?>
+        <?php }; //Her slutter while, der tjekker badges ?>
     <?php endwhile;?>
 <?php endif;?>
 
@@ -542,8 +539,6 @@ if($selectBadgeQuery->num_rows > 0){
     };
 </script>
 <!-- Her slutter script til lightboxes -->
-
 <!-- baggrundsbillede -->
 <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
-
 <?php get_footer(); ?>

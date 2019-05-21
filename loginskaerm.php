@@ -92,6 +92,7 @@ include("config.php");
               //echo "This is the cookie: " .$_COOKIE['user'];
               echo "<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
               echo "<script>console.log(document.getElementById('loginForm').action)</script>";
+              //echo "<script>window.onload = function(){document.getElementById('loginForm').submit();};</script>";
             
             }//Her slutter password check
         }//Her slutter while
