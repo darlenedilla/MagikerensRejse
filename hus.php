@@ -9,7 +9,9 @@ Template Name: hus
 
 </style>
 
+<!--Her starter mainsection-->
 <section class="mainsection">
+  <!--Her starter trophy section-->
   <section class="trophySection">
     <div id="mainTrophy">
       <img id="largeTrophy" src="<?php echo get_stylesheet_directory_uri(); ?>/img/trophy_emblems/ild_trophy.png">
@@ -32,7 +34,9 @@ Template Name: hus
         <img class="smallEmblem" src="<?php echo get_stylesheet_directory_uri(); ?>/img/trophy_emblems/jord_emblem.png">
       </li>
     </ul>
-  </section>
+  </section><!--Her slutter trophy section-->
+
+  <!--Her starter point tavle-->
   <section class="scoreBoard">
     <table id="scoreTable">
     <tr>
@@ -64,8 +68,10 @@ Template Name: hus
       <td>14</td>
     </tr>
   </table>
-  </section>
-</section>
+  </section> <!--Her slutter point tavle-->
+
+</section><!--Her slutter mainsection-->
+
 <!-- baggrundsbillede -->
 <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
 

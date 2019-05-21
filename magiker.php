@@ -35,26 +35,21 @@ include("config.php");
 //   die("Connection failed: " . mysqli_connect_error());
 // }
 
-// //COMMENT THIS OUT WHEN UPLOADING TO LIVE:
-// $userCookie = 28141151;
-
 //HER HENTES SOM ER GEMT PÅ BRUGEREN DER ER LOGGET IND--> 
-// UNCOMMENT WHEN UPLOADING TO LIVE:
-// $userCookie = $_COOKIE['user']; 
+$userCookie = $_COOKIE['user']; 
 
-//Henter brugernavnet på den bruger, der er logget ind
-// Hent billedet fra databasen
+//Query til at hente profilbillede
 $selectUserSql = "SELECT image FROM user WHERE phoneNo= $userCookie";
-//Send query'en afsted
+//Send query'en afsted med db-forbindelse
 $selectUserQuery = mysqli_query($con,$selectUserSql);
-//Lav et array med de resultater der kommer ud fra vores sql
+//Array med de resultater der kommer ud fra vores sql
 $selectUserRow = mysqli_fetch_array($selectUserQuery);
 
 
-//Tag image-attributten fra tabellen
+//Image-attributten fra userentitet i db
 $imageName = $selectUserRow['image'];
 
-
+//Query til at hente al info fra brugeren,d er er logget ind
 $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseName, pets.name AS petName, journey.name AS journeyName 
             FROM user, bloodtype, house, pets, journey, userjourney
             WHERE user.phoneNo = $userCookie 
@@ -64,85 +59,56 @@ $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name A
             AND journey.journeyId = userjourney.journeyId
             AND userjourney.userId = user.phoneNo";
 
-
+        //Sender query afsted med db-forbindelsen
         $selectInfoQuery = $con->query($selectInfoSql);
 
+        //Hvis der er flere end 0 resultater
         if($selectInfoQuery->num_rows > 0){
-            //output data of each row
+            //For hver række i resultatsættet
             while($selectInfoRow = $selectInfoQuery->fetch_assoc()){
-                //Variables to use in html
-            $magicalName = $selectInfoRow['magicalName'];
-            $journeyName = $selectInfoRow['journeyName'];
-            $houseName = $selectInfoRow['houseName'];
-            $bloodTypeName = $selectInfoRow['bloodTypeName'];
-            $petName = $selectInfoRow['petName'];
+            //Variabler
+                $magicalName = $selectInfoRow['magicalName'];
+                $journeyName = $selectInfoRow['journeyName'];
+                $houseName = $selectInfoRow['houseName'];
+                $bloodTypeName = $selectInfoRow['bloodTypeName'];
+                $petName = $selectInfoRow['petName'];
             }
-        }
-        else{
-            echo "0 results";
         };
-
-
-        // $selectBadgeSql = "SELECT badge.image as badgeImg 
-        //                 FROM badge, userbadge 
-        //                 WHERE userbadge.userId = $userCookie
-        //                 AND userbadge.badgeId = badge.badgeId
-        //                 AND userbadge.badgeId IN (1,2,3,4) 
-        //                 GROUP BY badge.image;";
-
-        //  $selectBadgeQuery = $con->query($selectBadgeSql);
-        //  if($selectBadgeQuery->num_rows > 0){
-        //      //output data of each row
-        //      while($selectBadgeRow = $selectBadgeQuery->fetch_assoc()){
-        //          //Variables to use in html
-        //          //echo $row3['badgeImg'] .'</br>';
-        //          $arrayOfBadges[$selectBadgeRow['badgeImg']][] = $selectBadgeQuery;
-                 
-        //     }
-        //  }
-        //  else{
-        //      echo "0 Badges found";
-        //  }
 ?>
-
-
-<section class="mainsection" >
+<!--Her starter mainsection-->
+<section class="mainsection">
+    <!--ProfileData, start-->
     <div class="profileData">
+        <!--Profilbillede, start-->
         <div id="profileImgContainer">
-
-            <div id="profileImg"><img src="<?php echo get_stylesheet_directory_uri().'/img/portraits/' .$imageName;?>" ></div>
-            
+            <div id="profileImg">
+                <img src="<?php echo get_stylesheet_directory_uri().'/img/portraits/' .$imageName;?>" >
+            </div>
             <div class="ribbonContainer">
                 <a href="#" id="settingsIcon"><i class="fas fa-cog"></i></a>
                 <h3 class="magicalName"><?php echo $magicalName; ?></h3>
                 <img class="ribbon" src="<?php echo get_stylesheet_directory_uri();?>/img/ribbon.png" alt="Ribbon">
             </div>
-        </div>
-        <!--<img id="petImg" src="">-->
-        <!-- <ul id="listOfBadges">
-        <?php 
-            foreach($arrayOfBadges as $badge_img => $group){
-                //Her looper vi igennem hver badge-image
-                $src = get_stylesheet_directory_uri() .'/img/badges/' .$badge_img;
-                echo("<li class='badges'><img class='badgeImg' src=$src></li>");
-            }
-        ?>
-        </ul> -->
-        <!-- <h4 id="journeyName"><?php echo $journeyName?></h4> -->
+        </div><!--Profilbillede, slut-->
+        
+        <!--Profiloplysninger, start-->
         <h4 id="otherInfo">Dine Oplysninger:</h4>
         <ul id="listOfInfo">
             <li class="infoItem" data-label="Dit Husnavn:"><?php echo $houseName?></li>
             <li class="infoItem" data-label="Din Blodtype:"><?php echo $bloodTypeName?></li>
             <li class="infoItem" data-label="Dit Kæledyr:"><?php echo $petName?></li>
         </ul>
-    </div>
-</section>
+    </div><!--ProfilData, slut-->
+</section><!--Her slutter mainsection-->
 <!-- baggrundsbillede -->
 <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/background.jpg" alt="background">
-        
+
+<!--Her starter scriptet for visning af profiloplysninger-->
 <script>
     var journeyName = "<?php echo $journeyName?>";
     var profileImg = document.getElementById("profileImg");
+
+    //Skift farve på border omkring profilbillede ud fra deres retning
     switch(journeyName){
         case "Magiker":
             profileImg.style.borderColor = "#8d434c";

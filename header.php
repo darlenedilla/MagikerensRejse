@@ -1,10 +1,10 @@
-<?php
+<!--?php
     if (isset($_GET['logout'])) {
         setcookie("user", "", time() - 3600);
         $cookie = $_COOKIE['user'];
         echo $cookie;
     };
-?>
+?>-->
 
 <!doctype html>
 <html>

@@ -1,9 +1,7 @@
 <?php
-    function setUserCookie($phoneNo){
-        $cookie_name = "user";
-        $cookie_value = $phoneNo;
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-    };
+$cookie_name = "user";
+$cookie_value = 28141151; //Hard coded fordi cookie ikke virker ordenligt
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 ?>
 <?php 
 get_header();
@@ -38,8 +36,7 @@ include("config.php");
   // }
   ?>
 
-
-
+<!--Her begynder desktop section-->
 <section class="desktopMainSection">
   <h1>Begynd din magiske rejse på din smartphone!</h1>
   <h3>Scan QR koden og oplev magien</h3>
@@ -52,76 +49,57 @@ include("config.php");
 </section>
 
 <div class="darkOverlay"></div>
+<!--Her slutter desktop section-->
 
+<!--Her begynder mainsection-->
 <section class="mainsection">
 
+<!--Her begynder Loginformularen-->
+<div class="loginPaper" id="loginPaper">
+  <!-- background image to login information -->
+  <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="loginPaper" class="loginPaperBG">
+  <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/waxsealRED.png" alt="loginPaper" class="loginPaperBG waxseal">
+
+  <!-- Log ind form -->
+  <form id="loginForm" class="logInForm" method="post" action="">
+    <!-- 'brugernavn' -->
+    <input type="number" name="phoneNo" value="" placeholder="Telefonummer..."><br/>
+    <!-- Password -->
+    <input id="mPassword" type="password" name="mPassword" value="" placeholder="Magisk Kodeord ..."><br/>
+    <!-- log ind knap -->
+    <input type="submit" name="logIn" value="Log Ind" class="submitBtnLogin">
+  </form> <!-- end log ind form -->
+</div> <!--Her slutter Loginformularen-->
+
 <?php
-
-
 // Log ind funktionalitet
 //if 'log ind' is pressed:
   if (isset($_POST['logIn'])) {
-    global $wp;
-    $homeUrl = home_url($wp->request);
-    $badgeUrl = "https://mr.1221s.com/badge/";
     $phoneNo = $_POST['phoneNo'];
     $mPassword = $_POST['mPassword'];
   
     //sql query to ask for the password where it matches the phone number given
     $sqlCheckLogin = "SELECT `mPassword` FROM `user` WHERE `phoneNo` = $phoneNo";
       $sqlLoginQuery = $con->query($sqlCheckLogin);
-  
+    
+      //Hvis der er flere end 0 resultater
       if($sqlLoginQuery->num_rows > 0){
         while($sqlQueryResult = $sqlLoginQuery->fetch_assoc()) {
           $sqlPassword = $sqlQueryResult['mPassword'];
             if ($sqlQueryResult['mPassword'] === $mPassword) {
               //If the password is correct:
-              setUserCookie($phoneNo);
-              echo "Cookie value is: " .$_COOKIE['user'];
-              //echo C"<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
-              //echo "<script>window.onload= function(){document.getElementById('loginForm').submit();};</script>";
-              echo "login success";
-            }
-            else {
-              //if the password is incorrect:
-              echo "login no success :(";
-            }
-        }
-      }
-      else{
-        echo "0 results";
-      }
-  }
-  else{
-    echo "Something went wrong with sending the form";
-  };
+              // setUserCookie($phoneNo);
+              //echo "This is the cookie: " .$_COOKIE['user'];
+              echo "<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
+              echo "<script>console.log(document.getElementById('loginForm').action)</script>";
+            
+            }//Her slutter password check
+        }//Her slutter while
+      }//Her slutter if > 0
+  }//Her slutter if(isset)
 ?>
 
-<div class="loginPaper" id="loginPaper">
-  <!-- background image to login information -->
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="loginPaper" class="loginPaperBG">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/waxsealRED.png" alt="loginPaper" class="loginPaperBG waxseal">
-
-
-      <!-- Log ind form -->
-      <form id="loginForm" class="logInForm" method="post" action="">
-
-            <!-- 'brugernavn' -->
-            <input type="number" name="phoneNo" value="" placeholder="Telefonummer..."><br/>
-
-            <!-- Password -->
-            <input id="mPassword" type="password" name="mPassword" value="" placeholder="Magisk Kodeord ..."><br/>
-
-            <!-- log ind knap -->
-            <input type="submit" name="logIn" value="Log Ind" class="submitBtnLogin">
-
-
-      </form> <!-- end log ind form -->
-
-      <!-- end log ind form -->
-
-</div>
-
+<!--Her begynder Optagelsekonvolut-->
 <div class="konvolutLoginSkærm" id="konvolutLoginSkærm">
   <img class="konvolutLoginSkærmImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/konvolutbg.png" alt="konvolutbg">
   <div class="startDinRejseWrapper">
@@ -130,87 +108,84 @@ include("config.php");
 </div>
 
 
-      <!--  The image scroller once envelope has been opened -->
-      <div class="imageScroller" id="imageScroller">
-        <div class="unroller"></div>
-        <!-- starting the while loop of the pages -->
-         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <!-- getting the data for the letter -->
+<!--Her begynder image scroller efter konvolut er åben-->
+<div class="imageScroller" id="imageScroller">
+  <div class="unroller"></div>
+  <!--Starter while loop for pages-->
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <!-- getting the data for the letter -->
+    <?php
+      //Her hentes data fra Pod plugin i wordpress (Optagelsesbrev, billeder)
+      $oprettelsesBrev = new Pod('oprettelsesbrev');
+      $oprettelsesBrev->findRecords('page_number ASC');
+      $total_pages = $oprettelsesBrev->getTotalRows();
+      while ($oprettelsesBrev->fetchRecord('page_number ASC') ) {
+        $pageImg = $oprettelsesBrev->get_field('image.guid');
+    ?>
+    
+      <!--Her vises image scroller billeder-->
+      <div class="imageScrollerWrapper" id="imageScrollerImages">
+        <img src="<?php echo $pageImg; ?>" alt="photo for the page with the title <?php $title; ?>">
+      </div>
+
+    <?php  } endwhile; ?>
+    <?php  endif;?>
+</div> <!--Her slutter image scroller-->
+
+<!--Her begynder optagelseskonvolut-->
+<div class="envelope" id="envelopeOprettelse"><!--Konvolut, start-->
+  <div class="paper" id="envelopePaper"><!--Papir, start-->
+    <div id="paperContent"><!--Papirtekst, start-->
+
+      <!-- starting the while loop of the pages -->
+      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+      <!-- Henter data fra Pods plugin i wordpress (Optagelsesbrev, tekst) -->
         <?php
-        $oprettelsesBrev = new Pod('oprettelsesbrev');
-        // $oprettelsesBrev->findRecords('page_number ASC');
-        $oprettelsesBrev->findRecords('page_number ASC');
-        $total_pages = $oprettelsesBrev->getTotalRows();
-        while ($oprettelsesBrev->fetchRecord('page_number ASC') ) {
-          $pageImg = $oprettelsesBrev->get_field('image.guid');?>
+          $oprettelsesBrev = new Pod('oprettelsesbrev');
+          $oprettelsesBrev->findRecords('page_number ASC');
+          $total_pages = $oprettelsesBrev->getTotalRows();
 
-        <div class="imageScrollerWrapper" id="imageScrollerImages">
-          <img src="<?php echo $pageImg; ?>" alt="photo for the page with the title <?php $title; ?>">
-
+          while ($oprettelsesBrev->fetchRecord() ) {
+            $title = $oprettelsesBrev->get_field('title');
+            $pageContent = $oprettelsesBrev->get_field('pagecontent');
+            //Her genereres automatisk p-tags til teksten
+            $pageContent = wpautop( $pageContent );
+        ?>
+          <!--Papir og tekst, start-->
+          <div class="paperPage">
+            <h2> <?php echo $title; ?> </h2>
+            <div class="pageContent">
+              <?php echo $pageContent; ?>
             </div>
-
-          <?php  } endwhile; ?>
-          <?php  endif;?>
+          </div> <!--Papir og tekst, slut-->
+        <?php } ?><!--Her slutter while fetchRecord-->
+      <?php endwhile; ?>
+      <?php  endif;?>
+      
+      <!--Her begynder pile til frem og tilbage-->
+      <div class="" id="paperNextArrow">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="rightArrow">
       </div>
 
-      <!-- Envelope snippet thingy -->
-      <div class="envelope" id="envelopeOprettelse">
-        <div class="paper" id="envelopePaper">
-          <div id="paperContent">
-
-            <!-- starting the while loop of the pages -->
-             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <!-- getting the data for the letter -->
-            <?php
-            $oprettelsesBrev = new Pod('oprettelsesbrev');
-            $oprettelsesBrev->findRecords('page_number ASC');
-            $total_pages = $oprettelsesBrev->getTotalRows();
-
-            while ($oprettelsesBrev->fetchRecord() ) {
-
-              $title = $oprettelsesBrev->get_field('title');
-              $pageContent = $oprettelsesBrev->get_field('pagecontent');
-
-              //cleanup - automatically makes <p>s
-              $pageContent = wpautop( $pageContent );
-
-            ?>
-             <!-- actual code -->
-             <div class="paperPage">
-               <h2> <?php echo $title; ?> </h2>
-               <div class="pageContent">
-                 <?php echo $pageContent; ?>
-               </div>
-             </div>
-
-            <?php } ?>
-            <?php endwhile; ?>
-            <?php  endif;?>
-
-            <div class="" id="paperNextArrow">
-              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="rightArrow">
-            </div>
-
-            <div class="" id="paperBackArrow">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
-            </div>
-
-            <!-- CHANGE THIS LINK TO FIT THE CORRECT PATH - CHANGELATER -->
-            <a href="https://mr.1221s.com/optagelse/" class="" id="paperOverlayOprettelse">
-              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="the next button">
-              <p>Videre</p>
-            </a>
-          </div>
-
-        </div>
+      <div class="" id="paperBackArrow">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
       </div>
+      <!--Her slutter pile frem og tilbage-->
 
-</section>
-  <!-- baggrundsbillede -->
-  <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/login.jpg" alt="background">
+      <!-- CHANGE THIS LINK TO FIT THE CORRECT PATH - CHANGELATER -->
+      <a href="https://mr.1221s.com/optagelse/" class="" id="paperOverlayOprettelse">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="the next button">
+        <p>Videre</p>
+      </a>
+
+    </div><!--Papirtekst, slut-->
+  </div><!--Papir, slut-->
+</div><!--Konvolut, slut-->
+
+</section><!--Her slutter main section-->
+
+<!-- baggrundsbillede -->
+<img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/login.jpg" alt="background">
+
 </body>
 </html>
-
-<?php
-
-?>
