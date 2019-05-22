@@ -1,7 +1,11 @@
 <?php
-$cookie_name = "user";
-$cookie_value = 28141151; //Hard coded fordi cookie ikke virker ordenligt
-setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+ob_start();
+function setUserCookie($phoneNo){
+  $cookie_name = "user";
+  //$cookie_value = 28141151; //Hard coded fordi cookie ikke virker ordenligt
+  $cookie_value = $phoneNo;
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+}
 ?>
 <?php 
 get_header();
@@ -88,11 +92,9 @@ include("config.php");
           $sqlPassword = $sqlQueryResult['mPassword'];
             if ($sqlQueryResult['mPassword'] === $mPassword) {
               //If the password is correct:
-              // setUserCookie($phoneNo);
+              setUserCookie($phoneNo);
               //echo "This is the cookie: " .$_COOKIE['user'];
-              echo "<script>document.getElementById('loginForm').action = 'https://mr.1221s.com/badge/'</script>";
-              echo "<script>console.log(document.getElementById('loginForm').action)</script>";
-              //echo "<script>window.onload = function(){document.getElementById('loginForm').submit();};</script>";
+              header("location: https://mr.1221s.com/badge/");
             
             }//Her slutter password check
         }//Her slutter while

@@ -1,4 +1,5 @@
-<?php 
+<?php
+ob_start(); 
 include("cookieRedirect.php");
 get_header();
 /*
@@ -33,68 +34,8 @@ include("config.php");
 // } else {
 //   echo "connected succesfully";
 // }
-
-
-
-//Oprettelsesfunktionalitet
-//Her tjekkes om om submitUser er clicket
-if (isset($_POST['submitUser'])) {
-    // Variabler fra formularen
-      // Første del af formular
-      $name = $_POST['fornavn'];
-      $gender = $_POST['gender'];
-      $area = $_POST['area'];
-      $age = $_POST['age'];
-      $tlf = $_POST['tlf'];
-      $password = $_POST['password'];
-
-      // Anden del af formular
-      $mName = $_POST['mName'];
-      $house = $_POST['house'];
-      $blood = $_POST['blood'];
-      $pet = $_POST['pet'];
-
-      // Tredje del af formular
-      //Billedeupload
-      $target_dir = get_stylesheet_directory(). "/img/portraits/";
-      $image = basename( $_FILES["image"]["name"]);
-      $target_file = $target_dir . $image;
-      $uploadOk = 1;
-      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-      //Check om billedet er et rigtigt billede
-      $check = getimagesize($_FILES["image"]["tmp_name"]);
-        if($check !== false) {
-          $uploadOk = 1;
-        } 
-        else {
-          $uploadOk = 0;
-        }
-
-        // Godkendte filtyper
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ) {
-            $uploadOk = 0;
-        }
-        if ($uploadOk == 0) {
-          echo "Dit billede blev ikke uploadet";
-        } 
-        else {
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                //echo "The file ". $image. " has been uploaded.";
-            } 
-            else {
-                //echo "Sorry, there was an error uploading your file.";
-            }
-        }
-
-      // Send formulardata videre til databasen i user-entiteten
-      $sqlCreateUser = "INSERT INTO user (phoneNo, mPassword, age, gender, name, magicalName, image, houseId, bloodTypeId, areaId, petId)
-      VALUES ($tlf,'$password',$age,$gender,'$name','$mName','$image',$house,$blood,$area,$pet)";
-
-      //Send query afsted med db-forbindelse
-      $con->query($sqlCreateUser);
-}//Her slutter if (isset)
 ?>
+
 
 <!--Her begynder mainsection-->
 <section class="mainsection">
@@ -102,7 +43,7 @@ if (isset($_POST['submitUser'])) {
   <!--Her begynder oprettelsesformularen-->
   <div id="createUserFormWrapper"> 
     <!--Formular, start-->
-    <form id="createUserForm" method="POST" enctype="multipart/form-data" action="https://mr.1221s.com/badge/">
+    <form id="createUserForm" method="POST" enctype="multipart/form-data">
       
       <!--Første form sektion, start-->
       <div id="firstFormSection" class="formSection">
@@ -189,6 +130,69 @@ if (isset($_POST['submitUser'])) {
 
 <!--Baggrundsbillede-->
 <img class="mainsectionImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/login.jpg" alt="background">
+
+
+<?php
+//Oprettelsesfunktionalitet
+//Her tjekkes om om submitUser er clicket
+if (isset($_POST['submitUser'])) {
+    // Variabler fra formularen
+      // Første del af formular
+      $name = $_POST['fornavn'];
+      $gender = $_POST['gender'];
+      $area = $_POST['area'];
+      $age = $_POST['age'];
+      $tlf = $_POST['tlf'];
+      $password = $_POST['password'];
+
+      // Anden del af formular
+      $mName = $_POST['mName'];
+      $house = $_POST['house'];
+      $blood = $_POST['blood'];
+      $pet = $_POST['pet'];
+
+      // Tredje del af formular
+      //Billedeupload
+      $target_dir = get_stylesheet_directory(). "/img/portraits/";
+      $image = basename( $_FILES["image"]["name"]);
+      $target_file = $target_dir . $image;
+      $uploadOk = 1;
+      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+      //Check om billedet er et rigtigt billede
+      $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if($check !== false) {
+          $uploadOk = 1;
+        } 
+        else {
+          $uploadOk = 0;
+        }
+
+        // Godkendte filtyper
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+            $uploadOk = 0;
+        }
+        if ($uploadOk == 0) {
+          echo "Dit billede blev ikke uploadet";
+        } 
+        else {
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                //echo "The file ". $image. " has been uploaded.";
+            } 
+            else {
+                //echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
+      // Send formulardata videre til databasen i user-entiteten
+      $sqlCreateUser = "INSERT INTO user (phoneNo, mPassword, age, gender, name, magicalName, image, houseId, bloodTypeId, areaId, petId)
+      VALUES ($tlf,'$password',$age,$gender,'$name','$mName','$image',$house,$blood,$area,$pet)";
+
+      //Send query afsted med db-forbindelse
+      $con->query($sqlCreateUser);
+      header("location: https://mr.1221s.com/");
+}//Her slutter if (isset)
+?>
 
 <!--Her starter scriptet for dynamiske pile-->
 <script>

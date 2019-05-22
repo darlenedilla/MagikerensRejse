@@ -32,7 +32,7 @@ include("config.php");
   // }
 
 //$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
-$userCookie = 28141151;
+$userCookie = $_COOKIE['user'];
 
 //Query til at hente magiske navn via telefonnummer
 $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $userCookie";
