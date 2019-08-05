@@ -10,27 +10,9 @@ Template Name: Retning
   // UN-COMMENT THIS WHEN UPLOADING TO LIVE
 include("config.php");
 
-  //Darlene Connect to server
-//   $server ="localhost";
-//   $user ="Darlene";
-//   $pw ="Dgs55qhk:)..";
-//   $db = "1221s_com_magikerensrejse";
 
-  //Nanna Connect to server
-  //COMMENT THIS OUT WHEN UPLOADING TO LIVE
-  // $server ="localhost";
-  // $user ="root";
-  // $pw ="";
-  // $db = "1221s_com_magikerensrejse";
+$user ="Darlene";
 
-  // Create connection
-//   $con = new mysqli($server, $user, $pw, $db);
-//   //check fann_get_total_connections
-//   if ($con->connect_error) {
-//     die("Connection failed:" .$con->connect_error);
-//   } else {
-//     echo '<script>console.log("connected succesfully")</script>';
-//   }
         $userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 
         if(isset($_POST['magiker'])){

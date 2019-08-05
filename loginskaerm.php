@@ -1,5 +1,8 @@
 <?php
 ob_start();
+// if (isset($_COOKIE['user'])){
+//   header("location: https://mr.1221s.com/badge");
+// }
 function setUserCookie($phoneNo){
   $cookie_name = "user";
   //$cookie_value = 28141151; //Hard coded fordi cookie ikke virker ordenligt
@@ -167,17 +170,17 @@ include("config.php");
       
       <!--Her begynder pile til frem og tilbage-->
       <div class="" id="paperNextArrow">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="rightArrow">
+        <img class="maxWidthImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="rightArrow">
       </div>
 
       <div class="" id="paperBackArrow">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
+        <img class="maxWidthImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="leftArrow">
       </div>
       <!--Her slutter pile frem og tilbage-->
 
       <!-- CHANGE THIS LINK TO FIT THE CORRECT PATH - CHANGELATER -->
       <a href="https://mr.1221s.com/optagelse/" class="" id="paperOverlayOprettelse">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="the next button">
+        <img class="maxWidthImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/loginPaper.png" alt="the next button">
         <p>Videre</p>
       </a>
 

@@ -1,0 +1,118 @@
+/*Section 4: Magiker visual, start*/
+#profileImgContainer {
+    width: 100%;
+}
+  
+.ribbonContainer {
+    position: relative;
+    text-align: center;
+}
+
+#ribbonContainer {
+    position: relative;
+    text-align: center;
+    top: 0;
+}
+
+#profileImg {
+    width: 280px;
+    height: 280px;
+    border-radius: 100%;
+    border: solid 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+    top: 50px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+}
+
+
+.ribbon {
+    width: 280px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -30px;
+    display: block;
+}
+
+.magicalName {
+    font-family: $fontSurabanglus;
+    font-size: 20px;
+    color: $black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#listOfBadges {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.badges {
+    display: inline-block;
+    margin: 0 0.4em;
+}
+
+
+#journeyName {
+    font-family: $fontSurabanglus;
+    font-size: 20px;
+    color: $black;
+    text-align: center;
+}
+
+#otherInfo {
+    font-family: $fontSurabanglus;
+    font-size: 18px;
+    color: $black;
+    margin-left: 15%;
+    margin-top: 1em;
+}
+
+#listOfInfo {
+    list-style-type: none;
+    position: relative;
+
+    li {
+        color: $black;
+        font-family: $fontSurabanglus;
+        font-size: 18px;
+        margin-left: 250px;
+    }
+
+    li:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15%;
+    }
+        
+}
+
+#settingsIcon {
+    z-index: 1000;
+    position: relative;
+    left: 20%;
+    top: -10px;
+
+    min-width: 100px;
+    min-height: 100px;
+
+    i {
+        font-size: 1.5em;
+        color: $black;
+    }
+}
+/*Section 4: Magiker visual, end*/

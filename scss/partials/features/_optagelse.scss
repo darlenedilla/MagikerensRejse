@@ -1,0 +1,309 @@
+/*Section 6: Optagelsesbrev, start*/
+@import 'login';
+
+/*Section 6.1: Optagelse, start*/
+#konvolutLoginSkærm {
+    width: 100vw;
+    height: auto;
+    max-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+  
+.konvolutLoginSkærmImg {
+    position: absolute;
+    display: block;
+    width: 120%;
+    height: auto;
+    top: 65vh;
+    left: 10%;
+    @include transformRotate(rotate(-25deg));
+}
+
+.startDinRejseWrapper {
+    position: absolute;
+    top: 68vh;
+    left: 35vw;
+    @include transformRotate(rotate(-25deg));
+
+    img {
+        max-width: 50px;
+        height: auto;
+        display: inline-block;
+    }
+
+    p {
+        color: black;
+        float: left;
+    }
+    
+}
+/*Section 6.1: Optagelse, end*/
+
+/*Section 6.2: Konvolut, start*/
+.envelope {
+    position: fixed;
+    margin: 50px auto 0;
+    width: 98px;
+    height: 66px;
+    bottom: 5vh;
+    right: 10vw;
+    background: #c94548;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 0 1px #c94548 inset;
+
+    transition-duration: 0.5s;
+
+    :before, :after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 0 solid transparent;
+        border-width: 33px 49px;
+        transition-duration: inherit;
+    }
+
+    :before {
+        border-bottom-color: #c94548;
+        top: -100%;
+        left: 0px;
+    }
+
+    :after {
+        border-right-color: #ed4c50;
+        border-left-color: #fa565a;
+        border-bottom-color: #fa565a;
+        top: 0;
+        border-radius: 0 0 5px 5px;
+        @include transformRotate(rotate(360deg));
+        @include boxShadowOpacity( 0 1px 1px rgba(0, 0, 0, 0.25));
+    }
+}
+
+.paper {
+    background: #fff;
+    width: 90%;
+    height: 66px;
+    margin: 0 auto;
+    border-radius: 5px;
+    position: absolute;
+    left: 6px;
+    top: -33px;
+    @include boxShadowOpacity( 0 1px 1px rgba(0, 0, 0, 0.25));
+
+    transition-duration: inherit;
+}
+
+/*Envelope animation*/
+.openEnvelope {
+    animation: openEnvelope;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+
+    :before, :after {
+    animation: envelopeBeforeAndAfters;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+}
+
+.openEnvelopePaper {
+    height: 96px;
+    animation: paperUnfold;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+/* when you first click the envelope,
+first size up and go to center, then go down past the screen */
+@keyframes openEnvelope {
+    0% {
+        width: 98px;
+        height: 66px;
+        bottom: 5vh;
+        right: 10vw;
+    }
+    20% {
+        width: 128px;
+        height: 96px;
+        bottom: 5vh;
+        right: 32vw;
+    }
+
+    100% {
+        width: 128px;
+        height: 96px;
+        bottom: -30vh;
+        right: 32vw;
+    }
+}
+/* the flaps in front need to be resized to fit, this is noodling work */
+@keyframes envelopeBeforeAndAfters {
+    0% {
+        border-width: 33px 49px;
+    }
+    100% {
+        border-width: 50px 64px;
+    }
+}
+
+@keyframes paperUnfold {
+    0% {
+        width: 90%;
+        height: 96px;
+        left: 6px;
+        top: -33px;
+        background: #fff;
+    }
+    100% {
+        width: 80vw;
+        height: 70vh;
+        left: -23vw;
+        top: -70vh;
+        background: #ffd575;
+    }
+}
+/*Section 6.2: Konvolut, end*/
+
+/*Section 6.3: Optagelsespapir, start*/
+
+#paperContent {
+    opacity: 0;
+    display: none;
+    width: 100%;
+    height: 60%;
+    padding: 20px;
+
+    transition-duration: 0.3s;
+
+    h2 {
+        color: $black;
+        font-family: $fontSurabanglus;
+        font-size: 1em;
+        text-align: center;
+    }
+
+    p {
+        color: $black;
+        font-family: "verdana", serif;
+        font-size: 1em;
+    }
+}
+
+.paperPage {
+    display: none;
+    position: absolute;
+    top: 0;
+    height: auto;
+
+    transition-duration: 0.3s;
+}
+
+
+#paperNextArrow,
+#paperBackArrow {
+    z-index: 100;
+    width: 10%;
+    height: auto;
+
+    position: fixed;
+    bottom: 5vh;
+
+    transition-delay: 0.2s;
+    transition-duration: 0.3s;
+}
+
+#paperNextArrow {
+    right: 15vw;
+}
+#paperBackArrow {
+    left: 15vw;
+    transform: scale(-1, 1);
+}
+
+#paperOverlayOprettelse {
+    position: fixed;
+    right: -50vw;
+    width: 40%;
+    height: 50px;
+    bottom: 20vh;
+
+    transition-delay: 0.2s;
+    transition-duration: 0.6s;
+
+    img {
+        @include transformRotate(rotate(90deg));
+        position: absolute;
+        top: 0;
+    }
+
+    p {
+        position: absolute;
+        top: 150%;
+        left: 40px;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.maxWidthImg{
+    max-width: 100%;
+    height: auto;
+}
+
+
+.imageScroller {
+    position: absolute;
+    top: 15vh;
+    left: 110vw;
+
+    height: 35vh;
+    width: 300vw;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #e0c482;
+    @include boxShadowOpacity(4px 13px 42px -8px rgba(0, 0, 0, 0.75));
+
+    transition-duration: 1s;
+}
+
+.unroller {
+    height: 44vh;
+    width: 20px;
+    position: absolute;
+    top: -5vw;
+    left: -20px;
+
+    background-color: #d6b568;
+    @include boxShadowOpacity(4px 13px 42px -8px rgba(0, 0, 0, 1));
+}
+
+.imageScrollerWrapper {
+    height: 100%;
+    min-height: 35vh;
+    width: 90vw;
+    float: left;
+    margin-right: 5vw;
+    margin-left: 5vw;
+    display: none;
+    opacity: 0;
+    transition-duration: 0.3s;
+
+    img {
+        height: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        object-fit: cover;
+    }
+}
+
+/*Section 6.3: Optagelsespapir, end*/
+
+/*Section 6: Optagelsebrev, end*/

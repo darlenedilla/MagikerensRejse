@@ -1,9 +1,11 @@
 <?php
-    if (isset($_GET['logout'])) {
-        setcookie("user", "", time() - 3600);
-        $cookie = $_COOKIE['user'];
-        echo $cookie;
-    };
+ob_start();
+// if (isset($_GET['logout'])) {
+//     header('Location: https://mr.1221s.com/');
+//     setcookie("user", "", time() - 3600);
+//     exit;
+// };
+global $wp;
 ?>
 <!doctype html>
 <html>
@@ -22,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/style.css?ver=<?php echo rand(111,999)?>">
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/scss/index.css?ver=<?php echo rand(111,999)?>">
 
 
     <!-- eksternt materiale-->
@@ -56,8 +59,7 @@
         <div id="mySidenav" class="sidenav">
             <div class="appLinks">
                 <a href="https://mr.1221s.com/magiker">Se profil</a>
-                <a href="#" target="_blank">Se tutorial igen</a>
-                <a href="#" target="_blank">Skift indstillinger</a>
+                <a href="https://mr.1221s.com/settings">Skift indstillinger</a>
             </div>
             <div class="websiteLinks">
                 <p ><strong>Vores hjemmesider</strong></p>
@@ -65,7 +67,7 @@
                 <a href="https://www.odensebib.dk/" target="_blank"><u>Odense Biblioteker</u></a>
                 <a href="https://www.odense.dk/" target="_blank"><u>Odense Kommune</u></a>
             </div>
-            <a href="https://mr.1221s.com/login/?logout=true" id="logOut">Log ud</a>
+            <a href="<?php echo home_url($wp->request);?>/?logout=true" id="logOut">Log ud</a>
             <a href="https://www.facebook.com/magiskedageodense/" target="_blank"><i class="fab fa-facebook-square"><p>Følg os på Facebook!</p></i></a>
         </div>
 

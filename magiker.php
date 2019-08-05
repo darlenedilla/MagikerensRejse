@@ -10,28 +10,6 @@ Template Name: magiker
 //COMMENT THIS OUT WHEN LOCAL
 include("config.php");
 
-//Darlene connect to server
-// COMMENT THIS OUT WHEN UPLOADING TO LIVE
-// $server = "localhost";
-// $user = "Darlene"; 
-// $pw = "Dgs55qhk:).."; 
-// $db = "1221s_com_magikerensrejse"; 
-
-//Nanna Connect to server
-//COMMENT THIS OUT WHEN UPLOADING TO LIVE
-//  $server ="localhost";
-//  $user ="root";
-//  $pw ="";
-//  $db = "1221s_com_magikerensrejse";
-
-// // //Create connection
-// $con = mysqli_connect($server, $user, $pw,$db);
-
-// // Check connection
-// if (!$con) {
-//   die("Connection failed: " . mysqli_connect_error());
-// }
-
 //HER HENTES SOM ER GEMT PÅ BRUGEREN DER ER LOGGET IND--> 
 $userCookie = $_COOKIE['user']; 
 
@@ -82,7 +60,7 @@ $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name A
                 <img src="<?php echo get_stylesheet_directory_uri().'/img/portraits/' .$imageName;?>" >
             </div>
             <div class="ribbonContainer">
-                <a href="#" id="settingsIcon"><i class="fas fa-cog"></i></a>
+                <a href="https://mr.1221s.com/settings" id="settingsIcon"><i class="fas fa-cog"></i></a>
                 <h3 class="magicalName"><?php echo $magicalName; ?></h3>
                 <img class="ribbon" src="<?php echo get_stylesheet_directory_uri();?>/img/ribbon.png" alt="Ribbon">
             </div>

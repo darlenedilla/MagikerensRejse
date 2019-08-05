@@ -9,28 +9,6 @@ Template name: Badges
 // UN-COMMENT THIS WHEN UPLOADING TO LIVE
 include("config.php");
 
-  //Darlene Connect to server
-  // $server ="localhost";
-  // $user ="Darlene";
-  // $pw ="Dgs55qhk:)..";
-  // $db = "1221s_com_magikerensrejse";
-
-  //Nanna Connect to server
-  //COMMENT THIS OUT WHEN UPLOADING TO LIVE
-  // $server ="localhost";
-  // $user ="root";
-  // $pw ="";
-  // $db = "1221s_com_magikerensrejse";
-
-  // Create connection
-  // $con = new mysqli($server, $user, $pw, $db);
-  // //check fann_get_total_connections
-  // if ($con->connect_error) {
-  //   die("Connection failed:" .$con->connect_error);
-  // } else {
-  //   echo '<script>console.log("connected succesfully")</script>';
-  // }
-
 //$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 $userCookie = $_COOKIE['user'];
 
@@ -72,6 +50,7 @@ if($selectBadgeQuery->num_rows > 0){
     };
   };
 
+
   //check for 'Magiker' badges
   $badge_1 = in_array(1, $badgeArray);
   $badge_2 = in_array(2, $badgeArray);
@@ -109,17 +88,19 @@ if($selectBadgeQuery->num_rows > 0){
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <?php
       //Henter data fra pods plugin i wordpress (Badge Lightbox)
-      $badges = new Pod('badge_lb');
-      $badges->findRecords('badge_id ASC');
+      $params = array('orderby' => 'badge_id ASC', 'limit' => -1);
+      $badges = new Pod('badge_lb', $params);
+      $badges->findRecords($params);
       $total_badges = $badges->getTotalRows();
       //For hver Pod
-      while ($badges->fetchRecord('badge_id ASC')) {
+      while ($badges->fetchRecord($params)) {
           $title = $badges->get_field('badge_title');
           $badgeImage = $badges->get_field('badge_image.guid');
           $eventLink = $badges->get_field('event_link');
           $badgeRetning = $badges->get_field('badge_retning');
           $Id = $badges->get_field('badge_id');
           $badgeId = (int)$Id;
+          echo "<script>console.log('$title')</script>";
     ?>
 
     <!--Her starter Badge Lightbox-->
@@ -193,21 +174,7 @@ if($selectBadgeQuery->num_rows > 0){
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/wandBadge.png">
                   </div>
                   <!--Wand badge, slut-->
-                  
-                  <!--Ghost badge, start-->
-                  <div id="4" class="badgeImg bottom-left">
-                    <img class="badgeActualImg
 
-                    <?php
-                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
-                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
-                      if ($badge_4) {
-                      echo "badgeAcquired";
-                    }; ?>"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/ghostBadge.png">
-                  </div>
-                  <!--Ghost badge, slut-->
-                          
                   <!--Nordheim badge, start-->
                   <div id="3" class="badgeImg bottom-right">
                     <img class="badgeActualImg
@@ -222,12 +189,56 @@ if($selectBadgeQuery->num_rows > 0){
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/nordheimBadge.png">
                   </div>
                   <!--Nordheim badge, slut-->
+                  
+                  <!--Ghost badge, start-->
+                  <div id="4" class="badgeImg bottom-left">
+                    <img class="badgeActualImg
+
+                    <?php
+                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
+                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
+                      if ($badge_4) {
+                      echo "badgeAcquired";
+                    }; ?>"
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/magiker/ghostBadge.png">
+                  </div>
+                  <!--Ghost badge, slut-->
 
               </div><!--Magiker Box, slut-->
 
               <!-- Alkymist Box, start -->
               <div class="badge slickItem" id="alkymist">
                   <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/alkymist/alkymistBadge.png">
+
+                  <!--Eliksir badge, start-->
+                  <div id="5" class="badgeImg bottom-left">
+                    <img class="badgeActualImg
+
+                    <?php
+                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
+                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
+                      if ($badge_5 ) {
+                      echo "badgeAcquired";
+                    }; ?>"
+
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/eliksirBadge.png">
+                  </div>
+                  <!--Eliksir badge, slut-->
+
+                  <!--Spiselig wand badge, start-->
+                  <div id="6" class="badgeImg bottom-right">
+                    <img class="badgeActualImg
+
+                    <?php
+                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
+                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
+                      if ($badge_6 ) {
+                      echo "badgeAcquired";
+                    }; ?>"
+
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/spiswandBadge.png">
+                  </div>
+                  <!--Spiselig wand badge, slut-->
                   
                   <!--Botanik badge, start-->
                   <div id="7" class="badgeImg top-left">
@@ -258,57 +269,12 @@ if($selectBadgeQuery->num_rows > 0){
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/creatureBadge.png">
                   </div>
                   <!--Creature badge, slut-->
-                  
-                  <!--Eliksir badge, start-->
-                  <div id="5" class="badgeImg bottom-left">
-                    <img class="badgeActualImg
-
-                    <?php
-                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
-                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
-                      if ($badge_5 ) {
-                      echo "badgeAcquired";
-                    }; ?>"
-
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/eliksirBadge.png">
-                  </div>
-                  <!--Eliksir badge, slut-->
-                  
-                  <!--Spiselig wand badge, start-->
-                  <div id="6" class="badgeImg bottom-right">
-                    <img class="badgeActualImg
-
-                    <?php
-                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
-                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
-                      if ($badge_6 ) {
-                      echo "badgeAcquired";
-                    }; ?>"
-
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/alkymist/spiswandBadge.png">
-                  </div>
-                  <!--Spiselig wand badge, slut-->
 
               </div><!--Alkymist Box, slut-->
 
               <!-- Quidditch Stjerne Box, start -->
               <div class="badge slickItem" id="quidditch">
                   <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/quidditch/qBadge.png">
-                  
-                  <!--Quidditch Tournament badge, start-->
-                  <div id="10" class="badgeImg top-left">
-                    <img class="badgeActualImg
-
-                    <?php
-                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
-                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
-                      if ($badge_10 ) {
-                      echo "badgeAcquired";
-                    }; ?>"
-
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/qtournamentBadge.png">
-                  </div>
-                  <!--Quidditch Tournament, slut-->
                   
                   <!--Qudditch kamo badge, start-->
                   <div id="9" class="badgeImg top-right">
@@ -324,6 +290,35 @@ if($selectBadgeQuery->num_rows > 0){
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/quidditchBadge.png">
                   </div>
                   <!--Quudditch kamp badge, slut-->
+                  <!--Quidditch Tournament badge, start-->
+                  <div id="10" class="badgeImg top-left">
+                    <img class="badgeActualImg
+
+                    <?php
+                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
+                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
+                      if ($badge_10 ) {
+                      echo "badgeAcquired";
+                    }; ?>"
+
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/qtournamentBadge.png">
+                  </div>
+                  <!--Quidditch Tournament, slut-->
+
+                  <!--Gyldne snitch badge, start-->
+                  <div id="11" class="badgeImg bottom-right">
+                    <img class="badgeActualImg
+
+                    <?php
+                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
+                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
+                      if ($badge_11 ) {
+                      echo "badgeAcquired";
+                    }; ?>"
+
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/snitchBadge.png">
+                  </div>
+                  <!--Gyldne snitch badge, slut-->
                   
                   <!--Broom badge, start-->
                   <div id="13" class="badgeImg bottom-left">
@@ -339,21 +334,6 @@ if($selectBadgeQuery->num_rows > 0){
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/broomBadge.png">
                   </div>
                   <!--Broom badge, slut-->
-                  
-                  <!--Gyldne snitch badge, start-->
-                  <div id="11" class="badgeImg bottom-right">
-                    <img class="badgeActualImg
-
-                    <?php
-                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
-                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
-                      if ($badge_11 ) {
-                      echo "badgeAcquired";
-                    }; ?>"
-
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/quidditch/snitchBadge.png">
-                  </div>
-                  <!--Gyldne snitch badge, slut-->
 
               </div><!--Quidditch Stjerne Box, slut-->
 
@@ -375,6 +355,21 @@ if($selectBadgeQuery->num_rows > 0){
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/eggBadge.png">
                   </div>
                   <!--Drageæg badge, slut-->
+               
+                  <!--Pasning af dyr, start-->
+                  <div id="15" class="badgeImg bottom-left">
+                    <img class="badgeActualImg
+
+                    <?php
+                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
+                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
+                      if ($badge_15 ) {
+                      echo "badgeAcquired";
+                    }; ?>"
+
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/animalBadge.png">
+                  </div>
+                  <!--Pasning af dyr, slut-->
 
                   <!--Fold en drage badge, start-->
                   <div id="16" class="badgeImg top-right">
@@ -390,21 +385,6 @@ if($selectBadgeQuery->num_rows > 0){
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/dragonBadge.png">
                   </div>
                   <!--Fold en drage, slut-->
-                  
-                  <!--Pasning af dyr, start-->
-                  <div id="15" class="badgeImg bottom-left">
-                    <img class="badgeActualImg
-
-                    <?php
-                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
-                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
-                      if ($badge_15 ) {
-                      echo "badgeAcquired";
-                    }; ?>"
-
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/drage/animalBadge.png">
-                  </div>
-                  <!--Pasning af dyr, slut-->
 
                   <!--Zoologmagisk tur, start-->
                   <div id="17" class="badgeImg bottom-right">
@@ -427,6 +407,36 @@ if($selectBadgeQuery->num_rows > 0){
               <div class="badge slickItem" id="erfaren">
                   <img class="journeyBadge" src="<?php echo get_stylesheet_directory_uri();?>/img/badges/erfaren/erfarenBadge.png">
                   
+                  <!--Tipsy Toad, start-->
+                  <div id="18" class="badgeImg bottom-right">
+                    <img class="badgeActualImg
+
+                    <?php
+                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
+                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
+                      if ($badge_18 ) {
+                      echo "badgeAcquired";
+                    }; ?>"
+
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/toadBadge.png">
+                  </div>
+                  <!--Tipsy Toad, slut-->
+
+                  <!--Storms pakhus, start-->
+                  <div id="19" class="badgeImg bottom-left">
+                    <img class="badgeActualImg
+
+                    <?php
+                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
+                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
+                      if ($badge_19 ) {
+                      echo "badgeAcquired";
+                    }; ?>"
+
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/stormsBadge.png">
+                  </div>
+                  <!--Storms pakhus, slut-->
+
                   <!--Filmkoncert, start-->
                   <div id="20" class="badgeImg top-left">
                     <img class="badgeActualImg
@@ -456,36 +466,6 @@ if($selectBadgeQuery->num_rows > 0){
                     src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/promBadge.png">
                   </div>
                   <!--Efteråsbal, slut-->
-                  
-                  <!--Storms pakhus, start-->
-                  <div id="19" class="badgeImg bottom-left">
-                    <img class="badgeActualImg
-
-                    <?php
-                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
-                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
-                      if ($badge_19 ) {
-                      echo "badgeAcquired";
-                    }; ?>"
-
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/stormsBadge.png">
-                  </div>
-                  <!--Storms pakhus, slut-->
-                  
-                  <!--Tipsy Toad, start-->
-                  <div id="18" class="badgeImg bottom-right">
-                    <img class="badgeActualImg
-
-                    <?php
-                      // Tilføj class'en badgeAcquired, hvis brugeren har det badge:
-                      // NOTE: VIGTIGT A TJEKKE BADGE NUMMER!!!
-                      if ($badge_18 ) {
-                      echo "badgeAcquired";
-                    }; ?>"
-
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/img/badges/erfaren/toadBadge.png">
-                  </div>
-                  <!--Tipsy Toad, slut-->
 
               </div><!--Erfaren magiker box, slut-->
             </div><!--Her slutter slickcontaineren med slickitems-->
@@ -510,7 +490,7 @@ if($selectBadgeQuery->num_rows > 0){
     var modals = document.getElementsByClassName('modal');
     var badges = document.getElementsByClassName('badgeImg');
     var darkOverlay = document.getElementById('darkoverlay');
-    
+
     //Her tilføjes click funktion til hvert badge
     for(let i = 0; i < badges.length; i++){
         badges[i].onclick = function(){
@@ -519,7 +499,7 @@ if($selectBadgeQuery->num_rows > 0){
             console.log("This works");
         }
     };
-    
+
     var span = document.getElementsByClassName("close");
     //Her tilføjes click funktion til hvert close-ikon
     for(let i = 0; i <span.length; i++){

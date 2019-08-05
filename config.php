@@ -1,12 +1,15 @@
 <?php
 
-$host = "1221s.com.mysql.service.one.com"; /* Host name */
-$user = "1221s_com_magikerensrejse"; /* User */
-$password = "magikerensRejse:)"; /* Password */
-$dbname = "1221s_com_magikerensrejse"; /* Database name */
+
+//Darlene connect to server
+// COMMENT THIS OUT WHEN UPLOADING TO LIVE
+$server = "localhost";
+$user = "Darlene"; 
+$pw = "Dgs55qhk:).."; 
+$db = "1221s_com_magikerensrejse"; 
 
 // Create connection
-$con = mysqli_connect($host, $user, $password,$dbname);
+$con = mysqli_connect($server, $user, $pw,$db);
 
 // Check connection
 if (!$con) {

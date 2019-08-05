@@ -1,0 +1,72 @@
+/*Section 5: Login, start*/
+#loginPaper {
+    width: 120%;
+    height: 100%;
+    right: 10%;
+    top: 25%;
+    position: relative;
+    opacity: 1;
+    transition-duration: 0.5s;
+    @include transformRotate(rotate(15deg));
+}
+  
+.logInForm {
+    display: block;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    top: 2%;
+    left: 10%;
+
+    overflow: visible;
+
+    input {
+        width: 50vw;
+        min-height: 35px;
+        margin-bottom: 20px;
+        border: 1px solid $black;
+        border-style: none none solid none;
+        background-color: rgba(255, 0, 0, 0);
+        padding: 10px;
+        padding-bottom: 1px;
+        overflow: visible;
+    
+        font-family: $fontSurabanglus;
+        font-size: 1.2em;
+    }
+
+    .submitBtnLogin {
+        border-style: none;
+        font-size: 2em;
+    }
+
+    ::placeholder {
+        color: rgba(0, 0, 0, 0.5);
+        font-family: $fontSurabanglus;
+        font-size: 1em;
+    }
+}
+
+
+#mPassword {
+    font-family: Arial;
+}
+
+
+
+.loginPaperBG {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: -10%;
+}
+
+.waxseal {
+    width: 35%;
+    height: auto;
+    top: 35%;
+    left: 20%;
+    @include transformRotate(rotate(45deg));
+}
+/*Section 5: Login, end*/

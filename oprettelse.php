@@ -12,28 +12,6 @@ Template Name: Oprettelse
 <?php
 //UN-COMMENT WHEN UPLOADING TO LIVE
 include("config.php");
-
-//COMMENT OUT WHEN UPLOADING TO LIVE
-//Nanna connect to server
-// $server ="localhost";
-// $user ="root";
-// $pw ="";
-// $db = "1221s_com_magikerensrejse";
-
-//Darlene connect to server
-// $server ="localhost";
-// $user ="Darlene";
-// $pw ="Dgs55qhk:)..";
-// $db = "1221s_com_magikerensrejse";
-
-// Create connection
-// $con = new mysqli($server, $user, $pw, $db);
-// //check fann_get_total_connections
-// if ($con->connect_error) {
-//   die("Connection failed:" .$con->connect_error);
-// } else {
-//   echo "connected succesfully";
-// }
 ?>
 
 

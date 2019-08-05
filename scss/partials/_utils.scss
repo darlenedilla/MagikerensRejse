@@ -1,0 +1,38 @@
+$fontSurabanglus: Surabanglus, serif;
+$black: #232323;
+$vw100: 100vw;
+$vh100: 100vh; 
+$percent100: 100%;
+
+@mixin bgImage($imageURL, $noRepeat: 'no-repeat', $positionCenter: 'center'){
+    background-image: $imageURL;
+    background-repeat: $noRepeat;
+    background-position: $positionCenter;
+};
+
+@mixin transformRotate($rotate){
+    -webkit-transform: $rotate;
+    -moz-transform: $rotate;
+    -o-transform: $rotate;
+    transform: $rotate;
+};
+
+@mixin easeInOut($easeinout){
+    -webkit-transition: $easeinout;
+    -moz-transition: $easeinout;
+    -o-transition: $easeinout;
+    transition: $easeinout;
+};
+
+@mixin transformLeftCenter($leftCenter: 'left center'){
+    -webkit-transform-origin: $leftCenter;
+    -moz-transform-origin: $leftCenter;
+    -o-transform-origin: $leftCenter;
+    transform-origin: $leftCenter;
+};
+
+@mixin boxShadowOpacity($opacity){
+    -webkit-box-shadow: $opacity;
+    -moz-box-shadow: $opacity;
+    box-shadow: $opacity;
+}
