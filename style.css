@@ -227,8 +227,10 @@ body {
 }
 
 .headerMenu {
-  position: relative;
-  right: 20px;
+  position: absolute;
+  right: 65px;
+  top: 20px;
+  z-index: 5;
 }
 
 .headerMenu a {
@@ -261,6 +263,66 @@ body {
   padding-top: 110px;
   transition: 0.5s;
   text-align: center;
+}
+
+/* the upload button */
+
+.qrcode-text-btn {
+  display: inline-block;
+  height: 2.5em;
+  width: 2.5em;
+  background: url(img/qrcode-solid.svg) 50% 50% no-repeat;
+  cursor: pointer;
+}
+
+.qrcode-text-btn > input[type="file"] {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* BADGE RECEIVED PAGE*/
+
+.badgeReceived {
+  position: relative;
+  display: block;
+  margin: auto;
+  padding-right: 5vw;
+
+  width: 75vw;
+  top: 150px;
+
+  text-align: center;
+}
+
+.badgeReceivedImage {
+  height: 50vw;
+  width: 50vw;
+  margin: 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+}
+
+.badgeReceivedTitle {
+  font-family: "surabanglus", serif;
+}
+
+.badgeReceivedBackBtn {
+  height: 10vh;
+  min-width: 60vw;
+  background: url(img/loginPaper.png) 10% 10% no-repeat;
+  background-size: 100% 300%;
+  border: none;
+  padding-top: 10px;
+}
+
+.badgeReceivedBackBtn a {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: "surabanglus", serif;
+  color: black;
 }
 
 /* The navigation menu links */
@@ -305,7 +367,6 @@ p {
 /*Section 2.3: Burgermenu, end*/
 
 /*Section 2: Header and nav, end*/
-
 
 /*Section 3: Footer, start*/
 footer {
@@ -368,7 +429,6 @@ footer ul {
   object-position: top;
 }
 /*Section 3: Footer, end*/
-
 
 /*Section 4: Magiker visual, start*/
 #profileImgContainer {
@@ -438,7 +498,6 @@ footer ul {
   margin: 0 0.4em;
 }
 
-
 #journeyName {
   font-family: Surabanglus, serif;
   font-size: 20px;
@@ -487,7 +546,6 @@ footer ul {
   color: black;
 }
 /*Section 4: Magiker visual, end*/
-
 
 /*Section 5: Login, start*/
 #loginPaper {
@@ -870,7 +928,6 @@ first size up and go to center, then go down past the screen */
 
 /*Section 6: Optagelsebrev, end*/
 
-
 /*Section 7: Hus, start*/
 .trophySection {
   width: 100%;
@@ -978,7 +1035,6 @@ td {
   font-size: 12pt;
 }
 /*Section 7: Hus, end*/
-
 
 /*Section 8: Retning, start*/
 .journeySection {
@@ -1091,7 +1147,6 @@ td {
   padding-left: 5%;
 }
 /*Section 8: Retning, end*/
-
 
 /*Section 9: Kort, start*/
 .mapdiv text {
@@ -1302,7 +1357,6 @@ td {
 
 /*Section 9: Kort, end*/
 
-
 /*Section 10: Badges, start*/
 .badgeIndex {
   margin-top: 25%;
@@ -1444,7 +1498,6 @@ td {
   right: 10%;
 }
 /*Section 10: Badges, end*/
-
 
 /*Section 11: Oprettelsesformular, start*/
 #createUserFormWrapper {
@@ -1596,7 +1649,6 @@ input[type="file"] {
 }
 /*Section 11: Oprettelsesformular, end*/
 
-
 /*Section 12: Change profile settings, start*/
 #changeSettingsForm {
   position: relative;
@@ -1644,8 +1696,6 @@ input[type="file"] {
   font-family: "Noto Serif", serif;
 }
 /*Section 12: Change profile settings, end*/
-
-
 
 /* Section 13: Dektop Media Queries, start
 KEEP AT BOTTOM */

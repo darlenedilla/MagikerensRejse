@@ -216,6 +216,48 @@ if (prevPage != null) {
   }); //end of arrow backward eventlistener
 }
 
+// QR code reader
+// how its SUPPOSED TO WORK:
+// function openQRCamera(node) {
+//   var reader = new FileReader();
+//   reader.onload = function() {
+//     node.value = "";
+//     qrcode.callback = function(res) {
+//       if (res instanceof Error) {
+//         alert(
+//           "No QR code found. Please make sure the QR code is within the camera's frame and try again."
+//         );
+//       } else {
+//         node.parentNode.previousElementSibling.value = res;
+//       }
+//     };
+//     qrcode.decode(reader.result);
+//   };
+//   reader.readAsDataURL(node.files[0]);
+// }
+
+// For showcasing:
+
+function openQRCamera(node) {
+  var reader = new FileReader();
+  reader.onload = function() {
+    node.value = "";
+    qrcode.callback = function(res) {
+      if (res instanceof Error) {
+        location.href = "http://www.eksamen3sem3.1221s.com/badge-received/";
+      } else {
+        location.href = "http://www.eksamen3sem3.1221s.com/badge-received/";
+      }
+    };
+    qrcode.decode(reader.result);
+  };
+  reader.readAsDataURL(node.files[0]);
+}
+
+function showQRIntro() {
+  return confirm("Use your camera to take a picture of a QR code.");
+}
+
 // THE BADGES HOMESCREEN
 
 // // MAP AND EVENTS

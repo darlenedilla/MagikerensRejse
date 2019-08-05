@@ -82,7 +82,7 @@ $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name A
                 <img src="<?php echo get_stylesheet_directory_uri().'/img/portraits/' .$imageName;?>" >
             </div>
             <div class="ribbonContainer">
-                <a href="#" id="settingsIcon"><i class="fas fa-cog"></i></a>
+                <a href="https://mr.1221s.com/settings" id="settingsIcon"><i class="fas fa-cog"></i></a>
                 <h3 class="magicalName"><?php echo $magicalName; ?></h3>
                 <img class="ribbon" src="<?php echo get_stylesheet_directory_uri();?>/img/ribbon.png" alt="Ribbon">
             </div>

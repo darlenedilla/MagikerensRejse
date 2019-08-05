@@ -1,9 +1,11 @@
 <?php
-    if (isset($_GET['logout'])) {
-        setcookie("user", "", time() - 3600);
-        $cookie = $_COOKIE['user'];
-        echo $cookie;
-    };
+ob_start();
+if (isset($_GET['logout'])) {
+    header('Location: https://mr.1221s.com/');
+    setcookie("user", "", time() - 3600);
+    exit;
+};
+global $wp;
 ?>
 <!doctype html>
 <html>
@@ -29,6 +31,10 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous">
+
+        <!-- QR CODE reader -->
+        <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js" defer>
+        </script>
 
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -56,8 +62,7 @@
         <div id="mySidenav" class="sidenav">
             <div class="appLinks">
                 <a href="https://mr.1221s.com/magiker">Se profil</a>
-                <a href="#" target="_blank">Se tutorial igen</a>
-                <a href="#" target="_blank">Skift indstillinger</a>
+                <a href="https://mr.1221s.com/settings">Skift indstillinger</a>
             </div>
             <div class="websiteLinks">
                 <p ><strong>Vores hjemmesider</strong></p>
@@ -65,12 +70,31 @@
                 <a href="https://www.odensebib.dk/" target="_blank"><u>Odense Biblioteker</u></a>
                 <a href="https://www.odense.dk/" target="_blank"><u>Odense Kommune</u></a>
             </div>
-            <a href="https://mr.1221s.com/login/?logout=true" id="logOut">Log ud</a>
+            <a href="<?php echo home_url($wp->request);?>/?logout=true" id="logOut">Log ud</a>
             <a href="https://www.facebook.com/magiskedageodense/" target="_blank"><i class="fab fa-facebook-square"><p>Følg os på Facebook!</p></i></a>
         </div>
 
         <div class="headerMenu">
-          <?php wp_nav_menu( array('theme_location' => 'main_menu') ); ?>
+
+        <!-- how its SUPPOSED to look: -->
+          <!-- <label class=qrcode-text-btn>
+            <input type=file
+                    accept="image/*"
+                    capture=environment
+                    onclick="return showQRIntro();"
+                    onchange="openQRCamera(this);"
+                    tabindex=-1>
+            </label> -->
+
+            <!-- For showing -->
+            <label class=qrcode-text-btn>
+            <input type=file
+                    accept="image/*"
+                    capture=environment
+                    onclick="return showQRIntro();"
+                    onchange="openQRCamera(this);"
+                    tabindex=-1>
+            </label>
         </div>
 
         <div class="logoHeader">
