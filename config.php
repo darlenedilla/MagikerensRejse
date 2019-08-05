@@ -1,4 +1,10 @@
 <?php
+  //Nanna Connect to server
+  //COMMENT THIS OUT WHEN UPLOADING TO LIVE
+  // $host ="localhost";
+  // $user ="root";
+  // $password ="";
+  // $dbname = "1221s_com_magikerensrejse";
 
 
 //Darlene connect to server

@@ -1,10 +1,10 @@
 <?php
 ob_start();
-// if (isset($_GET['logout'])) {
-//     header('Location: https://mr.1221s.com/');
-//     setcookie("user", "", time() - 3600);
-//     exit;
-// };
+if (isset($_GET['logout'])) {
+    header('Location: https://mr.1221s.com/');
+    setcookie("user", "", time() - 3600);
+    exit;
+};
 global $wp;
 ?>
 <!doctype html>
@@ -32,6 +32,10 @@ global $wp;
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous">
+
+        <!-- QR CODE reader -->
+        <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js" defer>
+        </script>
 
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -72,7 +76,26 @@ global $wp;
         </div>
 
         <div class="headerMenu">
-          <?php wp_nav_menu( array('theme_location' => 'main_menu') ); ?>
+
+        <!-- how its SUPPOSED to look: -->
+          <!-- <label class=qrcode-text-btn>
+            <input type=file
+                    accept="image/*"
+                    capture=environment
+                    onclick="return showQRIntro();"
+                    onchange="openQRCamera(this);"
+                    tabindex=-1>
+            </label> -->
+
+            <!-- For showing -->
+            <label class=qrcode-text-btn>
+            <input type=file
+                    accept="image/*"
+                    capture=environment
+                    onclick="return showQRIntro();"
+                    onchange="openQRCamera(this);"
+                    tabindex=-1>
+            </label>
         </div>
 
         <div class="logoHeader">

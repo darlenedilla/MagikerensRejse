@@ -1,8 +1,8 @@
 <?php
 ob_start();
-// if (isset($_COOKIE['user'])){
-//   header("location: https://mr.1221s.com/badge");
-// }
+if (isset($_COOKIE['user'])){
+  header("location: https://mr.1221s.com/badge");
+}
 function setUserCookie($phoneNo){
   $cookie_name = "user";
   //$cookie_value = 28141151; //Hard coded fordi cookie ikke virker ordenligt
