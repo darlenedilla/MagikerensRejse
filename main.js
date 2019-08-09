@@ -11,8 +11,8 @@ burgermenu.addEventListener("click", function() {
     document.getElementsByClassName("menuSpan")[2].style.background = "#cccc66";
   } else {
     document.getElementById("mySidenav").style.width = "0px";
-    document.getElementsByClassName("menuSpan")[0].style.background = "#232323";
-    document.getElementsByClassName("menuSpan")[2].style.background = "#232323";
+    document.getElementsByClassName("menuSpan")[0].style.background = "#000000";
+    document.getElementsByClassName("menuSpan")[2].style.background = "#000000";
     burgermenu.style.right = null;
     burgermenu.style.left = "10px";
   }
@@ -280,3 +280,57 @@ function showQRIntro() {
 //     modals[i].style.display = "none";
 //   };
 // }
+
+// LEAFLET MAP
+
+// linking the map to the div, and setting the initial view:
+var mymap = L.map(document.getElementById("leafletMap")).setView(
+  [55.398191, 10.384884],
+  15
+);
+
+// The inclusion of the leaflet map layer:
+L.tileLayer(
+  "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+  {
+    // attribution:
+    //   'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+
+    maxZoom: 18,
+    id: "mapbox.streets",
+    accessToken:
+      "pk.eyJ1IjoibmFubjkxMzUiLCJhIjoiY2p6M3UxaHhoMDZwNDNpcXRiMmR6MGpucCJ9.6yVU_616B3pSxPSyjXw_yw"
+  }
+).addTo(mymap);
+
+// EVENTLIST DRAGGABLE LIST ON MAP PAGE
+dragElement(document.getElementById("peekabooHeaderBox"));
+
+function dragElement(elmnt) {
+  var pos1 = 0,
+    pos2 = 0;
+
+  elmnt.onmousedown = dragMouseDown;
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos2 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos2 - e.clientY;
+    pos2 = e.clientY;
+
+    elmnt.style.top = elmnt.offsetTop - pos1 + "px";
+  }
+
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}

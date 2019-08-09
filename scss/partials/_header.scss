@@ -1,106 +1,96 @@
 /*Section 2: Header and nav, start*/
 
-.custom-logo {
-    width: 110px;
-    height: 70px;
-    display: block;
-    margin: auto;
-    z-index: 100;
-}
-  
 /*Section 2.1: Burgermenu, start*/
 #nav-icon {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20%;
+
+  @include transformRotate(rotate(0deg));
+  @include easeInOut(0.5s ease-in-out);
+
+  cursor: pointer;
+  z-index: $overTopLayer;
+
+  span {
+    display: block;
     position: absolute;
-    top: 20%;
+    height: 5px;
+    width: $percent100;
+    background: $black;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
 
     @include transformRotate(rotate(0deg));
-    @include easeInOut(0.5s ease-in-out);
+    @include easeInOut(0.25s ease-in-out);
 
-    cursor: pointer;
-    z-index: 10;
-
-    span {
-        display: block;
-        position: absolute;
-        height: 5px;
-        width: 100%;
-        background: $black;
-        border-radius: 9px;
-        opacity: 1;
-        left: 0;
-    
-        @include transformRotate(rotate(0deg));
-        @include easeInOut(0.25s ease-in-out);
-
-        :nth-child(1) {
-            top: 0px;
-            @include transformLeftCenter;
-        }
-        
-        :nth-child(2) {
-            top: 10px;
-            @include transformLeftCenter;
-        }
-        
-       :nth-child(3) {
-            top: 20px;
-            @include transformLeftCenter;
-        }
+    :nth-child(1) {
+      top: 0px;
+      @include transformLeftCenter;
     }
 
-    .open span:nth-child(1) {
-        @include transformRotate(rotate(45deg));
-        top: -3px;
-        left: 8px;
+    :nth-child(2) {
+      top: 10px;
+      @include transformLeftCenter;
     }
-    
-    .open span:nth-child(2) {
-        width: 0%;
-        opacity: 0;
+
+    :nth-child(3) {
+      top: 20px;
+      @include transformLeftCenter;
     }
-    
-    .open span:nth-child(3) {
-        @include transformRotate(rotate(-45deg));
-        top: 26px;
-        left: 8px;
-    }
-}
+  }
 
-
-
-#nav-icon span:nth-child(1) {
-    top: 0px;
-    @include transformLeftCenter;
-}
-
-#nav-icon span:nth-child(2) {
-    top: 10px;
-    @include transformLeftCenter;
-}
-
-#nav-icon span:nth-child(3) {
-    top: 20px;
-    @include transformLeftCenter;
-}
-
-#nav-icon.open span:nth-child(1) {
+  .open span:nth-child(1) {
     @include transformRotate(rotate(45deg));
-
     top: -3px;
     left: 8px;
-}
+  }
 
-#nav-icon.open span:nth-child(2) {
+  .open span:nth-child(2) {
     width: 0%;
     opacity: 0;
-}
+  }
 
-#nav-icon.open span:nth-child(3) {
+  .open span:nth-child(3) {
     @include transformRotate(rotate(-45deg));
     top: 26px;
     left: 8px;
+  }
+}
+
+#nav-icon span:nth-child(1) {
+  top: 0px;
+  @include transformLeftCenter;
+}
+
+#nav-icon span:nth-child(2) {
+  top: 10px;
+  @include transformLeftCenter;
+}
+
+#nav-icon span:nth-child(3) {
+  top: 20px;
+  @include transformLeftCenter;
+}
+
+#nav-icon.open span:nth-child(1) {
+  @include transformRotate(rotate(45deg));
+
+  top: -3px;
+  left: 8px;
+}
+
+#nav-icon.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#nav-icon.open span:nth-child(3) {
+  @include transformRotate(rotate(-45deg));
+  top: 26px;
+  left: 8px;
 }
 
 /*Section 2.1: Burgermenu, end*/
@@ -108,99 +98,166 @@
 /*Section 2.2 Header, start*/
 .logoHeader,
 .desktopHeader {
-    position: relative;
-    width: 100%;
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  top: 20%;
+  text-align: center;
+  margin-left: -10px;
+
+  .custom-logo {
+    width: 110px;
+    height: 70px;
+    display: block;
     margin: auto;
-    text-align: center;
-    margin-left: -10px;
+  }
 }
 
 .header {
-    width: 100vw;
-    height: 100px;
-    position: fixed;
-    top: 0;
-    padding: 15px 10px;
-    z-index: 6;
+  width: 90vw;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  padding: 15px 20px 0px 20px;
+  z-index: $topLayer;
 
-    .headerMenu {
-        position: relative;
-        right: 20px;
-    
-        a {
-            text-decoration: none;
-            color: $black;
-        }
-    
-        ul li {
-            list-style-type: none;
-            display: inline-block;
-            position: absolute;
-            right: 10px;
-            top: 30%;
-            font-family: $fontSurabanglus;
-            font-size: 25px;
-        }
+  .headerMenu {
+    position: relative;
+    width: $percent100;
+    text-align: right;
+    z-index: $topLayer;
+
+    a {
+      text-decoration: none;
+      color: $black;
     }
+
+    ul li {
+      list-style-type: none;
+      display: inline-block;
+      position: absolute;
+      right: 10px;
+      top: 30%;
+      font-family: $fontSurabanglus;
+      font-size: 25px;
+    }
+  }
 }
 
 /*Section 2.2: Header*/
 
 /*Section 2.3: Sidenav, start*/
 .sidenav {
-    height: 100%;
-    max-width: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 6;
-    top: 0;
-    left: 0;
-    background-color: $black;
-    overflow-x: hidden;
-    padding-top: 110px;
-    transition: 0.5s;
-    text-align: center;
+  height: 100%;
+  max-width: 100%;
+  width: 0;
+  position: fixed;
+  z-index: $overTopLayer;
+  top: 0;
+  left: 0;
+  background-color: $darkGrey;
+  overflow-x: hidden;
+  padding-top: 110px;
+  transition: 0.5s;
+  text-align: center;
 
-    /* The navigation menu links */
-    a,p {
-        padding: 8px;
-        padding-left: 0px;
-        text-decoration: none;
-        font-family: $fontSurabanglus;
-        font-size: 20px;
-        color: #cccc66;
-        display: block;
-        transition: 0.3s;
-        letter-spacing: 2px;
-    }
+  /* The navigation menu links */
+  a,
+  p {
+    padding: 8px;
+    padding-left: 0px;
+    text-decoration: none;
+    font-family: $fontSurabanglus;
+    font-size: 20px;
+    color: #cccc66;
+    display: block;
+    transition: 0.3s;
+    letter-spacing: 2px;
+  }
 
-    p{
-        padding-bottom: 0;
-        margin-bottom: -10px;
-    }
+  p {
+    padding-bottom: 0;
+  }
 }
-
 
 .fab,
 .fa-facebook-square {
-    color: white;
-    font-size: 90px;
-    text-align: center;
-    margin-top: 10%;
+  color: white;
+  font-size: 90px;
+  text-align: center;
+  margin-top: 10%;
 }
 
 .websiteLinks {
-    margin-bottom: 20px;
-}
-
-.websiteLinks a,
-.appLinks a {
-    margin-bottom: -20px;
+  margin-bottom: 20px;
 }
 
 .appLinks {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 /*Section 2.3: Burgermenu, end*/
+
+/* section 2.4: qr-code-reader, start */
+
+/* the upload button */
+.qrcode-text-btn {
+  display: inline-block;
+  height: 2.5em;
+  width: 2.5em;
+  background: url(../img/qrcode-solid.svg) 50% 50% no-repeat;
+  cursor: pointer;
+}
+
+.qrcode-text-btn > input[type="file"] {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* BADGE RECEIVED PAGE*/
+
+.badgeReceived {
+  position: relative;
+  display: block;
+  margin: auto;
+  padding-right: 5vw;
+
+  width: 75vw;
+  top: 150px;
+
+  text-align: center;
+}
+
+.badgeReceivedImage {
+  height: 50vw;
+  width: 50vw;
+  margin: 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+}
+
+.badgeReceivedTitle {
+  font-family: "surabanglus", serif;
+}
+
+.badgeReceivedBackBtn {
+  height: 10vh;
+  min-width: 60vw;
+  background: url(img/loginPaper.png) 10% 10% no-repeat;
+  background-size: 100% 300%;
+  border: none;
+  padding-top: 10px;
+}
+
+.badgeReceivedBackBtn a {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: "surabanglus", serif;
+  color: black;
+}
+
+/* section 2.4 qr-code-reader, end */
 
 /*Section 2: Header and nav, end*/

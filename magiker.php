@@ -1,14 +1,18 @@
 
 <?php 
-include("cookieRedirect.php");
+// include("cookieRedirect.php");
+
+/* CONNECT TO THE SERVER */
+include("config.php");
+
 get_header();
 /*
 Template Name: magiker
+
+THIS IS THE PROFILE PAGE MAIN FILE
 */
 ?>
 <?php
-//COMMENT THIS OUT WHEN LOCAL
-include("config.php");
 
 //HER HENTES SOM ER GEMT PÅ BRUGEREN DER ER LOGGET IND--> 
 $userCookie = $_COOKIE['user']; 
@@ -17,12 +21,22 @@ $userCookie = $_COOKIE['user'];
 $selectUserSql = "SELECT image FROM user WHERE phoneNo= $userCookie";
 //Send query'en afsted med db-forbindelse
 $selectUserQuery = mysqli_query($con,$selectUserSql);
-//Array med de resultater der kommer ud fra vores sql
+if($selectUserQuery === FALSE) {
+    $imageName = "defaultportrait.jpg";
+} else {
+    //Array med de resultater der kommer ud fra vores sql
 $selectUserRow = mysqli_fetch_array($selectUserQuery);
 
+// Profile picture
+if($selectInfoRow['image']->num_rows > 0) {
+    $imageName = $selectUserRow['image'];
+} 
+// failsafe
+else if($selectInfoRow['image']->num_rows <= 0) {
+    $imageName = "portrait.jpg";
+}
+}
 
-//Image-attributten fra userentitet i db
-$imageName = $selectUserRow['image'];
 
 //Query til at hente al info fra brugeren,d er er logget ind
 $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name AS houseName, pets.name AS petName, journey.name AS journeyName 
@@ -48,6 +62,13 @@ $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name A
                 $bloodTypeName = $selectInfoRow['bloodTypeName'];
                 $petName = $selectInfoRow['petName'];
             }
+            // Failsafe:
+        } else if($selectInfoQuery->num_rows <= 0){
+            $magicalName = "Magisk Navn";
+                $journeyName = "Rejsens Navn";
+                $houseName = "Elementets navn";
+                $bloodTypeName = "Blodtype";
+                $petName = "Kæledyrets navn";
         };
 ?>
 <!--Her starter mainsection-->
@@ -60,7 +81,7 @@ $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name A
                 <img src="<?php echo get_stylesheet_directory_uri().'/img/portraits/' .$imageName;?>" >
             </div>
             <div class="ribbonContainer">
-                <a href="https://mr.1221s.com/settings" id="settingsIcon"><i class="fas fa-cog"></i></a>
+                <a href="localhost/magikerensRejse/change-settings/" id="settingsIcon"><i class="fas fa-cog"></i></a>
                 <h3 class="magicalName"><?php echo $magicalName; ?></h3>
                 <img class="ribbon" src="<?php echo get_stylesheet_directory_uri();?>/img/ribbon.png" alt="Ribbon">
             </div>
@@ -99,6 +120,9 @@ $selectInfoSql = "SELECT user.magicalName, bloodtype.bloodTypeName, house.name A
             break;
         case "Erfaren":
             profileImg.style.borderColor = "#db873c";
+            break;
+        case "Rejsens Navn":
+            profileImg.style.borderColor = "#fffff";
             break;
     }
 </script>

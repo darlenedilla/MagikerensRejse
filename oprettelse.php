@@ -1,6 +1,11 @@
 <?php
+
+// include("cookieRedirect.php");
+
 ob_start(); 
-include("cookieRedirect.php");
+
+/* CONNECT TO THE SERVER */
+include("config.php");
 get_header();
 /*
 Template Name: Oprettelse
@@ -10,8 +15,6 @@ Template Name: Oprettelse
 <!-- CONNECTION TO SERVER -->
 
 <?php
-//UN-COMMENT WHEN UPLOADING TO LIVE
-include("config.php");
 ?>
 
 
@@ -166,9 +169,9 @@ if (isset($_POST['submitUser'])) {
       $sqlCreateUser = "INSERT INTO user (phoneNo, mPassword, age, gender, name, magicalName, image, houseId, bloodTypeId, areaId, petId)
       VALUES ($tlf,'$password',$age,$gender,'$name','$mName','$image',$house,$blood,$area,$pet)";
 
-      //Send query afsted med db-forbindelse
+      //Send query afsted med db-forbindelse IMPORTANTEDIT
       $con->query($sqlCreateUser);
-      header("location: https://mr.1221s.com/");
+      header("location: https://localhost/magikerensrejse/optagelse");
 }//Her slutter if (isset)
 ?>
 

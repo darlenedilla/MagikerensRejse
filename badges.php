@@ -1,13 +1,19 @@
 <?php 
 // include("cookieRedirect.php");
+
+ob_start();
 get_header();
+
+/* CONNECT TO THE SERVER */
+include("config.php");
+
 /*
 Template name: Badges
+
+THIS IS THE MAIN PAGE/HOME PAGE MAIN FILE
 */
 ?>
 <?php
-// UN-COMMENT THIS WHEN UPLOADING TO LIVE
-include("config.php");
 
 //$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 $userCookie = $_COOKIE['user'];
@@ -24,8 +30,10 @@ if($fetchUserQuery->num_rows > 0){
   while($fetchUserRow= $fetchUserQuery->fetch_assoc()){
     //Variabler
     $magicalName = $fetchUserRow['magicalName'];
-  }
-};
+  } 
+}else if($fetchUserQuery->num_rows <= 0){
+    $magicalName = 'Magiker Navn';
+  };
 
 //Her hentes de badges, som brugeren har
 $selectBadgeSql = "SELECT badge.badgeId as badgeId
@@ -479,6 +487,7 @@ if($selectBadgeQuery->num_rows > 0){
 <script type="text/javascript">
   $(document).ready(function () {
       $(".slickContainer").slick().slick('slickFilter', '.slickItem');
+     
   });
 </script>
 <!--Her slutter script til slickcontainer-->

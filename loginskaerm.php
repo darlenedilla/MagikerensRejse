@@ -1,4 +1,7 @@
 <?php
+/* CONNECT TO THE SERVER */
+include("config.php");
+
 ob_start();
 if (isset($_COOKIE['user'])){
   header("location: https://mr.1221s.com/badge");
@@ -10,43 +13,22 @@ function setUserCookie($phoneNo){
   setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 }
 ?>
+
 <?php 
+
 get_header();
 /*
 Template Name: Login
+
+THIS IS THE MAIN LOGIN PAGE MAIN FILE
 */
 ?>
-<?php
-  // UN-COMMENT THIS WHEN UPLOADING TO LIVE
-include("config.php");
-
-  //Darlene Connect to server
-  // $server ="localhost";
-  // $user ="Darlene";
-  // $pw ="Dgs55qhk:)..";
-  // $db = "1221s_com_magikerensrejse";
-
-  //Nanna Connect to server
-  //COMMENT THIS OUT WHEN UPLOADING TO LIVE
-  // $server ="localhost";
-  // $user ="root";
-  // $pw ="";
-  // $db = "1221s_com_magikerensrejse";
-
-  // // Create connection
-  // $con = new mysqli($server, $user, $pw, $db);
-  // //check fann_get_total_connections
-  // if ($con->connect_error) {
-  //   die("Connection failed:" .$con->connect_error);
-  // } else {
-  //   echo '<script>console.log("connected succesfully")</script>';
-  // }
-  ?>
 
 <!--Her begynder desktop section-->
 <section class="desktopMainSection">
   <h1>Begynd din magiske rejse på din smartphone!</h1>
   <h3>Scan QR koden og oplev magien</h3>
+  <!-- MAKE NEW QR CODE IMPORTANTEDIT -->
   <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/qr.png" alt="QR-kode">
 </section>
 <section class="desktopBottomLinks">
@@ -109,7 +91,8 @@ include("config.php");
 <div class="konvolutLoginSkærm" id="konvolutLoginSkærm">
   <img class="konvolutLoginSkærmImg" src="<?php echo get_stylesheet_directory_uri(); ?>/img/konvolutbg.png" alt="konvolutbg">
   <div class="startDinRejseWrapper">
-    <p>Start din magiske rejse</p><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/curvedarrow.png" alt="curvedarrow-down">
+    <span>Ny bruger?</span>
+    <span>Start din magiske rejse her</span><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrows/arrowRight.png" alt="arrow-right">
   </div>
 </div>
 

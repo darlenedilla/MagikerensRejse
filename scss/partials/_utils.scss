@@ -1,38 +1,71 @@
+// VARIABLES:
+// Fonts:
 $fontSurabanglus: Surabanglus, serif;
-$black: #232323;
+$fontCaslong: "Caslon Antique", serif;
+$fontNoto: "noto serif", serif;
+
+// Colors:
+$black: #000000;
+$darkGrey: #232323;
+
+// journey colors
+$magikerFarve: #8d434c;
+$quidditchStjerneFarve: #d5cb13;
+$vogterFarve: #4a728c;
+$alkymistFarve: #347f41;
+$erfarenMagikerFarve: #db873c;
+
+// general numbers:
 $vw100: 100vw;
-$vh100: 100vh; 
+$vh100: 100vh;
+$vh150: 150vh;
 $percent100: 100%;
+$bgSize90: 90%;
 
-@mixin bgImage($imageURL, $noRepeat: 'no-repeat', $positionCenter: 'center'){
-    background-image: $imageURL;
-    background-repeat: $noRepeat;
-    background-position: $positionCenter;
-};
+// Font-sizes:
 
-@mixin transformRotate($rotate){
-    -webkit-transform: $rotate;
-    -moz-transform: $rotate;
-    -o-transform: $rotate;
-    transform: $rotate;
-};
+$semiBigText: 20pt;
 
-@mixin easeInOut($easeinout){
-    -webkit-transition: $easeinout;
-    -moz-transition: $easeinout;
-    -o-transition: $easeinout;
-    transition: $easeinout;
-};
+// layers:
+$overTopLayer: 6;
+$topLayer: 5;
+$regLayerTop: 3;
+$regLayer: 2;
+$regLayerBottom: 1;
+$lowerLayer: 0;
+$backgroundLayer: -2;
 
-@mixin transformLeftCenter($leftCenter: 'left center'){
-    -webkit-transform-origin: $leftCenter;
-    -moz-transform-origin: $leftCenter;
-    -o-transform-origin: $leftCenter;
-    transform-origin: $leftCenter;
-};
+// MIXINS:
 
-@mixin boxShadowOpacity($opacity){
-    -webkit-box-shadow: $opacity;
-    -moz-box-shadow: $opacity;
-    box-shadow: $opacity;
+@mixin bgImage($imageURL, $noRepeat: "no-repeat", $positionCenter: "center") {
+  background-image: $imageURL;
+  background-repeat: $noRepeat;
+  background-position: $positionCenter;
+}
+
+@mixin transformRotate($rotate) {
+  -webkit-transform: $rotate;
+  -moz-transform: $rotate;
+  -o-transform: $rotate;
+  transform: $rotate;
+}
+
+@mixin easeInOut($easeinout) {
+  -webkit-transition: $easeinout;
+  -moz-transition: $easeinout;
+  -o-transition: $easeinout;
+  transition: $easeinout;
+}
+
+@mixin transformLeftCenter($leftCenter: "left center") {
+  -webkit-transform-origin: $leftCenter;
+  -moz-transform-origin: $leftCenter;
+  -o-transform-origin: $leftCenter;
+  transform-origin: $leftCenter;
+}
+
+@mixin boxShadowOpacity($opacity) {
+  -webkit-box-shadow: $opacity;
+  -moz-box-shadow: $opacity;
+  box-shadow: $opacity;
 }

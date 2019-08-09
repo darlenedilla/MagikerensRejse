@@ -1,15 +1,18 @@
 <?php 
-// include("cookieRedirect.php");
+
+/* CONNECT TO THE SERVER */
+include("config.php");
+
 get_header();
 /*
 Template name: Badge Received
+
+THIS IS THE CONFIRMATION PAGE FOR RECEIVING A BADGE MAIN FILE
 */
 ?>
+
+
 <?php
-// UN-COMMENT THIS WHEN UPLOADING TO LIVE
-include("config.php");
-
-
 
 //$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
 $userCookie = $_COOKIE['user'];
@@ -90,7 +93,9 @@ $checkBadgeQuery = $con->query($checkBadgeSql);
 </div>
 
 <div class="badgeReceivedBackBtn">
-<a href="http://eksamen3sem3.1221s.com/badge">Tilbage</a>
+
+<!-- CHANGE THIS WHEN UPLOADING TO LIVE -->
+<a href="http://localhost/magikerensRejse/">Tilbage</a>
 
 </div>
 

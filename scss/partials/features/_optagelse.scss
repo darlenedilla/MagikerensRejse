@@ -1,309 +1,471 @@
 /*Section 6: Optagelsesbrev, start*/
-@import 'login';
 
 /*Section 6.1: Optagelse, start*/
 #konvolutLoginSkærm {
-    width: 100vw;
-    height: auto;
-    max-height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-  
-    opacity: 1;
-    transition-duration: 0.5s;
+  width: 100vw;
+  height: auto;
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  opacity: 1;
+  transition-duration: 0.5s;
 }
-  
+
 .konvolutLoginSkærmImg {
-    position: absolute;
-    display: block;
-    width: 120%;
-    height: auto;
-    top: 65vh;
-    left: 10%;
-    @include transformRotate(rotate(-25deg));
+  position: absolute;
+  display: block;
+  width: 120%;
+  height: auto;
+  top: 65vh;
+  left: 10%;
+  @include transformRotate(rotate(-25deg));
 }
 
 .startDinRejseWrapper {
-    position: absolute;
-    top: 68vh;
-    left: 35vw;
-    @include transformRotate(rotate(-25deg));
+  position: absolute;
+  top: 65vh;
+  left: 5vw;
+  width: 50%;
 
-    img {
-        max-width: 50px;
-        height: auto;
-        display: inline-block;
-    }
+  img {
+    max-width: 45px;
+    height: auto;
+    float: right;
+    margin-top: -25px;
+  }
 
-    p {
-        color: black;
-        float: left;
-    }
-    
+  :first-child {
+    display: block;
+    float: none;
+    margin-bottom: 5px;
+  }
+
+  span {
+    color: black;
+    float: left;
+    font-size: $semiBigText;
+    font-weight: bold;
+  }
 }
 /*Section 6.1: Optagelse, end*/
 
 /*Section 6.2: Konvolut, start*/
-.envelope {
-    position: fixed;
-    margin: 50px auto 0;
-    width: 98px;
-    height: 66px;
-    bottom: 5vh;
-    right: 10vw;
-    background: #c94548;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0 0 1px #c94548 inset;
+#envelopeOprettelse {
+  position: fixed;
+  margin: 50px auto 0;
+  width: 98px;
+  height: 66px;
+  bottom: 5vh;
+  right: 10vw;
+  background: #c94548;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 1px #c94548 inset;
 
-    transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
 
-    :before, :after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 0;
-        border: 0 solid transparent;
-        border-width: 33px 49px;
-        transition-duration: inherit;
-    }
+#envelopeOprettelse::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-width: 33px 49px;
+  transition-duration: inherit;
 
-    :before {
-        border-bottom-color: #c94548;
-        top: -100%;
-        left: 0px;
-    }
+  border-bottom-color: #c94548;
+  top: -100%;
+  left: 0px;
+}
 
-    :after {
-        border-right-color: #ed4c50;
-        border-left-color: #fa565a;
-        border-bottom-color: #fa565a;
-        top: 0;
-        border-radius: 0 0 5px 5px;
-        @include transformRotate(rotate(360deg));
-        @include boxShadowOpacity( 0 1px 1px rgba(0, 0, 0, 0.25));
-    }
+#envelopeOprettelse::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-width: 33px 49px;
+  transition-duration: inherit;
+
+  border-right-color: #ed4c50;
+  border-left-color: #fa565a;
+  border-bottom-color: #fa565a;
+  top: 0;
+  border-radius: 0 0 5px 5px;
+  @include transformRotate(rotate(360deg));
+  @include boxShadowOpacity(0 1px 1px rgba(0, 0, 0, 0.25));
 }
 
 .paper {
-    background: #fff;
-    width: 90%;
-    height: 66px;
-    margin: 0 auto;
-    border-radius: 5px;
-    position: absolute;
-    left: 6px;
-    top: -33px;
-    @include boxShadowOpacity( 0 1px 1px rgba(0, 0, 0, 0.25));
+  background: #fff;
+  width: 90%;
+  height: 66px;
+  margin: 0 auto;
+  border-radius: 5px;
+  position: absolute;
+  left: 6px;
+  top: -33px;
+  @include boxShadowOpacity(0 1px 1px rgba(0, 0, 0, 0.25));
 
-    transition-duration: inherit;
+  transition-duration: inherit;
 }
 
 /*Envelope animation*/
 .openEnvelope {
-    animation: openEnvelope;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-
-    :before, :after {
-    animation: envelopeBeforeAndAfters;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+  animation: openEnvelope;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
+
+.openEnvelope::before,
+.openEnvelope::after {
+  animation: envelopeBeforeAndAfters;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 
 .openEnvelopePaper {
-    height: 96px;
-    animation: paperUnfold;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    animation-delay: 1s;
+  height: 96px;
+  animation: paperUnfold;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
 }
 
 /* when you first click the envelope,
 first size up and go to center, then go down past the screen */
 @keyframes openEnvelope {
-    0% {
-        width: 98px;
-        height: 66px;
-        bottom: 5vh;
-        right: 10vw;
-    }
-    20% {
-        width: 128px;
-        height: 96px;
-        bottom: 5vh;
-        right: 32vw;
-    }
+  0% {
+    width: 98px;
+    height: 66px;
+    bottom: 5vh;
+    right: 10vw;
+  }
+  20% {
+    width: 128px;
+    height: 96px;
+    bottom: 5vh;
+    right: 32vw;
+  }
 
-    100% {
-        width: 128px;
-        height: 96px;
-        bottom: -30vh;
-        right: 32vw;
-    }
+  100% {
+    width: 128px;
+    height: 96px;
+    bottom: -30vh;
+    right: 32vw;
+  }
 }
 /* the flaps in front need to be resized to fit, this is noodling work */
 @keyframes envelopeBeforeAndAfters {
-    0% {
-        border-width: 33px 49px;
-    }
-    100% {
-        border-width: 50px 64px;
-    }
+  0% {
+    border-width: 33px 49px;
+  }
+  100% {
+    border-width: 50px 64px;
+  }
 }
 
 @keyframes paperUnfold {
-    0% {
-        width: 90%;
-        height: 96px;
-        left: 6px;
-        top: -33px;
-        background: #fff;
-    }
-    100% {
-        width: 80vw;
-        height: 70vh;
-        left: -23vw;
-        top: -70vh;
-        background: #ffd575;
-    }
+  0% {
+    width: 90%;
+    height: 96px;
+    left: 6px;
+    top: -33px;
+    background: #fff;
+  }
+  100% {
+    width: 80vw;
+    height: 70vh;
+    left: -23vw;
+    top: -70vh;
+    background: #ffd575;
+  }
 }
 /*Section 6.2: Konvolut, end*/
 
 /*Section 6.3: Optagelsespapir, start*/
 
 #paperContent {
-    opacity: 0;
-    display: none;
-    width: 100%;
-    height: 60%;
-    padding: 20px;
+  opacity: 0;
+  display: none;
+  width: 100%;
+  height: 60%;
+  padding: 20px;
 
-    transition-duration: 0.3s;
+  transition-duration: 0.3s;
 
-    h2 {
-        color: $black;
-        font-family: $fontSurabanglus;
-        font-size: 1em;
-        text-align: center;
-    }
+  h2 {
+    color: $black;
+    font-family: $fontSurabanglus;
+    font-size: 1em;
+    text-align: center;
+  }
 
-    p {
-        color: $black;
-        font-family: "verdana", serif;
-        font-size: 1em;
-    }
+  p {
+    color: $black;
+    font-family: "verdana", serif;
+    font-size: 1em;
+  }
 }
 
 .paperPage {
-    display: none;
-    position: absolute;
-    top: 0;
-    height: auto;
+  display: none;
+  position: absolute;
+  top: 0;
+  height: auto;
 
-    transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
-
 
 #paperNextArrow,
 #paperBackArrow {
-    z-index: 100;
-    width: 10%;
-    height: auto;
+  z-index: 100;
+  width: 10%;
+  height: auto;
 
-    position: fixed;
-    bottom: 5vh;
+  position: fixed;
+  bottom: 5vh;
 
-    transition-delay: 0.2s;
-    transition-duration: 0.3s;
+  transition-delay: 0.2s;
+  transition-duration: 0.3s;
 }
 
 #paperNextArrow {
-    right: 15vw;
+  right: 15vw;
 }
 #paperBackArrow {
-    left: 15vw;
-    transform: scale(-1, 1);
+  left: 15vw;
+  transform: scale(-1, 1);
 }
 
 #paperOverlayOprettelse {
-    position: fixed;
-    right: -50vw;
-    width: 40%;
-    height: 50px;
-    bottom: 20vh;
+  position: fixed;
+  right: -50vw;
+  width: 40%;
+  height: 50px;
+  bottom: 20vh;
 
-    transition-delay: 0.2s;
-    transition-duration: 0.6s;
+  transition-delay: 0.2s;
+  transition-duration: 0.6s;
 
-    img {
-        @include transformRotate(rotate(90deg));
-        position: absolute;
-        top: 0;
-    }
+  img {
+    @include transformRotate(rotate(90deg));
+    position: absolute;
+    top: 0;
+  }
 
-    p {
-        position: absolute;
-        top: 150%;
-        left: 40px;
-        width: 100%;
-        height: 100%;
-    }
+  p {
+    position: absolute;
+    top: 150%;
+    left: 40px;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.maxWidthImg{
-    max-width: 100%;
-    height: auto;
+.maxWidthImg {
+  max-width: 100%;
+  height: auto;
 }
-
 
 .imageScroller {
-    position: absolute;
-    top: 15vh;
-    left: 110vw;
+  position: absolute;
+  top: 5vh;
+  left: 110vw;
 
-    height: 35vh;
-    width: 300vw;
+  height: 35vh;
+  width: 300vw;
 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #e0c482;
-    @include boxShadowOpacity(4px 13px 42px -8px rgba(0, 0, 0, 0.75));
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #e0c482;
+  @include boxShadowOpacity(4px 13px 42px -8px rgba(0, 0, 0, 0.75));
 
-    transition-duration: 1s;
+  transition-duration: 1s;
 }
 
 .unroller {
-    height: 44vh;
-    width: 20px;
-    position: absolute;
-    top: -5vw;
-    left: -20px;
+  height: 44vh;
+  width: 20px;
+  position: absolute;
+  top: -5vw;
+  left: -20px;
 
-    background-color: #d6b568;
-    @include boxShadowOpacity(4px 13px 42px -8px rgba(0, 0, 0, 1));
+  background-color: #d6b568;
+  @include boxShadowOpacity(4px 13px 42px -8px rgba(0, 0, 0, 1));
 }
 
 .imageScrollerWrapper {
-    height: 100%;
-    min-height: 35vh;
-    width: 90vw;
-    float: left;
-    margin-right: 5vw;
-    margin-left: 5vw;
-    display: none;
-    opacity: 0;
-    transition-duration: 0.3s;
+  height: 100%;
+  min-height: 35vh;
+  width: 90vw;
+  float: left;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  display: none;
+  opacity: 0;
+  transition-duration: 0.3s;
 
-    img {
-        height: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        object-fit: cover;
-    }
+  img {
+    height: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    object-fit: cover;
+  }
 }
 
 /*Section 6.3: Optagelsespapir, end*/
 
 /*Section 6: Optagelsebrev, end*/
+
+/*Section 11: Oprettelsesformular, start*/
+#createUserFormWrapper {
+  width: 300vw;
+  min-width: 300vw;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  transition: 1.5s;
+  font-family: Surabanglus, serif;
+  font-size: 15pt;
+  background-image: url("../img/registerPaper.png");
+  background-position: center;
+  background-size: 120% 100%;
+  background-repeat: repeat-x;
+  padding-top: 10%;
+  height: 50vh;
+}
+
+#createUserForm input,
+select {
+  font-family: Surabanglus, serif;
+  font-size: 12pt;
+  border-radius: 8px;
+  border: solid 1px #232323;
+  padding-left: 5px;
+}
+
+.small-input {
+  width: 80px;
+}
+
+.large-input {
+  width: 160px;
+}
+
+select {
+  padding-bottom: 10px;
+  font-size: 12pt;
+}
+
+.small-select {
+  width: 87px;
+}
+
+.large-select {
+  width: 167px;
+}
+
+#createUserForm input:last-child {
+  border: none;
+}
+
+.formSection {
+  width: 85vw;
+  position: absolute;
+  height: 25vh;
+  display: block;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.formSection h3 {
+  margin-bottom: 5%;
+  color: #232323;
+}
+
+#firstFormSection {
+  left: 6vw;
+}
+
+#secondFormSection {
+  left: 106vw;
+}
+
+#thirdFormSection {
+  left: 206vw;
+}
+
+#btnWrapper {
+  z-index: 100;
+  position: absolute;
+  bottom: 15%;
+  width: 100vw;
+  text-align: center;
+}
+
+.btnslide {
+  display: inline;
+}
+
+.btnslide:first-child {
+  margin-right: 25%;
+}
+
+#slide-prev {
+  background-image: url("../img/arrows/arrowgoldLeft.png");
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 30px;
+  width: 50px;
+  opacity: 0.4;
+  transition: 1s;
+}
+
+#slide-next {
+  background-image: url("../img/arrows/arrowgoldRight.png");
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 30px;
+  width: 50px;
+  opacity: 1;
+  transition: 1s;
+}
+
+#submit,
+#submitChanges {
+  background-image: url("../img/registerPaper.png");
+  background-size: 100% 100%;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  height: 100px;
+  width: 150px;
+  opacity: 1;
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: -35%;
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  display: block;
+  padding: 6px 12px;
+  margin-top: 20%;
+}
+
+.fa-camera {
+  font-size: 50px;
+  color: #d1b751;
+  width: 87px;
+  height: 60px;
+  padding-top: 10px;
+  border-radius: 8px;
+  background-color: #8e4b55;
+}
+/*Section 11: Oprettelsesformular, end*/

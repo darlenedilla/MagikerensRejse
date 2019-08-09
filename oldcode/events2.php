@@ -4,6 +4,9 @@ include("cookieRedirect.php");
 get_header();
 /*
 Template Name: Events
+
+THIS PAGE IS NO LONGER IN USE
+IT WAS TO TEST THE FUNCTIONALITY OF THE EVENT LISTINGS ON THE MAP PAGE
 */
 ?>
 

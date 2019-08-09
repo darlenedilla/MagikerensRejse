@@ -1,6 +1,8 @@
 <?php get_header();
 /*
 Template Name: Badge-lightboxes test
+
+THIS IS NO LONGER IN USE AND WAS USED FOR TESTING THE FUNCTIONALITY OF THE BADGE-LIGHTBOXES
 */
 ?>
 

@@ -4,6 +4,8 @@ include("cookieRedirect.php");
 get_header();
 /*
 Template Name: Retning
+
+THIS PAGE IS NO LONGER IN USE AND WAS WHERE A USER USED TO CHOOSE WHICH JOURNEY THEY WANTED TO GO ON
 */
 ?>
 <?php

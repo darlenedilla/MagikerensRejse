@@ -52,85 +52,7 @@ table {
   border-spacing: 0;
 }
 
-/* I HID SOMETHING IN YOUR HEADER IM SORRY IF YOU EVER SEE THIS */
-.hidden {
-  display: none;
-}
-
-/*Section 1: General css, end*/
-/*resets margin and padding to 0 */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  margin-top: 0;
-}
-
-body {
-  height: 100%;
-  width: 100%;
-  max-height: 100vh;
-  max-width: 100vh;
-  min-width: 100vw;
-  overflow: hidden;
-}
-
-.mainsection {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  right: 0;
-  top: 10vh;
-  z-index: 5;
-}
-
-.mainsection .mainsectionImg {
-  min-width: 100%;
-  max-width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.loginBg {
-  height: 100%;
-  width: 100%;
-  max-width: 100vw;
-  max-height: 100vh;
-  background-image: url("../../img/login.jpg");
-  background-repeat: "no-repeat";
-  background-position: "center";
-  background-size: cover;
-}
-
-.baseBg {
-  height: 100vh;
-  width: 100%;
-  max-width: 100vw;
-  max-height: 100vh;
-  background-image: url("../../img/background.jpg");
-  background-repeat: "no-repeat";
-  background-position: "center";
-  background-size: auto;
-}
-
-/*Section 1: General css, end*/
 /*Section 2: Header and nav, start*/
-.custom-logo {
-  width: 110px;
-  height: 70px;
-  display: block;
-  margin: auto;
-  z-index: 100;
-}
-
 /*Section 2.1: Burgermenu, start*/
 #nav-icon {
   width: 40px;
@@ -142,7 +64,7 @@ body {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
-  z-index: 10;
+  z-index: 6;
 }
 
 #nav-icon span {
@@ -150,7 +72,7 @@ body {
   position: absolute;
   height: 5px;
   width: 100%;
-  background: #232323;
+  background: #000000;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -238,30 +160,41 @@ body {
 /*Section 2.2 Header, start*/
 .logoHeader,
 .desktopHeader {
-  position: relative;
+  position: absolute;
   width: 100%;
   margin: auto;
+  top: 20%;
   text-align: center;
   margin-left: -10px;
 }
 
+.logoHeader .custom-logo,
+.desktopHeader .custom-logo {
+  width: 110px;
+  height: 70px;
+  display: block;
+  margin: auto;
+}
+
 .header {
-  width: 100vw;
+  width: 90vw;
   height: 100px;
   position: fixed;
   top: 0;
-  padding: 15px 10px;
-  z-index: 6;
+  padding: 15px 20px 0px 20px;
+  z-index: 5;
 }
 
 .header .headerMenu {
   position: relative;
-  right: 20px;
+  width: 100%;
+  text-align: right;
+  z-index: 5;
 }
 
 .header .headerMenu a {
   text-decoration: none;
-  color: #232323;
+  color: #000000;
 }
 
 .header .headerMenu ul li {
@@ -293,7 +226,8 @@ body {
   /* The navigation menu links */
 }
 
-.sidenav a, .sidenav p {
+.sidenav a,
+.sidenav p {
   padding: 8px;
   padding-left: 0px;
   text-decoration: none;
@@ -308,7 +242,6 @@ body {
 
 .sidenav p {
   padding-bottom: 0;
-  margin-bottom: -10px;
 }
 
 .fab,
@@ -323,16 +256,70 @@ body {
   margin-bottom: 20px;
 }
 
-.websiteLinks a,
-.appLinks a {
-  margin-bottom: -20px;
-}
-
 .appLinks {
   margin-bottom: 20px;
 }
 
 /*Section 2.3: Burgermenu, end*/
+/* section 2.4: qr-code-reader, start */
+/* the upload button */
+.qrcode-text-btn {
+  display: inline-block;
+  height: 2.5em;
+  width: 2.5em;
+  background: url(../img/qrcode-solid.svg) 50% 50% no-repeat;
+  cursor: pointer;
+}
+
+.qrcode-text-btn > input[type="file"] {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* BADGE RECEIVED PAGE*/
+.badgeReceived {
+  position: relative;
+  display: block;
+  margin: auto;
+  padding-right: 5vw;
+  width: 75vw;
+  top: 150px;
+  text-align: center;
+}
+
+.badgeReceivedImage {
+  height: 50vw;
+  width: 50vw;
+  margin: 20px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+}
+
+.badgeReceivedTitle {
+  font-family: "surabanglus", serif;
+}
+
+.badgeReceivedBackBtn {
+  height: 10vh;
+  min-width: 60vw;
+  background: url(img/loginPaper.png) 10% 10% no-repeat;
+  background-size: 100% 300%;
+  border: none;
+  padding-top: 10px;
+}
+
+.badgeReceivedBackBtn a {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: "surabanglus", serif;
+  color: black;
+}
+
+/* section 2.4 qr-code-reader, end */
 /*Section 2: Header and nav, end*/
 /*Section 3: Footer, start*/
 footer {
@@ -380,7 +367,7 @@ footer ul {
 }
 
 .menu-footermenu-container a {
-  color: #232323;
+  color: #000000;
   font-size: 2.5em;
   text-decoration: none;
 }
@@ -399,13 +386,316 @@ footer ul {
 }
 
 /*Section 3: Footer, end*/
-/*Section 6: Optagelsesbrev, start*/
-/*Section 5: Login, start*/
-#loginPaper {
+/* I HID SOMETHING IN YOUR HEADER IM SORRY IF YOU EVER SEE THIS */
+.hidden {
+  display: none;
+}
+
+/*Section 1: General css, end*/
+/*resets margin and padding to 0 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  max-height: 100vh;
+  max-width: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.mainsection {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  top: 10vh;
+  z-index: 2;
+}
+
+.mainsectionImg {
+  min-width: 100%;
+  max-width: 102vw;
+  height: 105%;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  z-index: -2;
+}
+
+.loginBg {
+  height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  background-image: url("../../img/login.jpg");
+  background-repeat: "no-repeat";
+  background-position: "center";
+  background-size: cover;
+}
+
+.baseBg {
+  height: 100vh;
+  width: 120%;
+  max-width: 120%;
+  max-height: 100vh;
+  background-image: url("../../img/background.jpg");
+  background-repeat: "no-repeat";
+  background-position: "center";
+  background-size: 150% 100%;
+}
+
+/*Section 1: General css, end*/
+#leafletMap {
+  position: absolute;
+  top: 5vh;
+  height: 80vh;
+  width: 100vw;
+  background-color: #8d434c;
+  border: solid 10px #8d434c;
+  border-width: 10px 0 0 0;
+}
+
+.mapdiv text {
+  cursor: pointer;
+}
+
+#mobile-svg {
+  height: 100vh;
+  width: 100vw;
+}
+
+/*Section 9.1: Event peekaboo, start*/
+#peekaboo {
+  position: absolute;
+  top: 65%;
+  left: -10%;
   width: 120%;
   height: 100%;
+  background-image: url("../img/loginPaper.png");
+  background-repeat: no-repeat;
+  background-size: 100% 70%;
+  -webkit-transition: 1s;
+  transition: 1s;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#peekaboo .peekabooHeaderBox {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  top: 30px;
+}
+
+#peekaboo .peekabooHeaderBox h2 {
+  font-size: 20px;
+  text-align: center;
+  font-family: Surabanglus, serif;
+}
+
+#peekaboo .peekabooHeaderBox h2::first-letter {
+  font-size: 30px;
+}
+
+.mainEventTitles {
+  display: none;
+}
+
+#eventList {
+  padding: 20% 5%;
+  max-width: 60%;
+  display: block;
+  font-family: Surabanglus, serif;
+  font-size: 1em;
+  list-style-type: none;
+  display: none;
+}
+
+#eventList li {
+  background-image: url("../img/locationPoint.png");
+  background-repeat: no-repeat;
+  background-size: 30px 40px;
+  padding-left: 12px;
+  padding-bottom: 10px;
+  word-spacing: 10px;
+}
+
+/* The Close Button */
+#closePeek {
+  position: absolute;
+  top: 5%;
+  right: 100px;
+  color: #232323;
+  font-size: 60px;
+  font-weight: bold;
+  display: none;
+  z-index: 10000;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+/*Section 9.1: Peekaboo, end*/
+/*Section 9.2 Event Lightbox, start*/
+.modal {
+  background: url("../img/lightboxPaper.png") no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  margin: auto;
+  z-index: 15000;
+  /* Sit on top */
+  /*padding-top: 50%; /* Location of the box */
+  top: 15%;
+  width: 100vw;
+  /* Full width */
+  height: 70vh;
+  /* Full height */
+  /*background-color: rgb(0,0,0); /* Fallback color */
+  /*background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  font-family: Surabanglus, serif;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+}
+
+.eTitle {
+  font-size: 1.5em;
+  margin-top: 10%;
+  text-align: center;
+  width: 100%;
+  line-height: 150%;
+}
+
+.close {
+  position: absolute;
+  top: -15%;
+  right: 20px;
+  color: #232323;
+  font-size: 60px;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.eventDescription p {
+  font-family: "noto serif", serif;
+  font-size: 1em;
+  color: #232323;
+  width: 75%;
+  margin: auto;
+  line-height: 1.3;
+  max-height: 150px;
+  overflow: auto;
+}
+
+.badgeDescription p {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #232323;
+  line-height: 1;
+  width: 60%;
+  margin-left: 13.5%;
+}
+
+.badgeDescription .curvedArrow {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  padding-left: 50%;
+}
+
+.eventBadgeImgContainer {
+  border: solid #cdb172 3px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+  z-index: 100;
+  width: 110px;
+  height: 110px;
+  position: absolute;
+  bottom: 1%;
+  right: 0;
+}
+
+.badgeDescription .eventBadgeImg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.badgeRetning {
+  font-family: Surabanglus, serif;
+  font-size: 20pt;
+  font-weight: 700;
+  text-align: center;
+}
+
+.badgeKortLink {
+  font-size: 15pt;
+  font-family: "noto serif", serif;
+  width: 80%;
+  margin-left: 13.6%;
+}
+
+.badgeKortLink a {
+  color: black;
+}
+
+.badgeLightboxImg {
+  width: 50%;
+  max-width: 180px;
+  height: auto;
+  min-height: 180px;
+  top: 250px;
+  left: 25%;
+}
+
+#darkoverlay {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 90;
+  top: 0;
+  display: none;
+}
+
+/*Section 9.2: Event Lightbox, end*/
+/*Section 9: Kort, end*/
+/*Section 5: Login, start*/
+#loginPaper {
+  width: 90%;
+  height: 100%;
   right: 10%;
-  top: 25%;
+  top: 15%;
   position: relative;
   opacity: 1;
   -webkit-transition-duration: 0.5s;
@@ -415,20 +705,20 @@ footer ul {
 }
 
 .logInForm {
-  display: block;
   position: absolute;
-  width: 80%;
+  display: block;
+  width: 100%;
   height: 100%;
   top: 2%;
   left: 10%;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .logInForm input {
   width: 50vw;
   min-height: 35px;
   margin-bottom: 20px;
-  border: 1px solid #232323;
+  border: 1px solid #000000;
   border-style: none none solid none;
   background-color: rgba(255, 0, 0, 0);
   padding: 10px;
@@ -473,6 +763,7 @@ footer ul {
 
 .loginPaperBG {
   display: block;
+  width: 100%;
   max-width: 100%;
   max-height: 100%;
   position: absolute;
@@ -489,6 +780,7 @@ footer ul {
 }
 
 /*Section 5: Login, end*/
+/*Section 6: Optagelsesbrev, start*/
 /*Section 6.1: Optagelse, start*/
 #konvolutLoginSkærm {
   width: 100vw;
@@ -515,26 +807,34 @@ footer ul {
 
 .startDinRejseWrapper {
   position: absolute;
-  top: 68vh;
-  left: 35vw;
-  -webkit-transform: rotate(-25deg);
-  transform: rotate(-25deg);
+  top: 65vh;
+  left: 5vw;
+  width: 50%;
 }
 
 .startDinRejseWrapper img {
-  max-width: 50px;
+  max-width: 45px;
   height: auto;
-  display: inline-block;
+  float: right;
+  margin-top: -25px;
 }
 
-.startDinRejseWrapper p {
+.startDinRejseWrapper :first-child {
+  display: block;
+  float: none;
+  margin-bottom: 5px;
+}
+
+.startDinRejseWrapper span {
   color: black;
   float: left;
+  font-size: 20pt;
+  font-weight: bold;
 }
 
 /*Section 6.1: Optagelse, end*/
 /*Section 6.2: Konvolut, start*/
-.envelope {
+#envelopeOprettelse {
   position: fixed;
   margin: 50px auto 0;
   width: 98px;
@@ -549,7 +849,7 @@ footer ul {
           transition-duration: 0.5s;
 }
 
-.envelope :before, .envelope :after {
+#envelopeOprettelse::before {
   content: "";
   position: absolute;
   width: 0;
@@ -558,15 +858,20 @@ footer ul {
   border-width: 33px 49px;
   -webkit-transition-duration: inherit;
           transition-duration: inherit;
-}
-
-.envelope :before {
   border-bottom-color: #c94548;
   top: -100%;
   left: 0px;
 }
 
-.envelope :after {
+#envelopeOprettelse::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-width: 33px 49px;
+  -webkit-transition-duration: inherit;
+          transition-duration: inherit;
   border-right-color: #ed4c50;
   border-left-color: #fa565a;
   border-bottom-color: #fa565a;
@@ -603,13 +908,14 @@ footer ul {
           animation-fill-mode: forwards;
 }
 
-.openEnvelope :before, .openEnvelope :after {
+.openEnvelope::before,
+.openEnvelope::after {
   -webkit-animation: envelopeBeforeAndAfters;
           animation: envelopeBeforeAndAfters;
   -webkit-animation-duration: 0.5s;
           animation-duration: 0.5s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .openEnvelopePaper {
@@ -732,14 +1038,14 @@ first size up and go to center, then go down past the screen */
 }
 
 #paperContent h2 {
-  color: #232323;
+  color: #000000;
   font-family: Surabanglus, serif;
   font-size: 1em;
   text-align: center;
 }
 
 #paperContent p {
-  color: #232323;
+  color: #000000;
   font-family: "verdana", serif;
   font-size: 1em;
 }
@@ -810,7 +1116,7 @@ first size up and go to center, then go down past the screen */
 
 .imageScroller {
   position: absolute;
-  top: 15vh;
+  top: 5vh;
   left: 110vw;
   height: 35vh;
   width: 300vw;
@@ -857,6 +1163,160 @@ first size up and go to center, then go down past the screen */
 
 /*Section 6.3: Optagelsespapir, end*/
 /*Section 6: Optagelsebrev, end*/
+/*Section 11: Oprettelsesformular, start*/
+#createUserFormWrapper {
+  width: 300vw;
+  min-width: 300vw;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+  font-family: Surabanglus, serif;
+  font-size: 15pt;
+  background-image: url("../img/registerPaper.png");
+  background-position: center;
+  background-size: 120% 100%;
+  background-repeat: repeat-x;
+  padding-top: 10%;
+  height: 50vh;
+}
+
+#createUserForm input,
+select {
+  font-family: Surabanglus, serif;
+  font-size: 12pt;
+  border-radius: 8px;
+  border: solid 1px #232323;
+  padding-left: 5px;
+}
+
+.small-input {
+  width: 80px;
+}
+
+.large-input {
+  width: 160px;
+}
+
+select {
+  padding-bottom: 10px;
+  font-size: 12pt;
+}
+
+.small-select {
+  width: 87px;
+}
+
+.large-select {
+  width: 167px;
+}
+
+#createUserForm input:last-child {
+  border: none;
+}
+
+.formSection {
+  width: 85vw;
+  position: absolute;
+  height: 25vh;
+  display: block;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.formSection h3 {
+  margin-bottom: 5%;
+  color: #232323;
+}
+
+#firstFormSection {
+  left: 6vw;
+}
+
+#secondFormSection {
+  left: 106vw;
+}
+
+#thirdFormSection {
+  left: 206vw;
+}
+
+#btnWrapper {
+  z-index: 100;
+  position: absolute;
+  bottom: 15%;
+  width: 100vw;
+  text-align: center;
+}
+
+.btnslide {
+  display: inline;
+}
+
+.btnslide:first-child {
+  margin-right: 25%;
+}
+
+#slide-prev {
+  background-image: url("../img/arrows/arrowgoldLeft.png");
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 30px;
+  width: 50px;
+  opacity: 0.4;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#slide-next {
+  background-image: url("../img/arrows/arrowgoldRight.png");
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 30px;
+  width: 50px;
+  opacity: 1;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#submit,
+#submitChanges {
+  background-image: url("../img/registerPaper.png");
+  background-size: 100% 100%;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  height: 100px;
+  width: 150px;
+  opacity: 1;
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: -35%;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: block;
+  padding: 6px 12px;
+  margin-top: 20%;
+}
+
+.fa-camera {
+  font-size: 50px;
+  color: #d1b751;
+  width: 87px;
+  height: 60px;
+  padding-top: 10px;
+  border-radius: 8px;
+  background-color: #8e4b55;
+}
+
+/*Section 11: Oprettelsesformular, end*/
 /*Section 4: Magiker visual, start*/
 #profileImgContainer {
   width: 100%;
@@ -906,7 +1366,7 @@ first size up and go to center, then go down past the screen */
 .magicalName {
   font-family: Surabanglus, serif;
   font-size: 20px;
-  color: #232323;
+  color: #000000;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -936,14 +1396,14 @@ first size up and go to center, then go down past the screen */
 #journeyName {
   font-family: Surabanglus, serif;
   font-size: 20px;
-  color: #232323;
+  color: #000000;
   text-align: center;
 }
 
 #otherInfo {
   font-family: Surabanglus, serif;
   font-size: 18px;
-  color: #232323;
+  color: #000000;
   margin-left: 15%;
   margin-top: 1em;
 }
@@ -954,7 +1414,7 @@ first size up and go to center, then go down past the screen */
 }
 
 #listOfInfo li {
-  color: #232323;
+  color: #000000;
   font-family: Surabanglus, serif;
   font-size: 18px;
   margin-left: 250px;
@@ -977,13 +1437,133 @@ first size up and go to center, then go down past the screen */
 
 #settingsIcon i {
   font-size: 1.5em;
-  color: #232323;
+  color: #000000;
 }
 
 /*Section 4: Magiker visual, end*/
+/*Section 8: Retning, start*/
+.journeySection {
+  width: 100%;
+  height: 80%;
+  background: url("../img/journeyIllustration.png") no-repeat center;
+  background-size: 100% 70%;
+  position: absolute;
+  top: 5%;
+}
+
+.jBadgeContainer {
+  position: relative;
+  width: 95%;
+  height: 360px;
+  top: 15%;
+  display: block;
+  margin: auto;
+}
+
+.jBadge {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border: solid #cdb172 5 px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+  z-index: 20;
+}
+
+.jBadgeImg {
+  border: none;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#magikerBadge {
+  top: 0;
+  left: 0;
+}
+
+#alkymistBadge {
+  bottom: 0;
+  right: 0;
+}
+
+#quidditchBadge {
+  top: 0;
+  right: 0;
+}
+
+#drageBadge {
+  bottom: 0;
+  left: 0;
+}
+
+#erfarenBadge {
+  top: 45%;
+  left: 34%;
+}
+
+#erfarenBadgeImg {
+  opacity: 1;
+}
+
+#jLock {
+  width: 40px;
+  height: 40px;
+  margin-right: auto;
+  margin-left: 30%;
+  margin-top: -50%;
+  display: none;
+  position: relative;
+  opacity: 1;
+  z-index: 100;
+}
+
+.jBadgeImg {
+  position: absolute;
+}
+
+.jRibbonContainer {
+  position: relative;
+  text-align: center;
+  width: 95%;
+  padding-right: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.jRibbon {
+  width: 100%;
+  height: 30px;
+  margin-right: auto;
+  padding-top: 90%;
+  display: block;
+  position: relative;
+  margin-left: 2%;
+}
+
+.journeyName {
+  font-family: Surabanglus, serif;
+  font-size: 10pt;
+  color: #232323;
+  position: absolute;
+  margin-top: 40%;
+  z-index: 2;
+  padding-left: 5%;
+}
+
+/*Section 8: Retning, end*/
 /*Section 10: Badges, start*/
 .badgeIndex {
-  margin-top: 25%;
+  margin-top: 30%;
 }
 
 .badgeContainer {
@@ -1024,38 +1604,33 @@ first size up and go to center, then go down past the screen */
 }
 
 #magiker {
-  background-image: url("../../../img/badges/magiker/magikerIllustration.png");
-  background-repeat: "no-repeat";
-  background-position: "center";
+  background: url("../img/badges/magiker/magikerIllustration.png") no-repeat;
   background-size: 90%;
+  background-position: center;
 }
 
 #alkymist {
-  background-image: url("../../../img/badges/magiker/alkymistIllustration.png");
-  background-repeat: "no-repeat";
-  background-position: "center";
+  background: url("../img/badges/alkymist/alkymistIllustration.png") no-repeat;
   background-size: 90%;
+  background-position: center;
 }
 
 #quidditch {
-  background-image: url("../../../img/badges/quidditch/quidditchIllustration.png");
-  background-repeat: "no-repeat";
-  background-position: "center";
+  background: url("../img/badges/quidditch/quidditchIllustration.png") no-repeat;
   background-size: 90%;
+  background-position: center;
 }
 
 #dragetaemmer {
-  background-image: url("../../../img/badges/drage/drageIllustration.png");
-  background-repeat: "no-repeat";
-  background-position: "center";
+  background: url("../img/badges/drage/drageIllustration.png") no-repeat;
   background-size: 90%;
+  background-position: center;
 }
 
 #erfaren {
-  background-image: url("../../../img/badges/erfaren/erfarenIllustration.png");
-  background-repeat: "no-repeat";
-  background-position: "center";
+  background: url("../img/badges/erfaren/erfarenIllustration.png") no-repeat;
   background-size: 90%;
+  background-position: center;
 }
 
 .journeyBadge {
@@ -1072,7 +1647,7 @@ first size up and go to center, then go down past the screen */
   font-family: Surabanglus, serif;
   font-size: 12pt;
   color: #232323;
-  margin-bottom: 5%;
+  margin-bottom: 8%;
   text-align: center;
 }
 
@@ -1085,13 +1660,14 @@ first size up and go to center, then go down past the screen */
 }
 
 .slick-arrow {
-  margin-top: 55%;
+  position: absolute;
+  top: 55%;
   z-index: 89;
 }
 
 .slick-next:before {
   content: "";
-  background-image: url("../../../img/arrows/arrowRight.png");
+  background-image: url("../img/arrows/arrowRight.png");
   background-size: 100% 100%;
   display: inline-block;
   height: 30px;
@@ -1101,7 +1677,7 @@ first size up and go to center, then go down past the screen */
 
 .slick-prev:before {
   content: "";
-  background-image: url("img/arrows/arrowLeft.png");
+  background-image: url("../img/arrows/arrowLeft.png");
   background-size: 100% 100%;
   display: inline-block;
   height: 30px;
@@ -1130,6 +1706,142 @@ first size up and go to center, then go down past the screen */
 }
 
 /*Section 10: Badges, end*/
+/*Section 9.2 Event Lightbox, start*/
+.modal {
+  background: url("../img/lightboxPaper.png") no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  margin: auto;
+  z-index: 15000;
+  /* Sit on top */
+  /*padding-top: 50%; /* Location of the box */
+  top: 15%;
+  width: 100vw;
+  /* Full width */
+  height: 70vh;
+  /* Full height */
+  /*background-color: rgb(0,0,0); /* Fallback color */
+  /*background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  font-family: Surabanglus, serif;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.eTitle {
+  font-size: 1.5em;
+  margin-top: 10%;
+  text-align: center;
+  width: 100%;
+  line-height: 150%;
+}
+
+.close {
+  position: absolute;
+  top: -15%;
+  right: 20px;
+  color: #232323;
+  font-size: 60px;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.eventDescription p {
+  font-family: "Noto Serif", serif;
+  font-size: 1em;
+  color: #232323;
+  width: 75%;
+  margin: auto;
+  line-height: 1.3;
+  max-height: 150px;
+  overflow: auto;
+}
+
+.badgeDescription p {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #232323;
+  line-height: 1;
+  width: 60%;
+  margin-left: 13.5%;
+}
+
+.badgeDescription .curvedArrow {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  padding-left: 50%;
+}
+
+.eventBadgeImgContainer {
+  border: solid #cdb172 3px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+  z-index: 100;
+  width: 110px;
+  height: 110px;
+  position: absolute;
+  bottom: 1%;
+  right: 0;
+}
+
+.badgeDescription .eventBadgeImg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.badgeRetning {
+  font-family: "surabanglus", serif;
+  font-size: 20pt;
+  font-weight: 700;
+  text-align: center;
+}
+
+.badgeKortLink {
+  font-size: 15pt;
+  font-family: "noto serif", serif;
+  width: 80%;
+  margin-left: 13.6%;
+}
+
+.badgeKortLink a {
+  color: black;
+}
+
+.badgeLightboxImg {
+  width: 50%;
+  max-width: 180px;
+  height: auto;
+  min-height: 180px;
+  top: 250px;
+  left: 25%;
+}
+
+#darkoverlay {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 90;
+  top: 0;
+  display: none;
+}
+
+/*Section 9.2: Event Lightbox, end*/
 /*KEEP AT BOTTOM*/
 /* Section 13: Dektop Media Queries, start
 KEEP AT BOTTOM */

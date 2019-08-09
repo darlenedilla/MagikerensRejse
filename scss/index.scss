@@ -1,12 +1,21 @@
-@import 'partials/reset';
-@import 'partials/utils';
-@import 'partials/general';
-@import 'partials/header';
-@import 'partials/footer';
+// Reset the base css:
+@import "partials/reset";
 
-@import 'partials/features/index';
+// Variables and mixins:
+@import "partials/utils";
+
+// Styling:
+@import "partials/header";
+@import "partials/footer";
+@import "partials/general";
+
+// stylesheets from features subfolder
+@import "partials/features/map";
+@import "partials/features/kort";
+@import "partials/features/login";
+@import "partials/features/optagelse";
+@import "partials/features/profil";
+@import "partials/features/badges";
 
 /*KEEP AT BOTTOM*/
-@import 'partials/desktop';
-
-
+@import "partials/desktop";

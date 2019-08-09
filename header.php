@@ -1,4 +1,5 @@
 <?php
+
 ob_start();
 if (isset($_GET['logout'])) {
     header('Location: https://mr.1221s.com/');
@@ -15,25 +16,20 @@ global $wp;
         <meta name="description" content="Begynd din magiske rejse med Magikerens Rejse der tager dig gennem Magiske Dage Odense festivallen.">
         <meta name="keywords" content="Magi, Harry Potter, Magiske Dage Odense, Odense, Festival, Magisk, Rejse">
         <meta name="author" content="Magiske Dage Odense">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="title" content="Magikerens Rejse">
         <title><?php get_the_title(); ?></title>
+
     <!-- favicon -->
         <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png" />
-    <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/style.css?ver=<?php echo rand(111,999)?>">
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/scss/index.css?ver=<?php echo rand(111,999)?>">
-
-
+   
     <!-- eksternt materiale-->
         <!-- FontAwesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous">
 
-        <!-- QR CODE reader -->
+        <!-- QR CODE reader FIND NEW ONE-->
         <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js" defer>
         </script>
 
@@ -42,11 +38,33 @@ global $wp;
         <!-- fonts -->
 
         <!-- Scripts -->
-        <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/main.js?ver=<?php echo rand(111,999)?>" defer></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.5.0/dist/svg-pan-zoom.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <?php wp_head();?>
+            <!-- The map scripts (?) -->
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.5.0/dist/svg-pan-zoom.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+
+            <!-- The custom logo, I think -->
+            <?php wp_head();?>
+
+        <!-- slickbox css (?) -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+        
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/> 
+
+         <!-- Make sure you put this AFTER Leaflet's CSS -->
+            <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin="" defer></script>
+    <!-- Stylesheets -->   
+        <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/style.css?ver=<?php echo rand(111,999)?>">
+        <!-- <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/scss/index.css?ver=<?php echo rand(111,999)?>"> -->
+
+         <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/main.js?ver=<?php echo rand(111,999)?>" defer></script>
+    
     </head>
 
 <body>
@@ -77,17 +95,6 @@ global $wp;
 
         <div class="headerMenu">
 
-        <!-- how its SUPPOSED to look: -->
-          <!-- <label class=qrcode-text-btn>
-            <input type=file
-                    accept="image/*"
-                    capture=environment
-                    onclick="return showQRIntro();"
-                    onchange="openQRCamera(this);"
-                    tabindex=-1>
-            </label> -->
-
-            <!-- For showing -->
             <label class=qrcode-text-btn>
             <input type=file
                     accept="image/*"

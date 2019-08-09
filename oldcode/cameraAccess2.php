@@ -1,25 +1,17 @@
-<?php get_header();
+<?php 
+
+get_header();
+
+
 /*
 Template Name: Camera Access
 
+THIS PAGE IS NO LONGER IN USE
+IT WAS USED FOR TESTING THE ACCESS TO THE CAMERA
 */?>
 
 <?php
-//Rigtig Database forbindelse findes i config.php
-include("config.php");
-// Fetch user data from database
-// $host = "localhost"; /* Host name */
-// $user = "Darlene"; /* User */
-// $password = "Dgs55qhk:).."; /* Password */
-// $dbname = "1221s_com_magikerensrejse"; /* Database name */
 
-// Create connection
-$con = mysqli_connect($host, $user, $password,$dbname);
-
-// Check connection
-if (!$con) {
-  die("Connection failed: " . mysqli_connect_error());
-}
 
 //Tjek om der er trykket på submit-knappen i formularen
 if(isset($_POST['image_upload'])){

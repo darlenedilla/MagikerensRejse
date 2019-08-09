@@ -1,18 +1,18 @@
 <?php
   //Nanna Connect to server
   //COMMENT THIS OUT WHEN UPLOADING TO LIVE
-  // $host ="localhost";
-  // $user ="root";
-  // $password ="";
-  // $dbname = "1221s_com_magikerensrejse";
+  $host ="localhost";
+  $user ="root";
+  $password ="";
+  $dbname = "1221s_com_magikerensrejse";
 
 
 //Darlene connect to server
 // COMMENT THIS OUT WHEN UPLOADING TO LIVE
-$server = "localhost";
-$user = "Darlene"; 
-$pw = "Dgs55qhk:).."; 
-$db = "1221s_com_magikerensrejse"; 
+// $server = "localhost";
+// $user = "Darlene"; 
+// $pw = "Dgs55qhk:).."; 
+// $db = "1221s_com_magikerensrejse"; 
 
 // Create connection
 $con = mysqli_connect($server, $user, $pw,$db);
