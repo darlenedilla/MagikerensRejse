@@ -303,34 +303,84 @@ L.tileLayer(
   }
 ).addTo(mymap);
 
-// EVENTLIST DRAGGABLE LIST ON MAP PAGE
-dragElement(document.getElementById("peekabooHeaderBox"));
+//  markers :
 
-function dragElement(elmnt) {
-  var pos1 = 0,
-    pos2 = 0;
+// event markers:
+var eventlat = document.getElementsByClassName("eventlat");
+var eventlng = document.getElementsByClassName("eventlng");
+var eventTitles = document.getElementsByClassName("mainEventTitles");
+var theTitleOfTheEvent = document.getElementsByClassName("standaloneTitle");
 
-  elmnt.onmousedown = dragMouseDown;
-
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos2 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
-  }
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos1 = pos2 - e.clientY;
-    pos2 = e.clientY;
-
-    elmnt.style.top = elmnt.offsetTop - pos1 + "px";
-  }
-
-  function closeDragElement() {
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+for (let i = 0; i < eventTitles.length; i++) {
+  var marker = L.marker([eventlat[i].innerHTML, eventlng[i].innerHTML]).addTo(
+    mymap
+  );
+  marker.bindPopup(eventTitles[i].innerHTML);
+  console.log(i);
 }
+
+// PEEKABOO ON MAP PAGE
+var peekaboo = document.getElementById("peekaboo");
+var peekabooArrow = document.getElementById("peekabooArrow");
+peekaboo.onclick = function() {
+  switch (this.style.top) {
+    case "65%":
+      peekaboo.style.top = "10%";
+      peekabooArrow.classList.remove = "fa-arrow-up";
+      peekabooArrow.classList.add = "fa-arrow-down";
+
+      break;
+
+    case "10%":
+      peekaboo.style.top = "65%";
+      peekabooArrow.classList.remove = "fa-arrow-down";
+      peekabooArrow.classList.add = "fa-arrow-up";
+      break;
+
+    default:
+      peekaboo.style.top = "10%";
+      peekabooArrow.classList.remove = "fa-arrow-up";
+      peekabooArrow.classList.add = "fa-arrow-down";
+  }
+};
+
+//  EVENTLIST IN THE PEEKABOO ON THE MAP PAGE
+
+// var eventTitles = document.getElementsByClassName("mainEventTitles");
+// var events = document.getElementsByClassName("eventTitle");
+// var eventList = document.getElementById("eventList");
+// var event = "";
+// var modals = document.getElementsByClassName('modal');
+
+// //For hver eventTitle skal der laves et list item
+// for(let i = 0; i < eventTitles.length; i++){
+//     event += "<li class='eventTitle'>";
+//     event += eventTitles[i].innerHTML;
+//     event += "</li>";
+//     eventTitles[i].onclick = function(){
+//     console.log("This works");
+//     }
+// };
+//     eventList.innerHTML += event;
+
+// //For hvert event tilføjes click funktion som åbner modal box
+// for (let i = 0; i < events.length;i++) {
+//   events[i].onclick = function(){
+//     modals[i].style.display = "block";
+//     // peekaboo.style.width = "10%";
+//     // peekabooLabel.style.width = "100%";
+//     peekaboo.style.transition = "1s";
+//     peekaboo.style.left="-65%";
+//   }
+// };
+
+// var span = document.getElementsByClassName("close");
+// //For hver kryds-ikon tilføjes click funktion der lukker modal
+// for(let i = 0; i <span.length; i++){
+//     // When the user clicks on <span> (x), close the modal
+//     span[i].onclick = function() {
+//         modals[i].style.display = "none";
+//     };
+// };
+
+//

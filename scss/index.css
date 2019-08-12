@@ -189,7 +189,6 @@ table {
   position: relative;
   width: 100%;
   text-align: right;
-  z-index: 5;
 }
 
 .header .headerMenu a {
@@ -214,7 +213,6 @@ table {
   max-width: 100%;
   width: 0;
   position: fixed;
-  z-index: 6;
   top: 0;
   left: 0;
   background-color: #232323;
@@ -223,6 +221,7 @@ table {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   text-align: center;
+  z-index: 6;
   /* The navigation menu links */
 }
 
@@ -328,7 +327,7 @@ footer {
   max-width: 100vw;
   height: 20vh;
   bottom: -50px;
-  z-index: 5;
+  z-index: 3;
   overflow: hidden;
 }
 
@@ -336,7 +335,7 @@ footer {
   position: absolute;
   bottom: 55px;
   width: 100vw;
-  z-index: 2;
+  z-index: 3;
 }
 
 footer ul {
@@ -463,16 +462,6 @@ section {
 }
 
 /*Section 1: General css, end*/
-#leafletMap {
-  position: absolute;
-  top: 5vh;
-  height: 80vh;
-  width: 100vw;
-  background-color: #8d434c;
-  border: solid 10px #8d434c;
-  border-width: 10px 0 0 0;
-}
-
 .mapdiv text {
   cursor: pointer;
 }
@@ -483,32 +472,39 @@ section {
 }
 
 /*Section 9.1: Event peekaboo, start*/
+#peekabooWrapper {
+  height: 100vh;
+  width: 100vw;
+  z-index: 3;
+}
+
 #peekaboo {
   position: absolute;
   top: 65%;
-  left: -10%;
+  left: -15%;
   width: 120%;
-  height: 100%;
+  height: 120%;
+  padding: 10px 40px;
   background-image: url("../img/loginPaper.png");
   background-repeat: no-repeat;
-  background-size: 100% 70%;
+  background-size: 120% 70%;
   -webkit-transition: 1s;
   transition: 1s;
-  z-index: 1000;
+  z-index: 3;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 #peekaboo .peekabooHeaderBox {
   position: absolute;
-  width: 100%;
-  height: 100px;
-  top: 30px;
+  width: 30%;
+  max-height: 30px;
+  top: 40px;
+  margin-left: 15%;
 }
 
 #peekaboo .peekabooHeaderBox h2 {
   font-size: 20px;
-  text-align: center;
   font-family: Surabanglus, serif;
 }
 
@@ -516,18 +512,31 @@ section {
   font-size: 30px;
 }
 
+#peekaboo .peekabooHeaderBox i {
+  float: left;
+  font-size: 20px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
 .mainEventTitles {
   display: none;
 }
 
+.eventlat,
+.eventlng,
+.standaloneTitle {
+  display: none;
+}
+
 #eventList {
+  position: absolute;
   padding: 20% 5%;
   max-width: 60%;
   display: block;
   font-family: Surabanglus, serif;
   font-size: 1em;
   list-style-type: none;
-  display: none;
 }
 
 #eventList li {
@@ -539,21 +548,18 @@ section {
   word-spacing: 10px;
 }
 
-/* The Close Button */
-#closePeek {
-  position: absolute;
-  top: 5%;
-  right: 100px;
-  color: #232323;
-  font-size: 60px;
-  font-weight: bold;
-  display: none;
-  z-index: 10000;
-  -webkit-transition: 2s;
-  transition: 2s;
+/*Section 9.1: Peekaboo, end*/
+#leafletMap {
+  position: absolute !important;
+  top: 5vh;
+  height: 80vh;
+  width: 100vw;
+  background-color: #8d434c;
+  border: solid 10px #8d434c;
+  border-width: 10px 0 0 0;
+  z-index: 1;
 }
 
-/*Section 9.1: Peekaboo, end*/
 /*Section 9.2 Event Lightbox, start*/
 .modal {
   background: url("../img/lightboxPaper.png") no-repeat;
@@ -564,7 +570,7 @@ section {
   position: fixed;
   /* Stay in place */
   margin: auto;
-  z-index: 15000;
+  z-index: 5;
   /* Sit on top */
   /*padding-top: 50%; /* Location of the box */
   top: 15%;
@@ -633,7 +639,7 @@ section {
   border-radius: 100%;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
-  z-index: 100;
+  z-index: 6;
   width: 110px;
   height: 110px;
   position: absolute;
@@ -683,7 +689,7 @@ section {
   min-width: 100vw;
   background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
-  z-index: 90;
+  z-index: 3;
   top: 0;
   display: none;
 }
