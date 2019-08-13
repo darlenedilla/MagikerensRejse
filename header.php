@@ -28,11 +28,7 @@ global $wp;
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous">
-
-        <!-- QR CODE reader FIND NEW ONE-->
-        <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js" defer>
-        </script>
-
+        
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- fonts -->
@@ -65,6 +61,9 @@ global $wp;
 
          <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/main.js?ver=<?php echo rand(111,999)?>" defer></script>
     
+          <!-- QR CODE reader FIND NEW ONE-->
+        <script type="text/javascript" src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js" ></script>
+       
     </head>
 
 <body>
@@ -115,3 +114,8 @@ global $wp;
         </div>
 
     </header>
+
+    <script>
+    
+    
+    </script>

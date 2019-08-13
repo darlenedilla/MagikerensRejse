@@ -216,43 +216,47 @@ if (prevPage != null) {
   }); //end of arrow backward eventlistener
 }
 
-// QR code reader
+// QR reader:
+
 // how its SUPPOSED TO WORK:
-// function openQRCamera(node) {
-//   var reader = new FileReader();
-//   reader.onload = function() {
-//     node.value = "";
-//     qrcode.callback = function(res) {
-//       if (res instanceof Error) {
-//         alert(
-//           "No QR code found. Please make sure the QR code is within the camera's frame and try again."
-//         );
-//       } else {
-//         node.parentNode.previousElementSibling.value = res;
-//       }
-//     };
-//     qrcode.decode(reader.result);
-//   };
-//   reader.readAsDataURL(node.files[0]);
-// }
-
-// For showcasing:
-
 function openQRCamera(node) {
   var reader = new FileReader();
   reader.onload = function() {
     node.value = "";
     qrcode.callback = function(res) {
       if (res instanceof Error) {
-        location.href = "http://www.eksamen3sem3.1221s.com/badge-received/";
+        alert(
+          "No QR code found. Please make sure the QR code is within the camera's frame and try again."
+        );
+        console.log("No code found");
       } else {
-        location.href = "http://www.eksamen3sem3.1221s.com/badge-received/";
+        console.log("qr-code found!");
+        console.log(res);
+        location.href = "localhost/magikerensrejse/badge-received/?bid=" + res;
       }
     };
     qrcode.decode(reader.result);
   };
   reader.readAsDataURL(node.files[0]);
 }
+
+// For showcasing:
+
+// function openQRCamera(node) {
+//   var reader = new FileReader();
+//   reader.onload = function() {
+//     node.value = "";
+//     qrcode.callback = function(res) {
+//       if (res instanceof Error) {
+//         location.href = "localhost/magikerensrejse/badge-received/";
+//       } else {
+//         location.href = "localhost/magikerensrejse/badge-received/";
+//       }
+//     };
+//     qrcode.decode(reader.result);
+//   };
+//   reader.readAsDataURL(node.files[0]);
+// }
 
 function showQRIntro() {
   return confirm("Use your camera to take a picture of a QR code.");

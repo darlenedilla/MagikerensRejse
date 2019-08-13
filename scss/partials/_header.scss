@@ -104,6 +104,7 @@
   top: 20%;
   text-align: center;
   margin-left: -10px;
+  z-index: $topLayer;
 
   .custom-logo {
     width: 110px;
@@ -123,12 +124,15 @@
 
   .headerMenu {
     position: relative;
-    width: $percent100;
+    width: 20%;
     text-align: right;
+    z-index: $overTopLayer;
+    float: right;
 
     a {
       text-decoration: none;
       color: $black;
+      max-width: 200px;
     }
 
     ul li {
@@ -195,68 +199,5 @@
   margin-bottom: 20px;
 }
 /*Section 2.3: Burgermenu, end*/
-
-/* section 2.4: qr-code-reader, start */
-
-/* the upload button */
-.qrcode-text-btn {
-  display: inline-block;
-  height: 2.5em;
-  width: 2.5em;
-  background: url(../img/qrcode-solid.svg) 50% 50% no-repeat;
-  cursor: pointer;
-}
-
-.qrcode-text-btn > input[type="file"] {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-}
-
-/* BADGE RECEIVED PAGE*/
-
-.badgeReceived {
-  position: relative;
-  display: block;
-  margin: auto;
-  padding-right: 5vw;
-
-  width: 75vw;
-  top: 150px;
-
-  text-align: center;
-}
-
-.badgeReceivedImage {
-  height: 50vw;
-  width: 50vw;
-  margin: 20px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
-}
-
-.badgeReceivedTitle {
-  font-family: "surabanglus", serif;
-}
-
-.badgeReceivedBackBtn {
-  height: 10vh;
-  min-width: 60vw;
-  background: url(img/loginPaper.png) 10% 10% no-repeat;
-  background-size: 100% 300%;
-  border: none;
-  padding-top: 10px;
-}
-
-.badgeReceivedBackBtn a {
-  text-decoration: none;
-  font-size: 1.5em;
-  font-family: "surabanglus", serif;
-  color: black;
-}
-
-/* section 2.4 qr-code-reader, end */
 
 /*Section 2: Header and nav, end*/

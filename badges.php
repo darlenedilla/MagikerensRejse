@@ -16,7 +16,9 @@ THIS IS THE MAIN PAGE/HOME PAGE MAIN FILE
 <?php
 
 //$userCookie = $_COOKIE['user']; //Henter brugernavnet på den bruger, der er logget ind
-$userCookie = $_COOKIE['user'];
+// $userCookie = $_COOKIE['user']; IMPORTANTEDIT
+
+$userCookie = 28141151;
 
 //Query til at hente magiske navn via telefonnummer
 $fetchUser = "SELECT user.magicalName FROM user WHERE phoneNo = $userCookie";

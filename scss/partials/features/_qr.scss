@@ -1,0 +1,27 @@
+/* section 2.4: qr-code-reader, start */
+
+/* the upload button */
+.qrcode-text-btn {
+  display: inline-block;
+  height: 2.5em;
+  width: 2.5em;
+  background: url(../img/qrcode-solid.svg) 50% 50% no-repeat;
+  cursor: pointer;
+  z-index: $overTopLayer;
+}
+
+.qrcode-text-btn > input[type="file"] {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* BADGE RECEIVED PAGE*/
+
+.badgeReceived {
+  margin-top: 20vh;
+}
+
+/* section 2.4 qr-code-reader, end */
